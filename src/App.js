@@ -11,6 +11,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import Pagination from './components/Pagination';
+import Recipe from './components/Recipe';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -94,29 +95,12 @@ function App() {
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/recipes/:recipeId" element={<Recipe filteredRecipes={filteredRecipes} />} />
         </Routes>
       </div>
     </Router>
 
-    // <Router>
-    //   <div>
-    //     <Routes>
-    //       <Route exact path="/" element={<Home />} />
-    //       <Route
-    //         path="/recipes"
-    //         element={
-    //           <Recipes
-    //             currentRecipes={currentRecipes}
-    //             recipes={recipes}
-    //             paginate={paginate}
-    //             postsPerPage={postsPerPage}
-    //             totalPosts={recipes.length}
-    //           />
-    //         }
-    //       />
-    //     </Routes>
-    //   </div>
-    // </Router>
+    
   );
 }
 

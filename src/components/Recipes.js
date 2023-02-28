@@ -1,5 +1,6 @@
 import React from 'react';
 import Pagination from './Pagination';
+import { Link } from 'react-router-dom';
 
 const Recipes = ({
   currentRecipes,
@@ -17,17 +18,22 @@ const Recipes = ({
     <>
       <ul className="list-group mb4">
         {currentRecipes.map((recipe) => (
-          <li key={recipe.id} className="list-group-item">
-            {recipe.title}
-          </li>
+          <Link to={`/recipes/${recipe.id}`}>
+            <li key={recipe.id} className="list-group-item">
+              {recipe.title}
+            </li>
+          </Link>
         ))}
       </ul>
+
+      {/* <Link to={`/posts/${post.id}`}>
+          <h5 className="card-title">{post.title}</h5>
+          </Link> */}
 
       <Pagination
         postsPerPage={postsPerPage}
         paginate={paginate}
         totalPosts={totalPosts}
-        
       />
       {/* <ul className="list-group mb4">
         <li className="list-group-item">
