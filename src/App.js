@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import axios from 'axios';
 import Recipes from './components/Recipes';
-import Pagination from './components/Pagination';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Home from './components/Home';
+import Pagination from './components/Pagination';
 
 function App() {
   const [userInput, setUserInput] = useState('');
@@ -13,14 +18,19 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(5);
+  const [filteredRecipes, setFilteredRecipes] = useState([])
+  
+
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
       const res = await axios.get(
-        'https://api.spoonacular.com/recipes/complexSearch?apiKey=58f6d2f2f5b244549ef545ecab3cf7c9&query=chinese&number=50'
+        'https://jsonplaceholder.typicode.com/posts'
+        // 'https://api.spoonacular.com/recipes/complexSearch?apiKey=2bb87e4a65e64507a35d5c178493e70a&query=italian&number=50'
       );
-      setRecipes(res.data.results);
+      setRecipes(res.data);
       console.log('this is res.data', res.data);
       setLoading(false);
     };
@@ -51,34 +61,62 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/recipes" element={<Recipes recipes={currentRecipes} paginate={paginate} postsPerPage={postsPerPage} totalPosts={recipes.length}/>} />
-          postsPerPage, totalPosts, paginate
-          {/* <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={posts.length}
-            paginate={paginate}
-          />{' '} */}
-          
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                filteredRecipes={filteredRecipes}
+                setFilteredRecipes={setFilteredRecipes}
+                recipes={recipes}
+                currentRecipes={currentRecipes}
+                loading={loading}
+                postsPerPage={postsPerPage}
+                totalPosts={recipes.length}
+                paginate={paginate}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/recipes"
+            element={
+              <Recipes
+                filteredRecipes={filteredRecipes}
+                recipes={recipes}
+                currentRecipes={currentRecipes}
+                loading={loading}
+                postsPerPage={postsPerPage}
+                totalPosts={recipes.length}
+                paginate={paginate}
+              />
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>
-  );
-}
 
-{
-  /* <Router>
-<div className="App">
-  <Navbar />
-  <Routes>
-    <Route exact path="/" element={<Home posts={posts} />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/contact" element={<Contact />} />
-    <Route path="/posts/:postId" element={<Post posts={posts} />} />
-    <Route path="*" element={<PageNotFound />} />
-  </Routes>
-</div>
-</Router> */
+    // <Router>
+    //   <div>
+    //     <Routes>
+    //       <Route exact path="/" element={<Home />} />
+    //       <Route
+    //         path="/recipes"
+    //         element={
+    //           <Recipes
+    //             currentRecipes={currentRecipes}
+    //             recipes={recipes}
+    //             paginate={paginate}
+    //             postsPerPage={postsPerPage}
+    //             totalPosts={recipes.length}
+    //           />
+    //         }
+    //       />
+    //     </Routes>
+    //   </div>
+    // </Router>
+  );
 }
 
 export default App;

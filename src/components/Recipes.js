@@ -1,30 +1,52 @@
-import React from 'react'
-import Pagination from './Pagination'
+import React from 'react';
+import Pagination from './Pagination';
 
-const Posts = ({ recipes, loading, paginate, postsPerPage, totalPosts }) => {
-
-  
-  
-  if(loading) {
-      return <h2>Loading</h2>
+const Recipes = ({
+  currentRecipes,
+  loading,
+  paginate,
+  postsPerPage,
+  totalPosts,
+  filteredRecipes,
+}) => {
+  if (loading) {
+    return <h2>Loading</h2>;
   }
 
   return (
     <>
-    <ul className="list-group mb4">
-        {recipes.map(recipe => (
-            <li 
-            key={recipe.id}
-            className="list-group-item">
-                {recipe.title}
-            </li>
+      <ul className="list-group mb4">
+        {filteredRecipes.map((recipe) => (
+          <li key={recipe.id} className="list-group-item">
+            {recipe.title}
+          </li>
         ))}
-      
-    </ul>
-   
-    <Pagination recipes={recipes} postsPerPage={postsPerPage} paginate={paginate} totalPosts={totalPosts}/>
-    </>
-  )
-}
+      </ul>
 
-export default Posts
+      <Pagination
+        postsPerPage={postsPerPage}
+        paginate={paginate}
+        totalPosts={totalPosts}
+        
+      />
+      {/* <ul className="list-group mb4">
+        <li className="list-group-item">
+          {filteredRecipes.title}
+          
+        </li>
+        <li className="list-group-item">
+          {filteredRecipes.id}
+          
+        </li>
+      </ul>
+
+      <Pagination
+        postsPerPage={postsPerPage}
+        paginate={paginate}
+        totalPosts={totalPosts}
+      /> */}
+    </>
+  );
+};
+
+export default Recipes;
