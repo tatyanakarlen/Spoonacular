@@ -13,7 +13,6 @@ import Home from './components/Home';
 import Pagination from './components/Pagination';
 
 function App() {
-  const [userInput, setUserInput] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,12 +36,14 @@ function App() {
     fetchPosts();
   }, []);
 
-  console.log('these are posts', recipes);
+  console.log('these are filtered recipes', filteredRecipes);
+
+  // postsPerPage, totalPosts, paginate
 
   // get current post
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentRecipes = recipes.slice(indexOfFirstPost, indexOfLastPost);
+  const currentRecipes = filteredRecipes.slice(indexOfFirstPost, indexOfLastPost);
 
   // change page
   const paginate = (pageNumber) => {
@@ -87,7 +88,7 @@ function App() {
                 currentRecipes={currentRecipes}
                 loading={loading}
                 postsPerPage={postsPerPage}
-                totalPosts={recipes.length}
+                totalPosts={filteredRecipes.length}
                 paginate={paginate}
               />
             }

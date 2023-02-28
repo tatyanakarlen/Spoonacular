@@ -16,7 +16,7 @@ const Recipes = ({
   return (
     <>
       <ul className="list-group mb4">
-        {filteredRecipes.map((recipe) => (
+        {currentRecipes.map((recipe) => (
           <li key={recipe.id} className="list-group-item">
             {recipe.title}
           </li>
