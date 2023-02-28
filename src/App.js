@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Recipes from './components/Recipes';
+import Recipes from './components/Recipes/Recipes';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -9,9 +9,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Home from './components/Home';
-import Pagination from './components/Pagination';
-import Recipe from './components/Recipe';
+import Home from './components/Home/Home';
+import Pagination from './components/Pagination/Pagination';
+import Recipe from './components/Recipe/Recipe';
 
 function App() {
   const [recipes, setRecipes] = useState([]);

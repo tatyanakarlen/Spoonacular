@@ -60,7 +60,7 @@ const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
 
 
 
-  return <div>THIS IS SEARCH FORM
+  return <div>
   <form>
   <label>
     <span>CUISINE</span>

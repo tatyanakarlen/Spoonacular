@@ -1,6 +1,7 @@
 import React from 'react';
-import Pagination from './Pagination';
+import Pagination from '../Pagination/Pagination';
 import { Link } from 'react-router-dom';
+import Nav from '../Nav/Nav';
 
 const Recipes = ({
   currentRecipes,
@@ -16,6 +17,7 @@ const Recipes = ({
 
   return (
     <>
+    <Nav />
       <ul className="list-group mb4">
         {currentRecipes.map((recipe) => (
           <Link to={`/recipes/${recipe.id}`}>

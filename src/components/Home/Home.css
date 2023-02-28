@@ -1,0 +1,12 @@
+.home-page-container {
+  height: 65vh;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.slogan-text {
+    text-align: center;
+    padding: 2rem; 
+}
