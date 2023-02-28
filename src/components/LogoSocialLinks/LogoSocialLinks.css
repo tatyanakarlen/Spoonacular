@@ -1,20 +1,31 @@
 .logo-social-links-container {
     display: flex; 
     justify-content: space-between;
-    align-items: center;
-    padding: 3rem 4rem; 
+    align-items: baseline;
+    padding: 2rem 4rem; 
+}
+
+.logo-headline {
+    display: flex; 
+    align-items: baseline;
+    gap: 2rem; 
 }
 
 .logo-social-links-container h1 {
-   font-size: 5rem; 
+   font-size: 4rem; 
 }
 
 .logo-social-links-container .social-links ul {
     display: flex; 
     gap: 3rem; 
     list-style: none;
+    align-items: center;
 }
 
 .logo-social-links-container .social-links i {
    font-size: 3rem;
+}
+
+hr {
+    margin: unset; 
 }

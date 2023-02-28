@@ -4,6 +4,7 @@ import Pagination from '../Pagination/Pagination'
 import SearchForm from '../SearchForm/SearchForm'
 import './Home.css'
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks'
+import img from '../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg'
 
 
 const Home = ({ currentRecipes, loading, paginate, postsPerPage, totalPosts, recipes, filteredRecipes, setFilteredRecipes }) => {
@@ -12,13 +13,14 @@ const Home = ({ currentRecipes, loading, paginate, postsPerPage, totalPosts, rec
   return (
     <div className="Home">
     <LogoSocialLinks />
-    <div className="slogan-text">
+    {/* <div className="slogan-text">
     <h2>Your best source for your favourite recipes</h2>
-    </div>
+    </div> */}
     <div class="home-page-container">
-     
-      <h1>Search for any recipe</h1>
+     <div className="form-container">
+      <h1>Enter your favourite cuisine</h1>
       <SearchForm filteredRecipes={filteredRecipes} setFilteredRecipes={setFilteredRecipes}/>
+      </div>
     </div>
     </div>
   )
