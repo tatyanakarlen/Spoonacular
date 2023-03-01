@@ -16,14 +16,64 @@
     max-width: 800px; 
     margin: 0 auto; 
     padding: 2rem; 
+    display: block; 
+}
+
+.recipe-container .jump-to-instructions {
+    background-color: #e9e9e9b0; 
+    padding: 0.5rem; 
+    text-align: center;
+    margin-top: 3rem; 
+    border-radius: 10px;
+    font-size: 1.2rem; 
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.recipe-container .jump-to-instructions i {
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
+    /* margin-bottom: -1rem; */
+}
+
+.recipe-container .recipe-headline {
+    font-size: 1.7rem; 
+    color: rgb(63, 62, 62);
+    font-style: italic;
+
 }
 
 .recipe-container h1 {
     font-size: 3rem;
-    margin: 2rem 0; 
+    margin-top: 2rem;  
+}
+
+.recipe-container .health-info {
+    color: rgb(94, 93, 93);
 }
 
 .recipe-container img {
     width: 100%; 
     padding: 2rem 0; 
+}
+
+.star-icon-container {
+    display: flex;
+    margin-top: -1rem;  
+    align-items: center; 
+}
+
+.star-icon-container img {
+    width: 3rem; 
+}
+
+.star-icon-container h5 {
+    font-size: 1.4rem;
+    margin-bottom: -0.3rem;
+    margin-left: 1rem;
+    color: rgb(94, 93, 93);
+    font-weight: bold;
 }
