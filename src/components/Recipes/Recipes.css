@@ -1,0 +1,30 @@
+.recipes-index-page {
+    border-top: 1px solid #d0d0d0d1; 
+    display: flex; 
+    justify-content: center;
+}
+
+.recipe-cards-container {
+    display: flex; 
+    width: 85%; 
+    flex-wrap: wrap;
+    gap: 3rem; 
+    justify-content: center;
+    /* align-self: center; */
+}
+
+.recipe-cards-container .recipe-title {
+   text-decoration: none;
+   color: black; 
+   text-align: center;
+   font-weight: bold; 
+   font-size: 1.5rem;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pagination-container {
+    display: flex; 
+    justify-content: center;
+}

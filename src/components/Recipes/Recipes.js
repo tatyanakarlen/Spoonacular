@@ -2,6 +2,9 @@ import React from 'react';
 import Pagination from '../Pagination/Pagination';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav/Nav';
+import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
+import './Recipes.css';
+import img from '../../Assets/anh-nguyen-kcA-c3f_3FE-unsplash.jpg';
 
 const Recipes = ({
   currentRecipes,
@@ -16,44 +19,36 @@ const Recipes = ({
   }
 
   return (
-    <>
-    <Nav />
-      <ul className="list-group mb4">
-        {currentRecipes.map((recipe) => (
-          <Link to={`/recipes/${recipe.id}`}>
-            <li key={recipe.id} className="list-group-item">
+    <div>
+      <LogoSocialLinks />
+      <div className="recipes-index-page">
+        {/* <Nav /> */}
+        <div className="recipe-cards-container">
+          {currentRecipes.map((recipe) => (
+            <Link 
+            className="recipe-links"
+            to={`/recipes/${recipe.id}`}>
+              <div class="card" style={{ width: '30rem' }}>
+                <img className="card-img-top" src={img} alt="Card image cap" />
+                <div className="card-body">
+                  <p className="card-text recipe-title">{recipe.title}</p>
+                </div>
+              </div>
+              {/* <li key={recipe.id}>
               {recipe.title}
-            </li>
-          </Link>
-        ))}
-      </ul>
-
-      {/* <Link to={`/posts/${post.id}`}>
-          <h5 className="card-title">{post.title}</h5>
-          </Link> */}
-
+            </li> */}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="pagination-container">
       <Pagination
         postsPerPage={postsPerPage}
         paginate={paginate}
         totalPosts={totalPosts}
       />
-      {/* <ul className="list-group mb4">
-        <li className="list-group-item">
-          {filteredRecipes.title}
-          
-        </li>
-        <li className="list-group-item">
-          {filteredRecipes.id}
-          
-        </li>
-      </ul>
-
-      <Pagination
-        postsPerPage={postsPerPage}
-        paginate={paginate}
-        totalPosts={totalPosts}
-      /> */}
-    </>
+      </div>
+    </div>
   );
 };
 
