@@ -1,11 +1,9 @@
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
-
-
 
 const Recipe = ({ setLoading }) => {
   const { recipeId } = useParams();
@@ -13,7 +11,6 @@ const Recipe = ({ setLoading }) => {
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
-
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -32,8 +29,6 @@ const Recipe = ({ setLoading }) => {
     fetchRecipe();
   }, []);
 
-  
-
   return (
     <div>
       <LogoSocialLinks />
@@ -42,7 +37,7 @@ const Recipe = ({ setLoading }) => {
         RECIPES<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;{recipe.title}
       </div>
       <div className="recipe-container">
-        <h1>{recipe.title}</h1>
+        <h1 class="recipe-title">{recipe.title}</h1>
         <div className="star-icon-container">
           <img src={star} />
           <img src={star} />
@@ -56,27 +51,70 @@ const Recipe = ({ setLoading }) => {
           impress. The rich texture and savory taste combine perfectly for a
           delicious and healthy meal.
         </p>
-        <div className="jump-to-instructions"><i class="bi bi-arrow-down-short"></i>&nbsp;<div>Jump to cooking instructions</div></div>
+        <a class="jump-to-instructions-link" href="#instructions">
+          <div className="jump-to-instructions">
+            <i class="bi bi-arrow-down-short"></i>&nbsp;
+            <div>Jump to cooking instructions</div>
+          </div>
+        </a>
         <img src={recipe.image}></img>
-        <h1>Health Information</h1>
-        <h3 class="health-info">Gluten free: <span style={{color: !recipe.glutenFree ? 'red' : 'green'}}>{!recipe.glutenFree ? 'No' : 'Yes'}</span></h3>
-        <h3 class="health-info">Vegan: <span style={{color: !recipe.vegan ? 'red' : 'green'}}>{!recipe.vegan ? 'No' : 'Yes'}</span></h3>
-        <h3 class="health-info">Vegeterian: <span style={{color: !recipe.vegetarian ? 'red' : 'green'}}>{!recipe.vegetarian ? 'No' : 'Yes'}</span></h3>
-        <h3 class="health-info">Dairy-free: <span style={{color: !recipe.dairyFree ? 'red' : 'green'}}>{!recipe.dairyFree ? 'No' : 'Yes'}</span></h3>
-        <h3 class="health-info">Low FODMAP: <span style={{color: !recipe.lowFodMap ? 'red' : 'green'}}>{!recipe.lowFodMap ? 'No' : 'Yes'}</span></h3>
-        <h3 class="health-info">Very healthy: <span style={{color: !recipe.veryHealthy ? 'red' : 'green'}}>{!recipe.veryHealthy ? 'No' : 'Yes'}</span></h3>
-        // ingredients
+        <h1 class="recipe-heading">Health Information</h1>
+        <h3 class="health-info">
+          Gluten free:{' '}
+          <span style={{ color: !recipe.glutenFree ? 'red' : 'green' }}>
+            {!recipe.glutenFree ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h3 class="health-info">
+          Vegan:{' '}
+          <span style={{ color: !recipe.vegan ? 'red' : 'green' }}>
+            {!recipe.vegan ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h3 class="health-info">
+          Vegeterian:{' '}
+          <span style={{ color: !recipe.vegetarian ? 'red' : 'green' }}>
+            {!recipe.vegetarian ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h3 class="health-info">
+          Dairy-free:{' '}
+          <span style={{ color: !recipe.dairyFree ? 'red' : 'green' }}>
+            {!recipe.dairyFree ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h3 class="health-info">
+          Low FODMAP:{' '}
+          <span style={{ color: !recipe.lowFodMap ? 'red' : 'green' }}>
+            {!recipe.lowFodMap ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h3 class="health-info">
+          Very healthy:{' '}
+          <span style={{ color: !recipe.veryHealthy ? 'red' : 'green' }}>
+            {!recipe.veryHealthy ? 'No' : 'Yes'}
+          </span>
+        </h3>
+        <h1 class="recipe-heading">Ingredients</h1>
         {ingredients.map((ingredient, index) => (
           <>
-            <h1>{ingredient.name}</h1>
+            <ul class="ingredients-list">
+              <li key={index}>{ingredient.name}</li>
+            </ul>
           </>
         ))}
+        <h1 id="instructions" class="recipe-heading">
+          Instructions
+        </h1>
         {steps.map((step, index) => (
           <>
-            <h1>{step.step}</h1>
+            <ul className="instructions-list">
+              <li key={index}>
+                {step.number}.&nbsp;{step.step}
+              </li>
+            </ul>
           </>
         ))}
-       
       </div>
     </div>
   );

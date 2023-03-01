@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Recipes from './components/Recipes/Recipes';
 import './App.css';
 import {
@@ -11,7 +11,6 @@ import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
@@ -41,11 +40,9 @@ function App() {
               <Home
                 filteredRecipes={filteredRecipes}
                 setFilteredRecipes={setFilteredRecipes}
-                recipes={recipes}
                 currentRecipes={currentRecipes}
                 loading={loading}
                 postsPerPage={postsPerPage}
-                totalPosts={recipes.length}
                 paginate={paginate}
               />
             }
@@ -56,7 +53,6 @@ function App() {
             element={
               <Recipes
                 filteredRecipes={filteredRecipes}
-                recipes={recipes}
                 currentRecipes={currentRecipes}
                 loading={loading}
                 postsPerPage={postsPerPage}

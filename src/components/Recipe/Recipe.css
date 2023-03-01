@@ -46,9 +46,14 @@
 
 }
 
-.recipe-container h1 {
+.recipe-container .recipe-title {
     font-size: 3rem;
     margin-top: 2rem;  
+}
+
+.recipe-container .recipe-heading {
+    margin-top: 3rem; 
+    margin-bottom: 2rem; 
 }
 
 .recipe-container .health-info {
@@ -76,4 +81,22 @@
     margin-left: 1rem;
     color: rgb(94, 93, 93);
     font-weight: bold;
+}
+
+.ingredients-list {
+    margin-left: -1rem; 
+    font-size: 1.7rem; 
+    color: rgb(94, 93, 93);
+    font-weight: 600;
+}
+
+.jump-to-instructions-link {
+    color: black; 
+    text-decoration: none;
+}
+
+.instructions-list {
+    font-size: 1.7rem;
+    color: rgb(63, 62, 62);
+    list-style: none;
 }
