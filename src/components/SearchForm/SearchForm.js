@@ -17,7 +17,7 @@ const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
     try {
       const res = await axios.get(
         // `https://jsonplaceholder.typicode.com/posts?userId=${userInput}`
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=2bb87e4a65e64507a35d5c178493e70a&query=${userInput}&number=10`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${userInput}&number=10`
       );
       setFilteredRecipes(res.data.results);
       console.log('these are filtered recipes', res.data.results);
