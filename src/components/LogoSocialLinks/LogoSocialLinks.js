@@ -6,7 +6,7 @@ const LogoSocialLinks = () => {
       <>
     <div className="logo-social-links-container">
         <div className="logo-headline">
-      <h1>Foodie App</h1>
+      <h1>Foodie</h1>
       <h3>Your source for the best recipes</h3>
       </div>
       <div className="social-links">

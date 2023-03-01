@@ -16,12 +16,11 @@ const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
     e.preventDefault();
     try {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts?userId=${userInput}`
-        // fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-        // 'https://api.spoonacular.com/recipes/complexSearch?apiKey=2bb87e4a65e64507a35d5c178493e70a&query=italian&number=50'
+        // `https://jsonplaceholder.typicode.com/posts?userId=${userInput}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=2bb87e4a65e64507a35d5c178493e70a&query=${userInput}&number=10`
       );
-      setFilteredRecipes(res.data);
-      console.log('these are filtered posts', res.data);
+      setFilteredRecipes(res.data.results);
+      console.log('these are filtered recipes', res.data.results);
       navigate('/recipes');
     } catch (err) {
       console.log("couldn't fetch recipes");

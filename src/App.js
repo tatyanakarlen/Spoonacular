@@ -95,7 +95,7 @@ function App() {
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route path="/recipes/:recipeId" element={<Recipe filteredRecipes={filteredRecipes} />} />
+          <Route path="/recipes/:recipeId" element={<Recipe filteredRecipes={filteredRecipes} setLoading={setLoading}/>} />
         </Routes>
       </div>
     </Router>

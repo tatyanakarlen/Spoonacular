@@ -18,7 +18,7 @@ const Home = ({ currentRecipes, loading, paginate, postsPerPage, totalPosts, rec
     </div> */}
     <div class="home-page-container">
      <div className="form-container">
-      <h1>Enter your favourite cuisine</h1>
+      <h1>Enter your desired cuisine</h1>
       <SearchForm filteredRecipes={filteredRecipes} setFilteredRecipes={setFilteredRecipes}/>
       </div>
     </div>
