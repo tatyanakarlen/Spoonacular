@@ -3,25 +3,21 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './SearchForm.css';
 
-const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
+const SearchForm = ({ setFilteredRecipes }) => {
   const [userInput, setUserInput] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setUserInput(e.target.value);
-    console.log(userInput);
   };
 
-  async function addTodo(e) {
+  async function getRecipes(e) {
     e.preventDefault();
     try {
       const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts?userId=${userInput}`
-        // fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-        // 'https://api.spoonacular.com/recipes/complexSearch?apiKey=2bb87e4a65e64507a35d5c178493e70a&query=italian&number=50'
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${userInput}&number=10`
       );
-      setFilteredRecipes(res.data);
-      console.log('these are filtered posts', res.data);
+      setFilteredRecipes(res.data.results);
       navigate('/recipes');
     } catch (err) {
       console.log("couldn't fetch recipes");
@@ -38,14 +34,14 @@ const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
               onChange={handleChange}
               value={userInput}
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Cuisine"
               aria-label="Cuisine"
               aria-describedby="button-addon2"
             />
             <button
-              onClick={addTodo}
-              class="btn btn-outline-light"
+              onClick={getRecipes}
+              className="btn btn-outline-light"
               type="button"
               id="button-addon2"
             >
@@ -53,11 +49,6 @@ const SearchForm = ({ filteredRecipes, setFilteredRecipes }) => {
             </button>
           </div>
         </label>
-        {/* <button
-  onClick={addTodo}
-  >
-    SEARCH
-  </button> */}
       </form>
     </div>
   );
