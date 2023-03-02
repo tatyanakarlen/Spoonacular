@@ -17,6 +17,9 @@ const Recipes = ({
   const isMobile = useMediaQuery({
     query: '(min-width: 575px)',
   });
+  const shouldRecipesHeaderBeColumn = useMediaQuery({
+    query: '(max-width: 750px)',
+  });
   if (loading) {
     return <h2>Loading</h2>;
   }
@@ -27,11 +30,17 @@ const Recipes = ({
 
       <div className="recipes-index-page">
         <div className="your-recipes-headline">
-          <div className="your-recipes-headline-wrapper">
+          <div
+            className="your-recipes-headline-wrapper"
+            style={{ flexDirection: shouldRecipesHeaderBeColumn && 'column' }}
+          >
             <div className="recipes-headline-img">
               <img src={img1} />
             </div>
-            <div className="recipes-headline-text">
+            <div
+              className="recipes-headline-text"
+              style={{ textAlign: shouldRecipesHeaderBeColumn && 'center' }}
+            >
               <h1>Your recipes</h1>
               <p>
                 Discover mouth-watering recipes for every occasion! Whether
