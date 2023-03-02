@@ -23,7 +23,7 @@ const Recipes = ({
 
   return (
     <div>
-      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+      <LogoSocialLinks />
 
       <div className="recipes-index-page">
         <div className="your-recipes-headline">
