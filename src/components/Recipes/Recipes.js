@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipes.css';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
+import MobileNav from '../MobileNav/MobileNav';
+import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
   currentRecipes,
@@ -12,13 +14,17 @@ const Recipes = ({
   postsPerPage,
   totalPosts,
 }) => {
+  const isMobile = useMediaQuery({
+    query: '(min-width: 575px)',
+  });
   if (loading) {
     return <h2>Loading</h2>;
   }
 
   return (
     <div>
-      <LogoSocialLinks />
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+
       <div className="recipes-index-page">
         <div className="your-recipes-headline">
           <div className="your-recipes-headline-wrapper">

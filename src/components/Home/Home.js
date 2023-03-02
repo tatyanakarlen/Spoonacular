@@ -2,10 +2,16 @@ import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
+import MobileNav from '../MobileNav/MobileNav';
+import { useMediaQuery } from 'react-responsive';
 
 const Home = ({ filteredRecipes, setFilteredRecipes }) => {
+  const isMobile = useMediaQuery({
+    query: '(min-width: 575px)',
+  });
   return (
     <div className="Home">
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <LogoSocialLinks />
       <div className="home-page-container">
         <div className="form-container">
