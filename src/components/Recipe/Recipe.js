@@ -13,6 +13,9 @@ const Recipe = ({ setLoading }) => {
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -33,7 +36,7 @@ const Recipe = ({ setLoading }) => {
 
   return (
     <div>
-      <LogoSocialLinks />
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div class="recipe-id-page-breadcrumb">
         FOODIE&nbsp;&nbsp;<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;YOUR
         RECIPES<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;{recipe.title}
