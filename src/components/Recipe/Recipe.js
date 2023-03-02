@@ -12,26 +12,9 @@ const Recipe = ({ setLoading }) => {
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
 
-  // useEffect(() => {
-  //   const fetchRecipe = async () => {
-  //     setLoading(true);
-  //     const res = await axios.get(
-  //       `https://api.spoonacular.com/recipes/${idAsNum}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
-  //     );
-  //     setRecipe(res.data);
-  //     const res1 = await axios.get(
-  //       `https://api.spoonacular.com/recipes/${idAsNum}/ingredientWidget.json?apiKey=${process.env.REACT_APP_API_KEY}`
-  //     );
-  //     setIngredients(res1.data.ingredients);
-  //     setSteps(res.data?.analyzedInstructions[0]?.steps);
-  //     setLoading(false);
-  //   };
-  //   fetchRecipe();
-  // }, []);
-
-  async function getRecipes(e) {
-    e.preventDefault();
-    try {
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      setLoading(true);
       const res = await axios.get(
         `https://api.spoonacular.com/recipes/${idAsNum}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
       );
@@ -42,18 +25,13 @@ const Recipe = ({ setLoading }) => {
       setIngredients(res1.data.ingredients);
       setSteps(res.data?.analyzedInstructions[0]?.steps);
       setLoading(false);
-    } catch (err) {
-      console.log("couldn't fetch recipe");
-    }
-  }
-
-  // console.log('these are the ingredients', ingredients[0].amount.metric.unit);
-  // console.log('these are the ingredients', ingredients[0].amount.metric.value);
+    };
+    fetchRecipe();
+  }, []);
 
   return (
     <div>
       <LogoSocialLinks />
-      <button onClick={getRecipes}>GET RECIPE INFO</button>
       <div class="recipe-id-page-breadcrumb">
         FOODIE&nbsp;&nbsp;<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;YOUR
         RECIPES<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;{recipe.title}
@@ -114,11 +92,7 @@ const Recipe = ({ setLoading }) => {
         <h3 class="health-info">
           Very healthy:{' '}
           <span style={{ color: !recipe.veryHealthy ? 'red' : 'green' }}>
-            {!recipe.veryHealthy ? (
-              <i class="bi bi-x"></i>
-            ) : (
-              <i class="bi bi-check2"></i>
-            )}
+            {!recipe.veryHealthy ? 'No' : 'Yes'}
           </span>
         </h3>
         <h1 class="recipe-heading">Ingredients</h1>
