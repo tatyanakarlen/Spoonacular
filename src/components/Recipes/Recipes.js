@@ -36,7 +36,41 @@ const Recipes = ({
             </div>
           </div>
         </div>
-        <div className="recipe-cards-container">
+
+        {/* <div class="container my-5">
+      <div class="row my-5">
+        <div class="card-group"> */}
+
+        {/* <div class="col-md-6 col-lg-4 col-sm-12"> */}
+
+        <div className="container my-5">
+          <div className="row my-5">
+            <div className="card-group">
+              {currentRecipes.map((recipe, index) => (
+                <div className="col-md-5 col-lg-3 col-sm-12">
+                  <div className="card">
+                    <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
+                      <div key={index} class="card">
+                        <img
+                          className="card-img-top"
+                          src={recipe.image}
+                          alt="Card image cap"
+                        />
+                        <div className="card-body">
+                          <p className="card-text recipe-title">
+                            {recipe.title}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="recipe-cards-container">
           {currentRecipes.map((recipe, index) => (
             <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
               <div key={index} class="card" style={{ width: '30rem' }}>
@@ -51,7 +85,7 @@ const Recipes = ({
               </div>
             </Link>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className="pagination-container">
         <Pagination
