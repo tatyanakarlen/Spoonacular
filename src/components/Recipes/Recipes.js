@@ -3,7 +3,7 @@ import Pagination from '../Pagination/Pagination';
 import { Link } from 'react-router-dom';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipes.css';
-import img1 from '../../Assets/pablo-couple-eating-in-restaurant.png';
+import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 
 const Recipes = ({
   currentRecipes,
@@ -28,18 +28,18 @@ const Recipes = ({
             <div className="recipes-headline-text">
               <h1>Your recipes</h1>
               <p>
-                Whether you're planning to meal prep for the week or you're
-                looking for an amazing sandwich or salad to chomp on at your
-                desk, we've gone through our recipes and gathered a bunch for
-                lunch!
+                Discover mouth-watering recipes for every occasion! Whether
+                you're planning to meal prep for the week or you're looking for
+                an amazing meal, we've gone through our recipes and gathered a
+                bunch for your meal!
               </p>
             </div>
           </div>
         </div>
         <div className="recipe-cards-container">
-          {currentRecipes.map((recipe) => (
+          {currentRecipes.map((recipe, index) => (
             <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-              <div class="card" style={{ width: '30rem' }}>
+              <div key={index} class="card" style={{ width: '30rem' }}>
                 <img
                   className="card-img-top"
                   src={recipe.image}

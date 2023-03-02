@@ -7,7 +7,7 @@ const Home = ({ filteredRecipes, setFilteredRecipes }) => {
   return (
     <div className="Home">
       <LogoSocialLinks />
-      <div class="home-page-container">
+      <div className="home-page-container">
         <div className="form-container">
           <h1>Enter your desired cuisine</h1>
           <SearchForm
