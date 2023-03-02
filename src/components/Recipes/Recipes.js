@@ -15,16 +15,17 @@ const Recipes = ({
   totalPosts,
 }) => {
   const isMobile = useMediaQuery({
-    query: '(min-width: 575px)',
+    query: '(max-width: 575px)',
   });
+  console.log('isMobile', isMobile);
   if (loading) {
     return <h2>Loading</h2>;
   }
 
   return (
     <div>
-      <LogoSocialLinks />
-
+      {/* <LogoSocialLinks /> */}
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div className="recipes-index-page">
         <div className="your-recipes-headline">
           <div className="your-recipes-headline-wrapper">

@@ -11,7 +11,7 @@ const Home = ({ filteredRecipes, setFilteredRecipes }) => {
   });
   return (
     <div className="Home">
-      <LogoSocialLinks />
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div className="home-page-container">
         <div className="form-container">
           <h1>Enter your desired cuisine</h1>
