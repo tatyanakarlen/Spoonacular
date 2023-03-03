@@ -5,6 +5,7 @@ import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipes.css';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
+import MobileNavFoodieHeader from '../MobileNavFoodieHeader/MobileNavFoodieHeader';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
@@ -27,9 +28,12 @@ const Recipes = ({
 
   return (
     <div className="recipe-index-page-container">
-      {/* <LogoSocialLinks /> */}
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
-      <div className="recipes-index-page">
+
+      <div
+        className="recipes-index-page"
+        style={{ border: isMobile && 'none' }}
+      >
         <div className="your-recipes-headline">
           <div
             className="your-recipes-headline-wrapper"
