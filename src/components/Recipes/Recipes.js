@@ -21,7 +21,7 @@ const Recipes = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-  console.log('isMobile', isMobile);
+
   if (loading) {
     return <h2>Loading</h2>;
   }
