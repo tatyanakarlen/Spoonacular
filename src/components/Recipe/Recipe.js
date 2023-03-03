@@ -4,6 +4,8 @@ import axios from 'axios';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
+import MobileNav from '../MobileNav/MobileNav';
+import { useMediaQuery } from 'react-responsive';
 
 const Recipe = ({ setLoading }) => {
   const { recipeId } = useParams();
@@ -11,6 +13,9 @@ const Recipe = ({ setLoading }) => {
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -31,7 +36,7 @@ const Recipe = ({ setLoading }) => {
 
   return (
     <div>
-      <LogoSocialLinks />
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div class="recipe-id-page-breadcrumb">
         FOODIE&nbsp;&nbsp;<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;YOUR
         RECIPES<i class="bi bi-chevron-right"></i>&nbsp;&nbsp;{recipe.title}

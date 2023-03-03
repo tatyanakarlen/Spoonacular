@@ -5,6 +5,7 @@ import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipes.css';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
+import MobileNavFoodieHeader from '../MobileNavFoodieHeader/MobileNavFoodieHeader';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
@@ -14,21 +15,25 @@ const Recipes = ({
   postsPerPage,
   totalPosts,
 }) => {
-  const isMobile = useMediaQuery({
-    query: '(min-width: 575px)',
-  });
   const shouldRecipesHeaderBeColumn = useMediaQuery({
     query: '(max-width: 750px)',
   });
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
+
   if (loading) {
     return <h2>Loading</h2>;
   }
 
   return (
-    <div>
-      <LogoSocialLinks />
+    <div className="recipe-index-page-container">
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
 
-      <div className="recipes-index-page">
+      <div
+        className="recipes-index-page"
+        style={{ border: isMobile && 'none' }}
+      >
         <div className="your-recipes-headline">
           <div
             className="your-recipes-headline-wrapper"

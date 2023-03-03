@@ -7,11 +7,11 @@ import { useMediaQuery } from 'react-responsive';
 
 const Home = ({ filteredRecipes, setFilteredRecipes }) => {
   const isMobile = useMediaQuery({
-    query: '(min-width: 575px)',
+    query: '(max-width: 575px)',
   });
   return (
     <div className="Home">
-      <LogoSocialLinks />
+      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div className="home-page-container">
         <div className="form-container">
           <h1>Enter your desired cuisine</h1>
