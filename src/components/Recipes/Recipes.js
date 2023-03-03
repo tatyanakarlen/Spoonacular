@@ -5,7 +5,6 @@ import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipes.css';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
-import MobileNavFoodieHeader from '../MobileNavFoodieHeader/MobileNavFoodieHeader';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
