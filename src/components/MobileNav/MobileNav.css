@@ -1,11 +1,103 @@
-/* .mobile-nav {
+.nav {
+  position: fixed;
+  height: 60px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  z-index: 500;
   display: flex;
-  justify-content: space-between;
+  font-size: 1.5rem;
+  -webkit-box-align: center;
   align-items: center;
-  padding: 2rem 4rem;
-} */
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
 
 .hamburger {
+  width: 24px;
+  height: 12px;
+  transform: rotate(0deg);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 500;
+}
+
+.hamburger-line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  box-shadow: none;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+  border-radius: 100px;
+  transform-origin: center center;
+  position: absolute;
+  transform: translate3d(0px, 0px, 0px) rotate(0deg);
+  margin-top: -2px;
+}
+
+#hamburger-line-2 {
+  transform: translate3d(0px, 12px, 0px) rotate(0deg);
+}
+
+.nav-menu-list {
+  list-style: none;
+  display: flex;
+  overflow-x: scroll;
+  margin-left: 2rem;
+  margin-top: -2rem;
+  padding: 0px 16px;
+  pointer-events: none;
+  opacity: 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 10px,
+    black 30px,
+    black calc(100% - 35px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 10px,
+    black 30px,
+    black calc(100% - 35px),
+    transparent 100%
+  );
+  transition: opacity 0s ease 0.2s;
+}
+
+.nav-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-menu-list > * {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.nav-menu-list li {
+  color: rgb(0, 0, 0);
+  margin: 0px 16px;
+  display: flex;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: all 0.2s ease 0.1s;
+}
+
+.nav-menu-list a,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* .hamburger {
   position: fixed;
   top: 6rem;
   left: 4rem;
@@ -75,7 +167,6 @@
   color: #f7f7f7;
   font-size: 3em;
   display: inline-block;
-  /* margin-top: 1.25em; */
   transition: color 0.2s ease-in-out;
   letter-spacing: 1px;
   font-weight: 800;
@@ -107,4 +198,4 @@
 
 .mobile-nav-icon {
   padding-right: 1rem;
-}
+} */
