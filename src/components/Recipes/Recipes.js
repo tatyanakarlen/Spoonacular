@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import Footer from '../Footer/Footer';
 import './Recipes.css';
+import RecipeNotFound from '../RecipeNotFound/RecipeNotFound';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
 import { useMediaQuery } from 'react-responsive';
@@ -14,6 +15,7 @@ const Recipes = ({
   paginate,
   postsPerPage,
   totalPosts,
+  userInput,
 }) => {
   const shouldRecipesHeaderBeColumn = useMediaQuery({
     query: '(max-width: 750px)',
@@ -21,6 +23,20 @@ const Recipes = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
+
+  // let userInputAsString = userInput;
+  // let capitalizedUserInput =
+  //   userInputAsString.charAt(0).toUpperCase() + userInputAsString.slice(1);
+  // console.log('capitalized', capitalizedUserInput);
+
+  const capitalizeFirstLetter = (input) => {
+    const capitalizedUserInput = input.charAt(0).toUpperCase() + input.slice(1);
+    console.log('capitalized', capitalizedUserInput);
+    return capitalizedUserInput;
+  };
+
+  let capitalized = capitalizeFirstLetter(userInput);
+  console.log(capitalized);
 
   if (loading) {
     return <h2>Loading</h2>;
@@ -46,7 +62,7 @@ const Recipes = ({
               className="recipes-headline-text"
               style={{ textAlign: shouldRecipesHeaderBeColumn && 'center' }}
             >
-              <h1>Your recipes</h1>
+              <h1>Your {capitalized} recipes</h1>
               <p>
                 Discover mouth-watering recipes for every occasion! Whether
                 you're planning to meal prep for the week or you're looking for
@@ -61,10 +77,10 @@ const Recipes = ({
           <div className="row">
             <div className="card-group">
               {currentRecipes.map((recipe, index) => (
-                <div className="col-md-5 col-lg-3 col-sm-12">
+                <div key={index} className="col-md-5 col-lg-3 col-sm-12">
                   <div className="card">
                     <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-                      <div key={index} className="card">
+                      <div className="card">
                         <img
                           className="card-img-top"
                           src={recipe.image}

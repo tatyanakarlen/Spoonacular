@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './SearchForm.css';
 
-const SearchForm = ({ setFilteredRecipes }) => {
-  const [userInput, setUserInput] = useState('');
+const SearchForm = ({ setFilteredRecipes, userInput, setUserInput }) => {
+  // const [userInput, setUserInput] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -19,6 +19,7 @@ const SearchForm = ({ setFilteredRecipes }) => {
       );
       setFilteredRecipes(res.data.results);
       navigate('/recipes');
+      console.log('this is user input', userInput);
     } catch (err) {
       console.log("couldn't fetch recipes");
     }
