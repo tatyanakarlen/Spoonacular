@@ -1,8 +1,10 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
+import Footer from '../Footer/Footer.js';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import MobileNav from '../MobileNav/MobileNav';
+
 import { useMediaQuery } from 'react-responsive';
 
 const Home = ({ filteredRecipes, setFilteredRecipes }) => {
@@ -21,6 +23,7 @@ const Home = ({ filteredRecipes, setFilteredRecipes }) => {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

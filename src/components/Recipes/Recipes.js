@@ -2,6 +2,7 @@ import React from 'react';
 import Pagination from '../Pagination/Pagination';
 import { Link } from 'react-router-dom';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
+import Footer from '../Footer/Footer';
 import './Recipes.css';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
@@ -56,14 +57,14 @@ const Recipes = ({
           </div>
         </div>
 
-        <div className="container my-5">
-          <div className="row my-5">
+        <div className="container">
+          <div className="row">
             <div className="card-group">
               {currentRecipes.map((recipe, index) => (
                 <div className="col-md-5 col-lg-3 col-sm-12">
                   <div className="card">
                     <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-                      <div key={index} class="card">
+                      <div key={index} className="card">
                         <img
                           className="card-img-top"
                           src={recipe.image}
@@ -90,6 +91,7 @@ const Recipes = ({
           totalPosts={totalPosts}
         />
       </div>
+      <Footer />
     </div>
   );
 };

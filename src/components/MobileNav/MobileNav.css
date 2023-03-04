@@ -26,6 +26,10 @@
   z-index: 500;
 }
 
+.hamburger:hover {
+  cursor: pointer;
+}
+
 .hamburger-line {
   display: block;
   height: 4px;

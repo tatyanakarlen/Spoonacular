@@ -13,6 +13,8 @@ const MobileNav = () => {
 
   let expandedListItems = {};
 
+  let visibleSearchIcon = {};
+
   if (isNavExpanded) {
     expandedStyleTopBun = {
       transform: 'translate3d(0px, 6px, 0px) rotate(45deg)',
@@ -33,20 +35,27 @@ const MobileNav = () => {
       opacity: '1',
       transform: 'translateX(0px)',
     };
+
+    visibleSearchIcon = {
+      opacity: '0',
+    };
   }
   return (
     <>
-      <div class="nav">
-        <div onClick={() => setIsNavExpanded(!isNavExpanded)} class="hamburger">
-          <span style={expandedStyleTopBun} class="hamburger-line"></span>
+      <div className="nav">
+        <div
+          onClick={() => setIsNavExpanded(!isNavExpanded)}
+          className="hamburger"
+        >
+          <span style={expandedStyleTopBun} className="hamburger-line"></span>
           <span
             style={expandedStyleBottomBun}
             id="hamburger-line-2"
-            class="hamburger-line"
+            className="hamburger-line"
           ></span>
         </div>
-        <h1 class="foodie-header">Foodie</h1>
-        <ul style={expandedMenuList} class="nav-menu-list">
+        <h1 className="foodie-header">CookBook</h1>
+        <ul style={expandedMenuList} className="nav-menu-list">
           <li style={expandedListItems}>HOME</li>
 
           <li style={expandedListItems}>INSTAGRAM</li>
