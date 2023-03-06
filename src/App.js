@@ -71,6 +71,7 @@ function App() {
             element={
               <Recipe
                 filteredRecipes={filteredRecipes}
+                loading={loading}
                 setLoading={setLoading}
               />
             }

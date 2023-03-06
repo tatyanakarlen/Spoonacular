@@ -6,7 +6,6 @@
   display: flex;
   font-size: 1.5rem;
   font-weight: bold;
-  /* justify-content: center; */
 }
 
 .recipe-container {
@@ -14,7 +13,6 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  /* display: block; */
 }
 
 .recipe-container .jump-to-instructions {
