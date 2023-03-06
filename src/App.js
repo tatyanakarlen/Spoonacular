@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Recipes from './components/Recipes/Recipes';
 import './App.css';
 import {
@@ -15,6 +15,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -44,6 +45,8 @@ function App() {
                 loading={loading}
                 postsPerPage={postsPerPage}
                 paginate={paginate}
+                userInput={userInput}
+                setUserInput={setUserInput}
               />
             }
           />
@@ -58,6 +61,7 @@ function App() {
                 postsPerPage={postsPerPage}
                 totalPosts={filteredRecipes.length}
                 paginate={paginate}
+                userInput={userInput}
               />
             }
           />

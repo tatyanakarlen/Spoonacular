@@ -5,6 +5,7 @@ import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
 import MobileNav from '../MobileNav/MobileNav';
+import Footer from '../Footer/Footer';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipe = ({ setLoading }) => {
@@ -128,6 +129,7 @@ const Recipe = ({ setLoading }) => {
           </>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,31 +1,38 @@
 .logo-social-links-container {
-    display: flex; 
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 2rem 4rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: black;
+  color: white;
 }
 
 .logo-headline {
-    display: flex; 
-    align-items: baseline;
-    gap: 2rem; 
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .logo-social-links-container h1 {
-   font-size: 4rem; 
+  font-size: 4rem;
+}
+
+.logo-social-links-container h3 {
+  margin-top: 0.7rem;
 }
 
 .logo-social-links-container .social-links ul {
-    display: flex; 
-    gap: 3rem; 
-    list-style: none;
-    align-items: center;
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  align-items: center;
 }
 
 .logo-social-links-container .social-links i {
-   font-size: 3rem;
+  font-size: 3rem;
+  color: white;
 }
 
 hr {
-    margin: unset; 
+  margin: unset;
 }

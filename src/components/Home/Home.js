@@ -1,11 +1,19 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
+import Footer from '../Footer/Footer.js';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
+import CookBookBrandHeading from '../CookBookBrandHeading/CookBookBrandHeading';
 import MobileNav from '../MobileNav/MobileNav';
+
 import { useMediaQuery } from 'react-responsive';
 
-const Home = ({ filteredRecipes, setFilteredRecipes }) => {
+const Home = ({
+  filteredRecipes,
+  setFilteredRecipes,
+  userInput,
+  setUserInput,
+}) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
@@ -18,9 +26,12 @@ const Home = ({ filteredRecipes, setFilteredRecipes }) => {
           <SearchForm
             filteredRecipes={filteredRecipes}
             setFilteredRecipes={setFilteredRecipes}
+            userInput={userInput}
+            setUserInput={setUserInput}
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
