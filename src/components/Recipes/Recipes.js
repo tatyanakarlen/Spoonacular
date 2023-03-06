@@ -8,6 +8,7 @@ import RecipeNotFound from '../RecipeNotFound/RecipeNotFound';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
 import { useMediaQuery } from 'react-responsive';
+import Recipe from '../Recipe/Recipe';
 
 const Recipes = ({
   currentRecipes,
@@ -24,11 +25,6 @@ const Recipes = ({
     query: '(max-width: 575px)',
   });
 
-  // let userInputAsString = userInput;
-  // let capitalizedUserInput =
-  //   userInputAsString.charAt(0).toUpperCase() + userInputAsString.slice(1);
-  // console.log('capitalized', capitalizedUserInput);
-
   const capitalizeFirstLetter = (input) => {
     const capitalizedUserInput = input.charAt(0).toUpperCase() + input.slice(1);
     console.log('capitalized', capitalizedUserInput);
@@ -38,77 +34,98 @@ const Recipes = ({
   let capitalized = capitalizeFirstLetter(userInput);
   console.log(capitalized);
 
+  let categoryNotFound = '';
+
+  if (userInput != 'African' || 'American') {
+    categoryNotFound = (
+      <div>
+        <h1>Category not found!</h1>
+      </div>
+    );
+  }
+
   if (loading) {
     return <h2>Loading</h2>;
   }
 
   return (
-    <div className="recipe-index-page-container">
-      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+    <>
+      {currentRecipes.length === 0 ? (
+        <RecipeNotFound />
+      ) : (
+        <div className="recipe-index-page-container">
+          {isMobile ? <MobileNav /> : <LogoSocialLinks />}
 
-      <div
-        className="recipes-index-page"
-        style={{ border: isMobile && 'none' }}
-      >
-        <div className="your-recipes-headline">
           <div
-            className="your-recipes-headline-wrapper"
-            style={{ flexDirection: shouldRecipesHeaderBeColumn && 'column' }}
+            className="recipes-index-page"
+            style={{ border: isMobile && 'none' }}
           >
-            <div className="recipes-headline-img">
-              <img src={img1} />
-            </div>
-            <div
-              className="recipes-headline-text"
-              style={{ textAlign: shouldRecipesHeaderBeColumn && 'center' }}
-            >
-              <h1>Your {capitalized} recipes</h1>
-              <p>
-                Discover mouth-watering recipes for every occasion! Whether
-                you're planning to meal prep for the week or you're looking for
-                an amazing meal, we've gone through our recipes and gathered a
-                bunch for your meal!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="container">
-          <div className="row">
-            <div className="card-group">
-              {currentRecipes.map((recipe, index) => (
-                <div key={index} className="col-md-5 col-lg-3 col-sm-12">
-                  <div className="card">
-                    <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-                      <div className="card">
-                        <img
-                          className="card-img-top"
-                          src={recipe.image}
-                          alt="Card image cap"
-                        />
-                        <div className="card-body">
-                          <p className="card-text recipe-title">
-                            {recipe.title}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
+            <div className="your-recipes-headline">
+              <div
+                className="your-recipes-headline-wrapper"
+                style={{
+                  flexDirection: shouldRecipesHeaderBeColumn && 'column',
+                }}
+              >
+                <div className="recipes-headline-img">
+                  <img src={img1} />
                 </div>
-              ))}
+                <div
+                  className="recipes-headline-text"
+                  style={{ textAlign: shouldRecipesHeaderBeColumn && 'center' }}
+                >
+                  <h1>Your {capitalized} recipes</h1>
+                  <p>
+                    Discover mouth-watering recipes for every occasion! Whether
+                    you're planning to meal prep for the week or you're looking
+                    for an amazing meal, we've gone through our recipes and
+                    gathered a bunch for your meal!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="container">
+              <div className="row">
+                <div className="card-group">
+                  {currentRecipes.map((recipe, index) => (
+                    <div key={index} className="col-md-5 col-lg-3 col-sm-12">
+                      <div className="card">
+                        <Link
+                          className="recipe-links"
+                          to={`/recipes/${recipe.id}`}
+                        >
+                          <div className="card">
+                            <img
+                              className="card-img-top"
+                              src={recipe.image}
+                              alt="Card image cap"
+                            />
+                            <div className="card-body">
+                              <p className="card-text recipe-title">
+                                {recipe.title}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+          <div className="pagination-container">
+            <Pagination
+              postsPerPage={postsPerPage}
+              paginate={paginate}
+              totalPosts={totalPosts}
+            />
+          </div>
+          <Footer />
         </div>
-      </div>
-      <div className="pagination-container">
-        <Pagination
-          postsPerPage={postsPerPage}
-          paginate={paginate}
-          totalPosts={totalPosts}
-        />
-      </div>
-      <Footer />
-    </div>
+      )}
+    </>
   );
 };
 
