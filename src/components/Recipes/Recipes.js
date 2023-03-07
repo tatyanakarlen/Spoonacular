@@ -8,7 +8,6 @@ import RecipeNotFound from '../RecipeNotFound/RecipeNotFound';
 import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import MobileNav from '../MobileNav/MobileNav';
 import { useMediaQuery } from 'react-responsive';
-import Recipe from '../Recipe/Recipe';
 
 const Recipes = ({
   currentRecipes,
@@ -33,16 +32,6 @@ const Recipes = ({
 
   let capitalized = capitalizeFirstLetter(userInput);
   console.log(capitalized);
-
-  let categoryNotFound = '';
-
-  if (userInput != 'African' || 'American') {
-    categoryNotFound = (
-      <div>
-        <h1>Category not found!</h1>
-      </div>
-    );
-  }
 
   if (loading) {
     return <h2>Loading</h2>;
