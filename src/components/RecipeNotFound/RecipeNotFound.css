@@ -1,3 +1,62 @@
 .recipe-not-found {
-  /* text-align: center; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 3rem;
+  margin-top: 5rem;
+}
+
+.recipe-not-found h1 {
+  font-size: 3.5rem;
+  margin-top: -1rem;
+}
+
+.recipe-not-found ul {
+  display: flex;
+  flex-direction: column;
+  list-style: square;
+}
+
+.recipe-not-found img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.recipe-not-found p {
+  font-size: 1.9rem;
+}
+
+.ul-container .btn {
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  justify-self: start;
+  align-self: center;
+  border-radius: 50%;
+  border: 1px solid red;
+  /* margin-right: 5rem; */
+  margin-top: -7rem;
+}
+
+.ul-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.ul-container li {
+  font-size: 1.6rem;
+  padding-left: 0.5rem;
+}
+
+.recipe-not-found-h1-go-home-link {
+  display: flex;
+  gap: 2rem;
+}
+
+.recipe-not-found a {
+  font-weight: bold;
+  color: red;
 }
