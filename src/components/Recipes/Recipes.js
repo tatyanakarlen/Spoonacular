@@ -10,6 +10,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
+  isMobile,
   currentRecipes,
   loading,
   paginate,
@@ -20,9 +21,9 @@ const Recipes = ({
   const shouldRecipesHeaderBeColumn = useMediaQuery({
     query: '(max-width: 750px)',
   });
-  const isMobile = useMediaQuery({
-    query: '(max-width: 575px)',
-  });
+  // const isMobile = useMediaQuery({
+  //   query: '(max-width: 575px)',
+  // });
 
   const capitalizeFirstLetter = (input) => {
     const capitalizedUserInput = input.charAt(0).toUpperCase() + input.slice(1);
@@ -46,7 +47,7 @@ const Recipes = ({
           {isMobile ? <MobileNav /> : <LogoSocialLinks />}
 
           <div
-            className="recipes-index-page"
+            className="recipes-index-page margin"
             style={{ border: isMobile && 'none' }}
           >
             <div className="your-recipes-headline">
@@ -66,7 +67,7 @@ const Recipes = ({
                   <h1>Your {capitalized} recipes</h1>
                   <p>
                     Discover mouth-watering recipes for every occasion! Whether
-                    you're planning to meal prep for the week or you're looking
+                    you're planning to meal prep for the weeks or you're looking
                     for an amazing meal, we've gone through our recipes and
                     gathered a bunch for your meal!
                   </p>

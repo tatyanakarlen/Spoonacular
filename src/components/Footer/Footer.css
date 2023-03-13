@@ -1,5 +1,14 @@
 .footer {
-  padding: 4rem;
+  padding: 1.5rem;
   color: white;
   background-color: black;
+}
+
+.footer span {
+  font-size: 1.3rem;
+}
+
+.footer .content-container {
+  display: flex;
+  align-items: center;
 }

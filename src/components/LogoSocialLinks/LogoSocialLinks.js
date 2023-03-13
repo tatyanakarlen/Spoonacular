@@ -1,6 +1,7 @@
 import React from 'react';
 import './LogoSocialLinks.css';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 const LogoSocialLinks = () => {
   const isMobile = useMediaQuery({
@@ -10,7 +11,9 @@ const LogoSocialLinks = () => {
     <>
       <div className="logo-social-links-container">
         <div className="logo-headline">
-          <h1>CookBook</h1>
+          <h1>
+            <Link to="/">CookBook</Link>
+          </h1>
           {isMobile && <h3>Your source for the best recipes</h3>}
         </div>
         <div className="social-links">

@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
+import { useMediaQuery } from 'react-responsive';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,9 @@ function App() {
   const [postsPerPage, setPostsPerPage] = useState(6);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
