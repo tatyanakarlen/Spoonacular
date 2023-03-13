@@ -18,7 +18,11 @@ const Home = ({
   return (
     <div className="Home">
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
-      <div className="home-page-container margin">
+      <div
+        className={
+          isMobile ? 'home-page-container' : 'home-page-container margin'
+        }
+      >
         <div className="form-container">
           <h1>Enter your desired cuisine</h1>
           <SearchForm

@@ -10,7 +10,6 @@ import MobileNav from '../MobileNav/MobileNav';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
-  isMobile,
   currentRecipes,
   loading,
   paginate,
@@ -21,9 +20,9 @@ const Recipes = ({
   const shouldRecipesHeaderBeColumn = useMediaQuery({
     query: '(max-width: 750px)',
   });
-  // const isMobile = useMediaQuery({
-  //   query: '(max-width: 575px)',
-  // });
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
 
   const capitalizeFirstLetter = (input) => {
     const capitalizedUserInput = input.charAt(0).toUpperCase() + input.slice(1);
@@ -47,7 +46,9 @@ const Recipes = ({
           {isMobile ? <MobileNav /> : <LogoSocialLinks />}
 
           <div
-            className="recipes-index-page margin"
+            className={
+              isMobile ? 'recipes-index-page' : 'recipes-index-page margin'
+            }
             style={{ border: isMobile && 'none' }}
           >
             <div className="your-recipes-headline">
@@ -79,26 +80,24 @@ const Recipes = ({
               <div className="row">
                 <div className="card-group">
                   {currentRecipes.map((recipe, index) => (
-                    <div key={index} className="col-md-5 col-lg-3 col-sm-12">
-                      <div className="card">
-                        <Link
-                          className="recipe-links"
-                          to={`/recipes/${recipe.id}`}
-                        >
-                          <div className="card">
-                            <img
-                              className="card-img-top"
-                              src={recipe.image}
-                              alt="Card image cap"
-                            />
-                            <div className="card-body">
-                              <p className="card-text recipe-title">
-                                {recipe.title}
-                              </p>
-                            </div>
+                    <div className="col-md-5 col-lg-3 col-sm-12 card-column">
+                      <Link
+                        className="recipe-links"
+                        to={`/recipes/${recipe.id}`}
+                      >
+                        <div key={index} className="card">
+                          <img
+                            className="card-img-top"
+                            src={recipe.image}
+                            alt="Card image cap"
+                          />
+                          <div className="card-body">
+                            <p className="card-text recipe-title">
+                              {recipe.title}
+                            </p>
                           </div>
-                        </Link>
-                      </div>
+                        </div>
+                      </Link>
                     </div>
                   ))}
                 </div>
