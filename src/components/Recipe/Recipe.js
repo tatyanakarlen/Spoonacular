@@ -9,15 +9,16 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 
-const Recipe = ({ setLoading, loading }) => {
+const Recipe = ({ setLoading, loading, isMobile }) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
-  const isMobile = useMediaQuery({
-    query: '(max-width: 575px)',
-  });
+  // const isMobile = useMediaQuery({
+  //   query: '(max-width: 575px)',
+  // });
+  // const { isMobile } = MobileMediaQuery;
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -43,11 +44,13 @@ const Recipe = ({ setLoading, loading }) => {
       ) : (
         <div>
           {isMobile ? <MobileNav /> : <LogoSocialLinks />}
-          <div className="recipe-id-page-breadcrumb">
-            FOODIE&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
-            &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
-            &nbsp;&nbsp;{recipe.title}
-          </div>
+          {!isMobile && (
+            <div className="recipe-id-page-breadcrumb margin">
+              FOODIES&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
+              &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
+              &nbsp;&nbsp;{recipe.title}
+            </div>
+          )}
           <div className="recipe-container">
             <h1 className="recipe-title">{recipe.title}</h1>
             <div className="star-icon-container">
@@ -125,15 +128,15 @@ const Recipe = ({ setLoading, loading }) => {
             <h1 id="instructions" className="recipe-heading">
               Instructions
             </h1>
-            {steps.map((step, index) => (
-              <>
-                <ul className="instructions-list">
+            <ul className="instructions-list">
+              {steps.map((step, index) => (
+                <>
                   <li key={index}>
                     {step.number}.&nbsp;{step.step}
                   </li>
-                </ul>
-              </>
-            ))}
+                </>
+              ))}
+            </ul>
           </div>
           <Footer />
         </div>

@@ -3,9 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
 import Footer from '../Footer/Footer.js';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
-import CookBookBrandHeading from '../CookBookBrandHeading/CookBookBrandHeading';
 import MobileNav from '../MobileNav/MobileNav';
-
 import { useMediaQuery } from 'react-responsive';
 
 const Home = ({
@@ -20,7 +18,11 @@ const Home = ({
   return (
     <div className="Home">
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
-      <div className="home-page-container">
+      <div
+        className={
+          isMobile ? 'home-page-container' : 'home-page-container margin'
+        }
+      >
         <div className="form-container">
           <h1>Enter your desired cuisine</h1>
           <SearchForm

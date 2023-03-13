@@ -100,6 +100,11 @@
   list-style: none;
   margin-left: -2rem;
   margin-top: 4rem;
+  padding-bottom: 6rem;
+}
+
+.instructions-list li:not(:first-child) {
+  padding-top: 3rem;
 }
 
 .recipe-container .health-info {

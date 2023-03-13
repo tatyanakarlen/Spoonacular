@@ -19,12 +19,13 @@ const SearchForm = ({ setFilteredRecipes, userInput, setUserInput }) => {
       );
       setFilteredRecipes(res.data.results);
       navigate('/recipes');
-      console.log('this is user input', userInput);
+      
     } catch (err) {
       console.log("couldn't fetch recipes");
     }
   }
 
+  
   return (
     <div>
       <form>

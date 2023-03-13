@@ -5,12 +5,20 @@
   padding: 1rem 4rem;
   background-color: black;
   color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 }
 
 .logo-headline {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.logo-headline a {
+  text-decoration: none;
 }
 
 .logo-social-links-container h1 {

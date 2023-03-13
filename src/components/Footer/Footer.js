@@ -3,7 +3,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <div className="footer">
-      <h1>CookBook All Rights Reserved</h1>
+      <div className="row align-items-center">
+        <h1>
+          CookBook <span>&#169;All Rights Reserved</span>
+        </h1>
+      </div>
     </div>
   );
 };
