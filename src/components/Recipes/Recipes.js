@@ -80,7 +80,13 @@ const Recipes = ({
               <div className="row">
                 <div className="card-group">
                   {currentRecipes.map((recipe, index) => (
-                    <div className="col-md-5 col-lg-3 col-sm-12 card-column">
+                    <div
+                      className={
+                        isMobile
+                          ? 'col-md-5 col-lg-3 col-sm-12 card-column'
+                          : 'col-md-5 col-lg-3 col-sm-12'
+                      }
+                    >
                       <Link
                         className="recipe-links"
                         to={`/recipes/${recipe.id}`}
