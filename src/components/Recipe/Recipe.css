@@ -1,11 +1,17 @@
 .recipe-id-page-breadcrumb {
   background-color: #ddddddde;
-  padding: 5rem;
+  padding: 3rem;
   text-align: left;
   align-self: stretch;
   display: flex;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 640px) {
+  .recipe-id-page-breadcrumb {
+    padding: 2rem;
+  }
 }
 
 .recipe-container {
@@ -49,10 +55,21 @@
   font-style: italic;
 }
 
-.recipe-container .recipe-title {
+.recipe-container .single-recipe-title {
   font-size: 3rem;
   margin-top: 2rem;
+  color: black;
+  font-weight: bold;
 }
+
+/* text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
 
 .recipe-container .recipe-heading {
   margin-top: 3rem;

@@ -18,7 +18,8 @@ const Recipe = ({ setLoading, loading }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-  // const { isMobile } = MobileMediaQuery;
+  
+  
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -52,7 +53,7 @@ const Recipe = ({ setLoading, loading }) => {
             </div>
           )}
           <div className="recipe-container">
-            <h1 className="recipe-title">{recipe.title}</h1>
+            <h1 className="single-recipe-title">{recipe.title}</h1>
             <div className="star-icon-container">
               <img src={star} alt="star" />
               <img src={star} alt="star" />
