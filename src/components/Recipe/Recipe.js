@@ -9,15 +9,15 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 
-const Recipe = ({ setLoading, loading, isMobile }) => {
+const Recipe = ({ setLoading, loading }) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   let idAsNum = Number(recipeId);
-  // const isMobile = useMediaQuery({
-  //   query: '(max-width: 575px)',
-  // });
+  const isMobile = useMediaQuery({
+    query: '(max-width: 575px)',
+  });
   // const { isMobile } = MobileMediaQuery;
 
   useEffect(() => {
