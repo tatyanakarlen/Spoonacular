@@ -35,6 +35,15 @@
   align-items: center;
 }
 
+.recipe-container .like-button {
+  /* position: absolute;
+  right: 0; */
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+
 .jump-to-instructions-link {
   color: black;
   text-decoration: none;

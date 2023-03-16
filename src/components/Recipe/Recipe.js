@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 
-const Recipe = ({ setLoading, loading }) => {
+const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
@@ -18,8 +18,6 @@ const Recipe = ({ setLoading, loading }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-  
-  
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -38,6 +36,12 @@ const Recipe = ({ setLoading, loading }) => {
     fetchRecipe();
   }, []);
 
+  const addToLikes = () => {
+    const likedRecipe = Object.assign({}, recipe);
+    console.log(likedRecipe);
+    setLikedRecipes([...likedRecipes, likedRecipe]);
+  };
+
   return (
     <>
       {loading ? (
@@ -47,7 +51,7 @@ const Recipe = ({ setLoading, loading }) => {
           {isMobile ? <MobileNav /> : <LogoSocialLinks />}
           {!isMobile && (
             <div className="recipe-id-page-breadcrumb margin">
-              FOODIES&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
+              COOKBOOK&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;{recipe.title}
             </div>
@@ -62,6 +66,9 @@ const Recipe = ({ setLoading, loading }) => {
               <img src={star} alt="star" />
               <h5>5 STARS / 75 REVIEWS</h5>
             </div>
+            <button onClick={addToLikes} class="like-button">
+              LIKE
+            </button>
             <p className="recipe-headline">
               This delicious recipe is a quick and easy meal that is sure to
               impress. The rich texture and savory taste combine perfectly for a

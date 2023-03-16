@@ -16,6 +16,7 @@ function App() {
   const [postsPerPage, setPostsPerPage] = useState(6);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [likedRecipes, setLikedRecipes] = useState([]);
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -73,6 +74,8 @@ function App() {
                 filteredRecipes={filteredRecipes}
                 loading={loading}
                 setLoading={setLoading}
+                likedRecipes={likedRecipes}
+                setLikedRecipes={setLikedRecipes}
               />
             }
           />
