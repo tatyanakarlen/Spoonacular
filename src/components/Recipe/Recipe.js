@@ -14,6 +14,7 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [likedHeartActive, setlikedHeartActive] = useState(false);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
@@ -42,6 +43,8 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
     setLikedRecipes([...likedRecipes, likedRecipe]);
   };
 
+  console.log('likedheart', likedHeartActive);
+
   return (
     <>
       {loading ? (
@@ -66,11 +69,16 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
               <img src={star} alt="star" />
               <h5>5 STARS / 75 REVIEWS</h5>
             </div>
-            <button onClick={addToLikes} class="like-button">
-              LIKE
-            </button>
+            <div
+              onClick={() => {
+                addToLikes();
+                setlikedHeartActive(!likedHeartActive);
+              }}
+              class={likedHeartActive ? 'like-button liked' : 'like-button'}
+            ></div>
+
             <p className="recipe-headline">
-              This delicious recipe is a quick and easy meal that is sure to
+              This delicious recipes is a quick and easy meal that is sure to
               impress. The rich texture and savory taste combine perfectly for a
               delicious and healthy meal.
             </p>
@@ -120,29 +128,25 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
             </h3>
             <h1 className="recipe-heading">Ingredients</h1>
             {ingredients.map((ingredient, index) => (
-              <>
-                <ul className="ingredients-list">
-                  <li key={index}>
-                    {ingredient.name},{' '}
-                    <span>
-                      {ingredient.amount.metric.value}
-                      &nbsp;
-                      {ingredient.amount.metric.unit}
-                    </span>
-                  </li>
-                </ul>
-              </>
+              <ul className="ingredients-list">
+                <li key={index}>
+                  {ingredient.name},{' '}
+                  <span>
+                    {ingredient.amount.metric.value}
+                    &nbsp;
+                    {ingredient.amount.metric.unit}
+                  </span>
+                </li>
+              </ul>
             ))}
             <h1 id="instructions" className="recipe-heading">
               Instructions
             </h1>
             <ul className="instructions-list">
               {steps.map((step, index) => (
-                <>
-                  <li key={index}>
-                    {step.number}.&nbsp;{step.step}
-                  </li>
-                </>
+                <li key={index}>
+                  {step.number}.&nbsp;{step.step}
+                </li>
               ))}
             </ul>
           </div>
