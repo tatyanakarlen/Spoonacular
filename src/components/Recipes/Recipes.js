@@ -16,8 +16,6 @@ const Recipes = ({
   postsPerPage,
   totalPosts,
   userInput,
-  likedRecipes,
-  setLikedRecipes,
 }) => {
   const shouldRecipesHeaderBeColumn = useMediaQuery({
     query: '(max-width: 750px)',
@@ -94,7 +92,7 @@ const Recipes = ({
                         to={`/recipes/${recipe.id}`}
                       >
                         <div key={index} className="card">
-                          <button>LIKE</button>
+              
                           <img
                             className="card-img-top"
                             src={recipe.image}

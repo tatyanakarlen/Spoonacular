@@ -59,13 +59,14 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card button {
+/* .card button {
   position: absolute;
   right: 0;
   background-color: red;
   color: white;
   padding: 0.5rem;
-}
+  z-index: 1000; 
+} */
 
 .recipe-links {
   text-decoration: none;

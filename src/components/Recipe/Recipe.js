@@ -60,7 +60,16 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
             </div>
           )}
           <div className="recipe-container">
-            <h1 className="single-recipe-title">{recipe.title}</h1>
+            <div class="title-like-heart-container">
+              <h1 className="single-recipe-title">{recipe.title}</h1>
+              <div
+                onClick={() => {
+                  addToLikes();
+                  setlikedHeartActive(!likedHeartActive);
+                }}
+                class={likedHeartActive ? 'like-button liked' : 'like-button'}
+              ></div>
+            </div>
             <div className="star-icon-container">
               <img src={star} alt="star" />
               <img src={star} alt="star" />
@@ -69,16 +78,9 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
               <img src={star} alt="star" />
               <h5>5 STARS / 75 REVIEWS</h5>
             </div>
-            <div
-              onClick={() => {
-                addToLikes();
-                setlikedHeartActive(!likedHeartActive);
-              }}
-              class={likedHeartActive ? 'like-button liked' : 'like-button'}
-            ></div>
 
             <p className="recipe-headline">
-              This delicious recipes is a quick and easy meal that is sure to
+              This delicious recipe is a quick and easy meal that is sure to
               impress. The rich texture and savory taste combine perfectly for a
               delicious and healthy meal.
             </p>

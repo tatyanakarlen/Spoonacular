@@ -35,13 +35,20 @@
   align-items: center;
 }
 
+.recipe-container .title-like-heart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .recipe-container .like-button {
+  margin-right: 9rem;
   position: relative;
-  width: 160px;
-  height: 130px;
+  height: 1rem;
 }
 
 .recipe-container .like-button:before {
+  /* // original
   position: absolute;
   top: 0;
   left: 80px;
@@ -53,10 +60,23 @@
   background-color: #cabbb3;
   content: '';
   cursor: pointer;
+  transition: background 0.4s; */
+  position: absolute;
+  top: 0;
+  left: 6.5rem;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  width: 2.3rem;
+  height: 3.5rem;
+  border-radius: 40px 40px 0 0;
+  background-color: #cabbb3;
+  content: '';
+  cursor: pointer;
   transition: background 0.4s;
 }
 
 .recipe-container .like-button:after {
+  /* // original 
   position: absolute;
   top: 0;
   left: 0;
@@ -64,6 +84,18 @@
   transform-origin: 100% 100%;
   width: 80px;
   height: 125px;
+  border-radius: 40px 40px 0 0;
+  background-color: #cabbb3;
+  content: '';
+  cursor: pointer;
+  transition: background 0.4s; */
+  position: absolute;
+  top: 0px;
+  left: 4.3rem;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  width: 2.3rem;
+  height: 3.5rem;
   border-radius: 40px 40px 0 0;
   background-color: #cabbb3;
   content: '';
