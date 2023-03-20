@@ -15,6 +15,7 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   const [likedHeartActive, setlikedHeartActive] = useState(false);
+  const [isRecipeLiked, setIsRecipeLiked] = useState(false);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
@@ -41,9 +42,52 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
     const likedRecipe = Object.assign({}, recipe);
     console.log(likedRecipe);
     setLikedRecipes([...likedRecipes, likedRecipe]);
+    setIsRecipeLiked(true);
   };
 
-  console.log('likedheart', likedHeartActive);
+  // isRecipeLiked, setIsRecipeLiked
+
+  // let currentRecipeId = recipe.id;
+  // console.log('this is current recipe ID', currentRecipeId);
+  // const found = likedRecipes.find((recipe) => recipe.id === currentRecipeId);
+  // found && console.log('found ID', found.id);
+  // const index = likedRecipes.findIndex(function (recipe) {
+  //   return recipe.id === found.id;
+  // });
+  // found && console.log('index of found', index);
+
+  //   const index = notes.findIndex(function (note, index) {
+  //     console.log(note)
+  //     return note.title === "Habits to work on"
+  //  })
+
+  const toggleLike = () => {
+    const foundLikedRecipe = likedRecipes.find(
+      (recipe) => recipe.id === recipe.id
+    );
+    console.log('found liked recipe', foundLikedRecipe);
+    if (foundLikedRecipe !== undefined) {
+      const indexOfFound = likedRecipes.findIndex(
+        (recipe) => recipe.id === foundLikedRecipe.id
+      );
+      console.log('index of found recipe', indexOfFound);
+    } else {
+      console.log('this recipe is not liked');
+    }
+  };
+
+  //   :
+
+  //   // const findNote = function (notes, noteTitle) {
+  //   //   return notes.find(function (note, index) {
+  //   //     return note.title.toLowerCase() === noteTitle.toLowerCase();
+  //   //   });
+  //   // };
+
+  //   const likedRecipe = Object.assign({}, recipe);
+  //   console.log(likedRecipe);
+  //   setLikedRecipes([...likedRecipes, likedRecipe]);
+  // };
 
   return (
     <>
@@ -61,7 +105,9 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
           )}
           <div className="recipe-container">
             <div class="title-like-heart-container">
-              <h1 className="single-recipe-title">{recipe.title}</h1>
+              <h1 onClick={toggleLike} className="single-recipe-title">
+                {recipe.title}
+              </h1>
               <div
                 onClick={() => {
                   addToLikes();
