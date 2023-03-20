@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
@@ -14,7 +14,7 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
-  const [likedHeartActive, setlikedHeartActive] = useState(false);
+  // const [likedHeartActive, setlikedHeartActive] = useState(false);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
@@ -38,56 +38,28 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
     fetchRecipe();
   }, []);
 
-  const addToLikes = () => {
-    const likedRecipe = Object.assign({}, recipe);
-    console.log(likedRecipe);
-    setLikedRecipes([...likedRecipes, likedRecipe]);
-    setIsRecipeLiked(true);
-  };
-
-  // isRecipeLiked, setIsRecipeLiked
-
-  // let currentRecipeId = recipe.id;
-  // console.log('this is current recipe ID', currentRecipeId);
-  // const found = likedRecipes.find((recipe) => recipe.id === currentRecipeId);
-  // found && console.log('found ID', found.id);
-  // const index = likedRecipes.findIndex(function (recipe) {
-  //   return recipe.id === found.id;
-  // });
-  // found && console.log('index of found', index);
-
-  //   const index = notes.findIndex(function (note, index) {
-  //     console.log(note)
-  //     return note.title === "Habits to work on"
-  //  })
-
   const toggleLike = () => {
-    const foundLikedRecipe = likedRecipes.find(
+    let foundLikedRecipe = likedRecipes.find(
       (recipe) => recipe.id === recipe.id
     );
-    console.log('found liked recipe', foundLikedRecipe);
+
     if (foundLikedRecipe !== undefined) {
       const indexOfFound = likedRecipes.findIndex(
         (recipe) => recipe.id === foundLikedRecipe.id
       );
-      console.log('index of found recipe', indexOfFound);
+
+      likedRecipes.splice(indexOfFound, 1);
+      foundLikedRecipe = undefined;
+      setIsRecipeLiked(false);
+      console.log(likedRecipes);
     } else {
-      console.log('this recipe is not liked');
+      const likedRecipe = Object.assign({}, recipe);
+      setLikedRecipes([...likedRecipes, likedRecipe]);
+      setIsRecipeLiked(true);
     }
   };
 
-  //   :
-
-  //   // const findNote = function (notes, noteTitle) {
-  //   //   return notes.find(function (note, index) {
-  //   //     return note.title.toLowerCase() === noteTitle.toLowerCase();
-  //   //   });
-  //   // };
-
-  //   const likedRecipe = Object.assign({}, recipe);
-  //   console.log(likedRecipe);
-  //   setLikedRecipes([...likedRecipes, likedRecipe]);
-  // };
+  console.log('these are liked recipes', likedRecipes);
 
   return (
     <>
@@ -109,11 +81,8 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
                 {recipe.title}
               </h1>
               <div
-                onClick={() => {
-                  addToLikes();
-                  setlikedHeartActive(!likedHeartActive);
-                }}
-                class={likedHeartActive ? 'like-button liked' : 'like-button'}
+                onClick={toggleLike}
+                class={isRecipeLiked ? 'like-button liked' : 'like-button'}
               ></div>
             </div>
             <div className="star-icon-container">
