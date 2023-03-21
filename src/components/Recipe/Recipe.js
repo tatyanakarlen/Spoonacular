@@ -14,7 +14,6 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
-  // const [likedHeartActive, setlikedHeartActive] = useState(false);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
@@ -38,20 +37,36 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
     fetchRecipe();
   }, []);
 
+  useEffect(() => {
+    const isCurrentRecipeLiked = () => {
+      let currentRecipeId = recipe.id;
+      if (likedRecipes.some((recipe) => recipe.id === currentRecipeId)) {
+        console.log(
+          'recipe is in liked',
+          likedRecipes,
+          'isrecipeLiked?',
+          isRecipeLiked
+        );
+        setIsRecipeLiked(true);
+      } else {
+        console.log(
+          'recipe is not in liked',
+          likedRecipes,
+          'isrecipeLiked?',
+          isRecipeLiked
+        );
+      }
+      return function cleanup() {
+        setIsRecipeLiked(false);
+      };
+    };
+    isCurrentRecipeLiked();
+  });
+
   const toggleLike = () => {
-    let foundLikedRecipe = likedRecipes.find(
-      (recipe) => recipe.id === recipe.id
-    );
-
-    if (foundLikedRecipe !== undefined) {
-      const indexOfFound = likedRecipes.findIndex(
-        (recipe) => recipe.id === foundLikedRecipe.id
-      );
-
-      likedRecipes.splice(indexOfFound, 1);
-      foundLikedRecipe = undefined;
+    if (isRecipeLiked) {
+      setLikedRecipes(likedRecipes.filter((recipe) => recipe.id !== recipe.id));
       setIsRecipeLiked(false);
-      console.log(likedRecipes);
     } else {
       const likedRecipe = Object.assign({}, recipe);
       setLikedRecipes([...likedRecipes, likedRecipe]);
@@ -91,7 +106,9 @@ const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
               <img src={star} alt="star" />
               <img src={star} alt="star" />
               <img src={star} alt="star" />
-              <h5>5 STARS / 75 REVIEWS</h5>
+              <h5 onClick={() => console.log('is recipe liked', isRecipeLiked)}>
+                5 STARS / 75 REVIEWS
+              </h5>
             </div>
 
             <p className="recipe-headline">
