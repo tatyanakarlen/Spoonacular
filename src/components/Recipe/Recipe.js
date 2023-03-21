@@ -9,12 +9,18 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 
-const Recipe = ({ setLoading, loading, likedRecipes, setLikedRecipes }) => {
+const Recipe = ({
+  setLoading,
+  loading,
+  likedRecipes,
+  setLikedRecipes,
+  isRecipeLiked,
+  setIsRecipeLiked,
+}) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
-  const [isRecipeLiked, setIsRecipeLiked] = useState(false);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',

@@ -14,6 +14,9 @@ const LogoSocialLinks = () => {
           <h1>
             <Link to="/">CookBook</Link>
           </h1>
+          <h3>
+            <Link to="/liked">Liked</Link>
+          </h3>
           {isMobile && <h3>Your source for the best recipes</h3>}
         </div>
         <div className="social-links">

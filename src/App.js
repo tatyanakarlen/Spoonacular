@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
+import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ function App() {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
+  const [isRecipeLiked, setIsRecipeLiked] = useState(false);
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -76,8 +78,14 @@ function App() {
                 setLoading={setLoading}
                 likedRecipes={likedRecipes}
                 setLikedRecipes={setLikedRecipes}
+                isRecipeLiked={isRecipeLiked}
+                setIsRecipeLiked={setIsRecipeLiked}
               />
             }
+          />
+          <Route
+            path="/liked"
+            element={<LikedRecipes likedRecipes={likedRecipes} />}
           />
         </Routes>
       </div>

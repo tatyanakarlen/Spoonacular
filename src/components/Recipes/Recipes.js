@@ -26,12 +26,10 @@ const Recipes = ({
 
   const capitalizeFirstLetter = (input) => {
     const capitalizedUserInput = input.charAt(0).toUpperCase() + input.slice(1);
-    console.log('capitalized', capitalizedUserInput);
     return capitalizedUserInput;
   };
 
   let capitalized = capitalizeFirstLetter(userInput);
-  console.log(capitalized);
 
   if (loading) {
     return <h2>Loading</h2>;
@@ -92,7 +90,6 @@ const Recipes = ({
                         to={`/recipes/${recipe.id}`}
                       >
                         <div key={index} className="card">
-              
                           <img
                             className="card-img-top"
                             src={recipe.image}
