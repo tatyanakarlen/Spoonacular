@@ -55,6 +55,7 @@ const Recipe = ({
         );
         setIsRecipeLiked(true);
       } else {
+        setIsRecipeLiked(false);
         console.log(
           'recipe is not in liked',
           likedRecipes,
@@ -71,7 +72,10 @@ const Recipe = ({
 
   const toggleLike = () => {
     if (isRecipeLiked) {
-      setLikedRecipes(likedRecipes.filter((recipe) => recipe.id !== recipe.id));
+      const currentRecipeId = recipe.id;
+      setLikedRecipes(
+        likedRecipes.filter((recipe) => recipe.id !== currentRecipeId)
+      );
       setIsRecipeLiked(false);
     } else {
       const likedRecipe = Object.assign({}, recipe);
