@@ -16,7 +16,8 @@ const LikedRecipes = ({ likedRecipes }) => {
     <div class="likedRecipesContainer">
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div class="liked-recipes-breadcrumb">
-        COOKBOOK&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
+        <Link to="/">HOME</Link>&nbsp;&nbsp;
+        <i className="bi bi-chevron-right"></i>
         &nbsp;&nbsp;Your Liked Recipes
       </div>
       <div

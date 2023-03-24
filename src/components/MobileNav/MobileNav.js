@@ -56,7 +56,12 @@ const MobileNav = () => {
         </div>
         <h1 className="foodie-header">CookBook</h1>
         <ul style={expandedMenuList} className="nav-menu-list">
-          <li style={expandedListItems}>HOME</li>
+          <li style={expandedListItems}>
+            <Link to="/">HOME</Link>
+          </li>
+          <li style={expandedListItems}>
+            <Link to="/liked">LIKED</Link>
+          </li>
 
           <li style={expandedListItems}>INSTAGRAM</li>
           <li style={expandedListItems}>FACEBOOK</li>

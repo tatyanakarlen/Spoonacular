@@ -20,20 +20,20 @@ const LogoSocialLinks = () => {
         <div className="social-links">
           <ul>
             <li>
-              <i className="bi bi-instagram"></i>
+              <i className="bi bi-instagram nav-icons"></i>
             </li>
             <li>
-              <i className="bi bi-facebook"></i>
+              <i className="bi bi-facebook nav-icons"></i>
             </li>
             <li>
-              <i className="bi bi-twitter"></i>
+              <i className="bi bi-twitter nav-icons"></i>
             </li>
             <li>
-              <i className="bi bi-youtube"></i>
+              <i className="bi bi-youtube nav-icons"></i>
             </li>
             <li>
               <Link className="nav-link" to="/liked">
-                <i id="heart-icon" class="bi bi-heart-fill"></i>Liked
+                <i class="bi bi-heart-fill heart-icon"></i>Liked
               </Link>
             </li>
           </ul>

@@ -8,6 +8,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 const Recipe = ({
   setLoading,
@@ -95,7 +96,8 @@ const Recipe = ({
           {isMobile ? <MobileNav /> : <LogoSocialLinks />}
           {!isMobile && (
             <div className="recipe-id-page-breadcrumb margin">
-              COOKBOOK&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
+              <Link to="/">HOME</Link>&nbsp;&nbsp;
+              <i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;{recipe.title}
             </div>
