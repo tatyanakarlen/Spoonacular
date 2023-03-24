@@ -3,6 +3,7 @@ import MobileNav from '../MobileNav/MobileNav';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import { Link } from 'react-router-dom';
 import './LikedRecipes.css';
+import Footer from '../Footer/Footer';
 
 const LikedRecipes = ({ likedRecipes }) => {
   const isMobile = useMediaQuery({
@@ -14,18 +15,29 @@ const LikedRecipes = ({ likedRecipes }) => {
   return (
     <div class="likedRecipesContainer">
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+      <div class="liked-recipes-breadcrumb">
+        COOKBOOK&nbsp;&nbsp;<i className="bi bi-chevron-right"></i>
+        &nbsp;&nbsp;Your Liked Recipes
+      </div>
       <div
         class="inner-liked-recipes-wrapper"
-        style={{ marginTop: isMobile ? '1.25rem' : '9rem' }}
+        style={{ marginTop: isMobile && '1.25rem' }}
       >
-        <h1>Welcome, Jane!</h1>
-        <h3>Your Liked Recipes</h3>
-        <Link to="/liked"></Link>
-
         {likedRecipes.length === 0 ? (
-          <h1>You don't have any likes recipes! </h1>
+          <div class="no-liked-recipes">
+            <h1>You don't have any liked recipes yet! </h1>
+            <p>
+              Head home to search for recipes, click on recipes and click the
+              heart to add to your saved!!
+            </p>
+            <Link to="/">
+              <button type="button" class="btn btn-primary btn-lg go-home-btn">
+                Home
+              </button>
+            </Link>
+          </div>
         ) : (
-          <div className="container">
+          <div className="container liked-recipe-container">
             <div className="row">
               <div className="card-group">
                 {likedRecipes.map((recipe, index) => (
@@ -57,6 +69,7 @@ const LikedRecipes = ({ likedRecipes }) => {
             </div>
           </div>
         )}
+        <Footer />
       </div>
     </div>
   );

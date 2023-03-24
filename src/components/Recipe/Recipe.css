@@ -1,11 +1,11 @@
 .recipe-id-page-breadcrumb {
-  background-color: #ddddddde;
-  padding: 3rem;
+  background-color: #faeeee;
+  padding: 3rem 4.3rem;
   text-align: left;
   align-self: stretch;
   display: flex;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 640px) {
@@ -42,7 +42,7 @@
 }
 
 .recipe-container .like-button {
-  margin-right: 9rem;
+  margin-right: 8rem;
   position: relative;
   height: 1.8rem;
 }
@@ -164,7 +164,7 @@
 }
 
 .recipe-container .health-info {
-  color: rgb(94, 93, 93);
+  color: rgb(63, 62, 62);
   margin-top: 1.5rem;
 }
 
@@ -187,14 +187,14 @@
   font-size: 1.4rem;
   margin-bottom: -0.3rem;
   margin-left: 1rem;
-  color: rgb(94, 93, 93);
+  color: rgb(63, 62, 62);
   font-weight: bold;
 }
 
 .ingredients-list {
   margin-left: -1rem;
   font-size: 1.7rem;
-  color: rgb(94, 93, 93);
+  color: rgb(63, 62, 62);
   font-weight: 600;
 }
 
@@ -212,6 +212,6 @@
 }
 
 .recipe-container .health-info {
-  color: rgb(94, 93, 93);
+  color: rgb(63, 62, 62);
   margin-top: 1.5rem;
 }

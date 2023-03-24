@@ -1,5 +1,5 @@
 .recipes-index-page {
-  border-top: 1px solid #d0d0d0d1;
+  border-top: 1px solid #faeeee;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 .your-recipes-headline {
-  background-color: #ddddddde;
+  background-color: #faeeee;
   padding: 5rem;
   text-align: center;
   align-self: stretch;
@@ -29,10 +29,15 @@
 
 .your-recipes-headline .recipes-headline-text h1 {
   font-size: 3rem;
+  color: black;
 }
 
 .your-recipes-headline .recipes-headline-text p {
   margin-top: 1.5rem;
+  color: rgb(63, 62, 62);
+  letter-spacing: 1.1px;
+
+  font-weight: 500;
 }
 
 .container {
@@ -86,7 +91,7 @@
   color: black;
   text-align: center;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

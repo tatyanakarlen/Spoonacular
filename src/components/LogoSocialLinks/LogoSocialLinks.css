@@ -31,16 +31,21 @@
 
 .logo-social-links-container .social-links ul {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   list-style: none;
   align-items: center;
 }
 
 .logo-social-links-container .social-links i {
-  font-size: 3rem;
+  font-size: 2.75rem;
   color: white;
 }
 
-hr {
-  margin: unset;
+.logo-social-links-container .social-links .nav-link {
+  font-size: 2rem;
+}
+
+.logo-social-links-container .social-links #heart-icon {
+  color: red;
+  padding-right: 0.7rem;
 }
