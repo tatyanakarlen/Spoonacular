@@ -1,0 +1,32 @@
+.liked-recipes-breadcrumb {
+  margin-top: 7rem;
+  background-color: #faeeee;
+  padding: 3rem 4.3rem;
+  text-align: left;
+  align-self: stretch;
+  display: flex;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.liked-recipe-container {
+  height: 100vh;
+}
+
+.no-liked-recipes {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 4rem 2rem;
+  gap: 1.5rem;
+}
+
+.no-liked-recipes p {
+  font-size: 1.7rem;
+}
+
+.go-home-btn {
+  font-size: 1.6rem;
+}
