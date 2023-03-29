@@ -10,6 +10,7 @@ import {
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
+import Auth from './components/Auth/Auth';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -87,6 +88,7 @@ function App() {
             path="/liked"
             element={<LikedRecipes likedRecipes={likedRecipes} />}
           />
+          <Route path="/login" element={<Auth />} />
         </Routes>
       </div>
     </Router>
