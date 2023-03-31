@@ -10,12 +10,12 @@ import { getStorage } from 'firebase/storage';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
-  authDomain: 'fir-course-472c1.firebaseapp.com',
-  projectId: 'fir-course-472c1',
-  storageBucket: 'fir-course-472c1.appspot.com',
-  messagingSenderId: '1038081350476',
-  appId: '1:1038081350476:web:c8bec49244d69dd0338de9',
-  measurementId: 'G-3P1E10KSP8',
+  authDomain: 'cookbook-2ab20.firebaseapp.com',
+  projectId: 'cookbook-2ab20',
+  storageBucket: 'cookbook-2ab20.appspot.com',
+  messagingSenderId: '867350987665',
+  appId: '1:867350987665:web:15990e0f0af73c9f4e9030',
+  measurementId: 'G-NPK0746M2Z',
 };
 
 // Initialize Firebase

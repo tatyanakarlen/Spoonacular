@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Recipes from './components/Recipes/Recipes';
 import './App.css';
 import {
@@ -11,15 +11,31 @@ import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import Auth from './components/Auth/Auth';
+import { db, storage } from './config/firebase-config';
+import {
+  getDocs,
+  collection,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  doc,
+} from 'firebase/firestore';
+// import { getDoc } from 'firebase/firestore';
+import { ref } from 'firebase/storage';
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [postsPerPage] = useState(6);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
+  // testing
+  const [testLikedRecipesState, setTestLikedRecipesState] = useState([]);
+
+  //firestore data ref
+  const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -33,6 +49,25 @@ function App() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const getLikedRecipes = async () => {
+    try {
+      const data = await getDocs(likedRecipesCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      console.log('data', filteredData);
+      setTestLikedRecipesState(filteredData);
+      console.log('liked recipes', testLikedRecipesState);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getLikedRecipes();
+  }, []);
 
   return (
     <Router>
@@ -81,6 +116,9 @@ function App() {
                 setLikedRecipes={setLikedRecipes}
                 isRecipeLiked={isRecipeLiked}
                 setIsRecipeLiked={setIsRecipeLiked}
+                testLikedRecipesState={testLikedRecipesState}
+                setTestLikedRecipesState={setTestLikedRecipesState}
+                getLikedRecipes={getLikedRecipes}
               />
             }
           />

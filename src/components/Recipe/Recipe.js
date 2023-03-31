@@ -9,6 +9,8 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import { db, auth } from '../../config/firebase-config';
+import { getDocs, collection, addDoc } from 'firebase/firestore';
 
 const Recipe = ({
   setLoading,
@@ -17,6 +19,9 @@ const Recipe = ({
   setLikedRecipes,
   isRecipeLiked,
   setIsRecipeLiked,
+  getLikedRecipes,
+  testLikedRecipesState,
+  setTestLikedRecipesState,
 }) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
@@ -26,6 +31,23 @@ const Recipe = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
+  //firestore data ref
+  const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
+
+  // data model for liked recipes
+  // recipe.id
+  // recipe.title
+  // recipe.image
+  // introParagraph
+  // recipe.glutenFree
+  // recipe.dairyFree
+  // recipe.lowFodmap
+  // recipe.vegetarian
+  // recipe.vegan
+  // recipe.veryHealthy
+  // recipe.ingredients (array)
+  // recipe.steps (array)
+  // likedByUserId
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -48,21 +70,9 @@ const Recipe = ({
     const isCurrentRecipeLiked = () => {
       let currentRecipeId = recipe.id;
       if (likedRecipes.some((recipe) => recipe.id === currentRecipeId)) {
-        console.log(
-          'recipe is in liked',
-          likedRecipes,
-          'isrecipeLiked?',
-          isRecipeLiked
-        );
         setIsRecipeLiked(true);
       } else {
         setIsRecipeLiked(false);
-        console.log(
-          'recipe is not in liked',
-          likedRecipes,
-          'isrecipeLiked?',
-          isRecipeLiked
-        );
       }
       return function cleanup() {
         setIsRecipeLiked(false);
@@ -85,9 +95,31 @@ const Recipe = ({
     }
   };
 
-  console.log('these are liked recipes', likedRecipes);
+  const addToLikes = async () => {
+    if (auth.currentUser === null) {
+      console.log('you cannot post');
+      return;
+    } else {
+      try {
+        const currentRecipe = recipe;
+        console.log('this is the recipe', currentRecipe);
+        await addDoc(likedRecipesCollectionRef, {
+          title: currentRecipe.title,
+          introParagaph: 'delicious recipe for you!',
+          id: currentRecipe.id,
+          likedByUserId: auth?.currentUser?.uid,
+          image: currentRecipe.image,
+        });
+        getLikedRecipes();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
 
   return (
+    // test input for adding
+    // input onChange={(e) => toggleLike()}
     <>
       {loading ? (
         <Loader />
@@ -104,6 +136,7 @@ const Recipe = ({
           )}
           <div className="recipe-container">
             <div class="title-like-heart-container">
+              <button onClick={addToLikes}>Add To Likes Firebase!</button>
               <h1 onClick={toggleLike} className="single-recipe-title">
                 {recipe.title}
               </h1>
@@ -195,6 +228,23 @@ const Recipe = ({
                 </li>
               ))}
             </ul>
+
+            {/* <div className="subCategories">
+        {nav.map((item) => (
+          <div className="subCategory">
+            <img src={item.img} />
+            {item.subCatergories.map((subCategory) => (
+              <>
+                <h3>{subCategory.title}</h3>
+                {subCategory.links.map((link) => (
+                  <a href={link.url}>{link.name}</a>
+                ))}
+              </>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div> */}
           </div>
           <Footer />
         </div>
