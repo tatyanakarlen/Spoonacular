@@ -10,7 +10,17 @@ import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { db, auth } from '../../config/firebase-config';
-import { getDocs, collection, addDoc } from 'firebase/firestore';
+import {
+  getDb,
+  getDocs,
+  getDoc,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  where,
+  query,
+} from 'firebase/firestore';
 
 const Recipe = ({
   setLoading,
@@ -69,6 +79,7 @@ const Recipe = ({
   useEffect(() => {
     const isCurrentRecipeLiked = () => {
       let currentRecipeId = recipe.id;
+
       if (likedRecipes.some((recipe) => recipe.id === currentRecipeId)) {
         setIsRecipeLiked(true);
       } else {
@@ -95,22 +106,72 @@ const Recipe = ({
     }
   };
 
+  // var jobskill_query = db.collection('job_skills').where('job_id','==',post.job_id);
+  // jobskill_query.get().then(function(querySnapshot) {
+  //   querySnapshot.forEach(function(doc) {
+  //     doc.ref.delete();
+  //   });
+  // });
+
+  // const data = await getDocs(likedRecipesCollectionRef);
+
+  const deleteRecipeFromLiked = async () => {
+    const recipeId = recipe.id;
+
+    const q = query(
+      likedRecipesCollectionRef,
+      where('spoonacularId', '==', recipeId)
+    );
+    const doc_refs = await getDocs(q);
+
+    const res = [];
+
+    doc_refs.forEach((recipe) => {
+      res.push({
+        id: recipe.id,
+        ...recipe.data(),
+      });
+    });
+    console.log('this is the response', res);
+    const recipeToDeleteDoc = doc(db, 'userLikedRecipes', res[0].id);
+    await deleteDoc(recipeToDeleteDoc);
+    setTestLikedRecipesState(
+      testLikedRecipesState.filter(
+        (recipe) => recipe.spoonacularId !== res[0].spoonacularId
+      )
+    );
+    return res;
+  };
+
+  // const deleteMovie = async (id, userId) => {
+  //   if (auth.currentUser.uid != userId) {
+  //     console.log('you cannot delete this');
+  //     return;
+  //   } else {
+  //     const movieDoc = doc(db, 'movies', id);
+  //     await deleteDoc(movieDoc);
+  //     setMovieList(movieList.filter((movie) => movie.id !== id));
+  //   }
+  // };
+
   const addToLikes = async () => {
     if (auth.currentUser === null) {
-      console.log('you cannot post');
+      console.log('you cannot like');
       return;
     } else {
+      const currentRecipe = recipe;
+      const likedRecipe = {
+        title: currentRecipe.title,
+        introParagaph: 'delicious recipe for you!',
+        spoonacularId: currentRecipe.id,
+        likedByUserId: auth?.currentUser?.uid,
+        image: currentRecipe.image,
+      };
       try {
-        const currentRecipe = recipe;
         console.log('this is the recipe', currentRecipe);
-        await addDoc(likedRecipesCollectionRef, {
-          title: currentRecipe.title,
-          introParagaph: 'delicious recipe for you!',
-          id: currentRecipe.id,
-          likedByUserId: auth?.currentUser?.uid,
-          image: currentRecipe.image,
-        });
-        getLikedRecipes();
+        await addDoc(likedRecipesCollectionRef, likedRecipe);
+        setTestLikedRecipesState([...testLikedRecipesState, likedRecipe]);
+        console.log('test likedRecipes', testLikedRecipesState);
       } catch (err) {
         console.error(err);
       }
@@ -137,6 +198,9 @@ const Recipe = ({
           <div className="recipe-container">
             <div class="title-like-heart-container">
               <button onClick={addToLikes}>Add To Likes Firebase!</button>
+              <button onClick={deleteRecipeFromLiked}>
+                Remove from Likes Firebase!
+              </button>
               <h1 onClick={toggleLike} className="single-recipe-title">
                 {recipe.title}
               </h1>
