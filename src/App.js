@@ -10,18 +10,14 @@ import {
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
+import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import Auth from './components/Auth/Auth';
-import { db, storage } from './config/firebase-config';
+import { db } from './config/firebase-config';
 import {
   getDocs,
   collection,
-  addDoc,
-  deleteDoc,
-  updateDoc,
-  doc,
-} from 'firebase/firestore';
-// import { getDoc } from 'firebase/firestore';
-import { ref } from 'firebase/storage';
+} from 'firebase/firestore'; 
+
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -31,8 +27,6 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
-  // testing
-  const [testLikedRecipesState, setTestLikedRecipesState] = useState([]);
 
   //firestore data ref
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
@@ -58,8 +52,7 @@ function App() {
         id: doc.id,
       }));
       console.log('data', filteredData);
-      setTestLikedRecipesState(filteredData);
-      console.log('liked recipes', testLikedRecipesState);
+      setLikedRecipes(filteredData);
     } catch (err) {
       console.error(err);
     }
@@ -116,8 +109,6 @@ function App() {
                 setLikedRecipes={setLikedRecipes}
                 isRecipeLiked={isRecipeLiked}
                 setIsRecipeLiked={setIsRecipeLiked}
-                testLikedRecipesState={testLikedRecipesState}
-                setTestLikedRecipesState={setTestLikedRecipesState}
                 getLikedRecipes={getLikedRecipes}
               />
             }
@@ -125,6 +116,10 @@ function App() {
           <Route
             path="/liked"
             element={<LikedRecipes likedRecipes={likedRecipes} />}
+          />
+          <Route
+            path="/liked/:recipeId"
+            element={<LikedRecipe likedRecipes={likedRecipes} />}
           />
           <Route path="/login" element={<Auth />} />
         </Routes>

@@ -28,10 +28,7 @@ const Recipe = ({
   likedRecipes,
   setLikedRecipes,
   isRecipeLiked,
-  setIsRecipeLiked,
-  getLikedRecipes,
-  testLikedRecipesState,
-  setTestLikedRecipesState,
+  setIsRecipeLiked, 
 }) => {
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState('');
@@ -45,7 +42,7 @@ const Recipe = ({
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
   // data model for liked recipes
-  // recipe.id
+  // recipe.spoonacularId
   // recipe.title
   // recipe.image
   // introParagraph
@@ -80,7 +77,9 @@ const Recipe = ({
     const isCurrentRecipeLiked = () => {
       let currentRecipeId = recipe.id;
 
-      if (likedRecipes.some((recipe) => recipe.id === currentRecipeId)) {
+      if (
+        likedRecipes.some((recipe) => recipe.spoonacularId === currentRecipeId)
+      ) {
         setIsRecipeLiked(true);
       } else {
         setIsRecipeLiked(false);
@@ -92,73 +91,25 @@ const Recipe = ({
     isCurrentRecipeLiked();
   });
 
-  const toggleLike = () => {
-    if (isRecipeLiked) {
-      const currentRecipeId = recipe.id;
-      setLikedRecipes(
-        likedRecipes.filter((recipe) => recipe.id !== currentRecipeId)
-      );
-      setIsRecipeLiked(false);
-    } else {
-      const likedRecipe = Object.assign({}, recipe);
-      setLikedRecipes([...likedRecipes, likedRecipe]);
-      setIsRecipeLiked(true);
-    }
-  };
-
-  // var jobskill_query = db.collection('job_skills').where('job_id','==',post.job_id);
-  // jobskill_query.get().then(function(querySnapshot) {
-  //   querySnapshot.forEach(function(doc) {
-  //     doc.ref.delete();
-  //   });
-  // });
-
-  // const data = await getDocs(likedRecipesCollectionRef);
-
-  const deleteRecipeFromLiked = async () => {
-    const recipeId = recipe.id;
-
-    const q = query(
-      likedRecipesCollectionRef,
-      where('spoonacularId', '==', recipeId)
-    );
-    const doc_refs = await getDocs(q);
-
-    const res = [];
-
-    doc_refs.forEach((recipe) => {
-      res.push({
-        id: recipe.id,
-        ...recipe.data(),
-      });
-    });
-    console.log('this is the response', res);
-    const recipeToDeleteDoc = doc(db, 'userLikedRecipes', res[0].id);
-    await deleteDoc(recipeToDeleteDoc);
-    setTestLikedRecipesState(
-      testLikedRecipesState.filter(
-        (recipe) => recipe.spoonacularId !== res[0].spoonacularId
-      )
-    );
-    return res;
-  };
-
-  // const deleteMovie = async (id, userId) => {
-  //   if (auth.currentUser.uid != userId) {
-  //     console.log('you cannot delete this');
-  //     return;
+  // const toggleLike = () => {
+  //   if (isRecipeLiked) {
+  //     const currentRecipeId = recipe.id;
+  //     setLikedRecipes(
+  //       likedRecipes.filter((recipe) => recipe.id !== currentRecipeId)
+  //     );
+  //     setIsRecipeLiked(false);
   //   } else {
-  //     const movieDoc = doc(db, 'movies', id);
-  //     await deleteDoc(movieDoc);
-  //     setMovieList(movieList.filter((movie) => movie.id !== id));
+  //     const likedRecipe = Object.assign({}, recipe);
+  //     setLikedRecipes([...likedRecipes, likedRecipe]);
+  //     setIsRecipeLiked(true);
   //   }
   // };
 
-  const addToLikes = async () => {
+  const toggleLike = async () => {
     if (auth.currentUser === null) {
       console.log('you cannot like');
       return;
-    } else {
+    } else if (!isRecipeLiked) {
       const currentRecipe = recipe;
       const likedRecipe = {
         title: currentRecipe.title,
@@ -168,19 +119,37 @@ const Recipe = ({
         image: currentRecipe.image,
       };
       try {
-        console.log('this is the recipe', currentRecipe);
         await addDoc(likedRecipesCollectionRef, likedRecipe);
-        setTestLikedRecipesState([...testLikedRecipesState, likedRecipe]);
-        console.log('test likedRecipes', testLikedRecipesState);
+        setLikedRecipes([...likedRecipes, likedRecipe]);
       } catch (err) {
         console.error(err);
       }
+    } else {
+      const recipeId = recipe.id;
+      const q = query(
+        likedRecipesCollectionRef,
+        where('spoonacularId', '==', recipeId)
+      );
+      const doc_refs = await getDocs(q);
+      const res = [];
+      doc_refs.forEach((recipe) => {
+        res.push({
+          id: recipe.id,
+          ...recipe.data(),
+        });
+      });
+      const recipeToDeleteDoc = doc(db, 'userLikedRecipes', res[0].id);
+      await deleteDoc(recipeToDeleteDoc);
+      setLikedRecipes(
+        likedRecipes.filter(
+          (recipe) => recipe.spoonacularId !== res[0].spoonacularId
+        )
+      );
+      return res;
     }
   };
 
   return (
-    // test input for adding
-    // input onChange={(e) => toggleLike()}
     <>
       {loading ? (
         <Loader />
@@ -197,10 +166,6 @@ const Recipe = ({
           )}
           <div className="recipe-container">
             <div class="title-like-heart-container">
-              <button onClick={addToLikes}>Add To Likes Firebase!</button>
-              <button onClick={deleteRecipeFromLiked}>
-                Remove from Likes Firebase!
-              </button>
               <h1 onClick={toggleLike} className="single-recipe-title">
                 {recipe.title}
               </h1>

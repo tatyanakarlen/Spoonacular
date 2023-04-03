@@ -49,8 +49,13 @@ const LikedRecipes = ({ likedRecipes }) => {
                         : 'col-md-5 col-lg-3 col-sm-12'
                     }
                   >
-                    <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-                      <div key={index} className="card">
+                    <Link
+                      key={index}
+                      className="recipe-links"
+                      to={`/liked/${recipe.id}`}
+                    >
+                      {/* <Link className="recipe-links" to={`/recipes/${recipe.id}`}> */}
+                      <div className="card">
                         <img
                           className="card-img-top"
                           src={recipe.image}
