@@ -86,10 +86,11 @@ const Recipes = ({
                       }
                     >
                       <Link
+                        key={index}
                         className="recipe-links"
                         to={`/recipes/${recipe.id}`}
                       >
-                        <div key={index} className="card">
+                        <div className="card">
                           <img
                             className="card-img-top"
                             src={recipe.image}

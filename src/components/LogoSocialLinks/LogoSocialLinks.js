@@ -38,7 +38,7 @@ const LogoSocialLinks = () => {
             </li>
             <li>
               <Link className="nav-link" to="/liked">
-                <i class="bi bi-heart-fill heart-icon"></i>Liked
+                <i className="bi bi-heart-fill heart-icon"></i>Liked
               </Link>
             </li>
           </ul>

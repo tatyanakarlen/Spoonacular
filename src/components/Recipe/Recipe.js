@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
@@ -22,18 +22,25 @@ import {
   query,
 } from 'firebase/firestore';
 
+//   const { setUserName, setShowProfile } = useContext(LoginContext);
+
 const Recipe = ({
   setLoading,
   loading,
+  filteredRecipes,
   likedRecipes,
   setLikedRecipes,
   isRecipeLiked,
-  setIsRecipeLiked, 
+  setIsRecipeLiked,
 }) => {
   const { recipeId } = useParams();
+  // the below 3 states need to be at the top
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
+  // above 3 states will need to be at the top
+  // const { recipe, setRecipe, ingredients, setIngredients, steps, setSteps } =
+  //   useContext(RecipeContext);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
@@ -113,11 +120,15 @@ const Recipe = ({
       const currentRecipe = recipe;
       const likedRecipe = {
         title: currentRecipe.title,
-        introParagaph: 'delicious recipe for you!',
+        introParagaph:
+          'This delicious recipe is a quick and easy meal that is sure to impress.The rich texture and savory taste combine perfectly for delicious and healthy meal',
         spoonacularId: currentRecipe.id,
         likedByUserId: auth?.currentUser?.uid,
+        ingredients: ingredients,
+        steps: steps,
         image: currentRecipe.image,
       };
+
       try {
         await addDoc(likedRecipesCollectionRef, likedRecipe);
         setLikedRecipes([...likedRecipes, likedRecipe]);
@@ -160,18 +171,16 @@ const Recipe = ({
             <div className="recipe-id-page-breadcrumb margin">
               <Link to="/">HOME</Link>&nbsp;&nbsp;
               <i className="bi bi-chevron-right"></i>
-              &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
+              &nbsp;&nbsp;YOUR RECIPE<i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;{recipe.title}
             </div>
           )}
           <div className="recipe-container">
-            <div class="title-like-heart-container">
-              <h1 onClick={toggleLike} className="single-recipe-title">
-                {recipe.title}
-              </h1>
+            <div className="title-like-heart-container">
+              <h1 className="single-recipe-title">{recipe.title}</h1>
               <div
                 onClick={toggleLike}
-                class={isRecipeLiked ? 'like-button liked' : 'like-button'}
+                className={isRecipeLiked ? 'like-button liked' : 'like-button'}
               ></div>
             </div>
             <div className="star-icon-container">
@@ -257,23 +266,6 @@ const Recipe = ({
                 </li>
               ))}
             </ul>
-
-            {/* <div className="subCategories">
-        {nav.map((item) => (
-          <div className="subCategory">
-            <img src={item.img} />
-            {item.subCatergories.map((subCategory) => (
-              <>
-                <h3>{subCategory.title}</h3>
-                {subCategory.links.map((link) => (
-                  <a href={link.url}>{link.name}</a>
-                ))}
-              </>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div> */}
           </div>
           <Footer />
         </div>

@@ -13,11 +13,8 @@ import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import Auth from './components/Auth/Auth';
 import { db } from './config/firebase-config';
-import {
-  getDocs,
-  collection,
-} from 'firebase/firestore'; 
-
+import { getDocs, collection } from 'firebase/firestore';
+// how to import function
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -51,7 +48,6 @@ function App() {
         ...doc.data(),
         id: doc.id,
       }));
-      console.log('data', filteredData);
       setLikedRecipes(filteredData);
     } catch (err) {
       console.error(err);
@@ -98,6 +94,7 @@ function App() {
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+
           <Route
             path="/recipes/:recipeId"
             element={
@@ -109,17 +106,22 @@ function App() {
                 setLikedRecipes={setLikedRecipes}
                 isRecipeLiked={isRecipeLiked}
                 setIsRecipeLiked={setIsRecipeLiked}
-                getLikedRecipes={getLikedRecipes}
               />
             }
           />
+
           <Route
             path="/liked"
             element={<LikedRecipes likedRecipes={likedRecipes} />}
           />
           <Route
             path="/liked/:recipeId"
-            element={<LikedRecipe likedRecipes={likedRecipes} />}
+            element={
+              <LikedRecipe
+                likedRecipes={likedRecipes}
+                setLikedRecipes={setLikedRecipes}
+              />
+            }
           />
           <Route path="/login" element={<Auth />} />
         </Routes>
