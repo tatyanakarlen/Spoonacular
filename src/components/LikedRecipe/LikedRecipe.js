@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db, auth } from '../../config/firebase-config';
 import {
-  getDb,
   getDocs,
-  getDoc,
   collection,
   addDoc,
   deleteDoc,
@@ -15,10 +13,20 @@ import {
 
 const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
   const { recipeId } = useParams();
-  const foundRecipe = likedRecipes.find((recipe) => recipe.id === recipeId);
-  const [likedRecipe] = useState(foundRecipe);
+  console.log('recipe id', recipeId);
+  const [likedRecipe, setLikedRecipe] = useState('');
   const [isRecipeLiked, setIsRecipeLiked] = useState(true);
-  console.log(likedRecipe);
+
+  const findRecipe = () => {
+    // const foundRecipe = likedRecipes.find((recipe) => recipe.id === recipeId);
+    setLikedRecipe(likedRecipes.find((recipe) => recipe.id === recipeId));
+  };
+
+  useEffect(() => {
+    findRecipe();
+  }, [recipeId]);
+
+  console.log('liked recipe', likedRecipe);
 
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
@@ -36,6 +44,12 @@ const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
         ingredients: currentRecipe.ingredients,
         steps: currentRecipe.steps,
         image: currentRecipe.image,
+        glutenFree: currentRecipe.glutenFree,
+        vegan: currentRecipe.vegan,
+        vegetarian: currentRecipe.vegetarian,
+        dairyFree: currentRecipe.dairyFree,
+        lowFodmap: currentRecipe.lowFodmap,
+        veryHealthy: currentRecipe.veryHealthy,
       };
 
       try {
@@ -73,7 +87,7 @@ const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
 
   return (
     <div>
-      <h1>{likedRecipe.title}</h1>
+      <h1>{likedRecipe?.title}</h1>
       <button
         onClick={toggleLike}
         style={{ backgroundColor: isRecipeLiked ? 'red' : 'grey' }}

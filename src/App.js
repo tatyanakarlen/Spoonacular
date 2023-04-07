@@ -14,7 +14,6 @@ import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import Auth from './components/Auth/Auth';
 import { db } from './config/firebase-config';
 import { getDocs, collection } from 'firebase/firestore';
-// how to import function
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -109,13 +108,9 @@ function App() {
               />
             }
           />
-
-          <Route
-            path="/liked"
-            element={<LikedRecipes likedRecipes={likedRecipes} />}
-          />
           <Route
             path="/liked/:recipeId"
+            exact={true}
             element={
               <LikedRecipe
                 likedRecipes={likedRecipes}
@@ -123,6 +118,12 @@ function App() {
               />
             }
           />
+
+          <Route
+            path="/liked"
+            element={<LikedRecipes likedRecipes={likedRecipes} />}
+          />
+
           <Route path="/login" element={<Auth />} />
         </Routes>
       </div>

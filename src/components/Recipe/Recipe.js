@@ -11,9 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { db, auth } from '../../config/firebase-config';
 import {
-  getDb,
   getDocs,
-  getDoc,
   collection,
   addDoc,
   deleteDoc,
@@ -22,31 +20,26 @@ import {
   query,
 } from 'firebase/firestore';
 
-//   const { setUserName, setShowProfile } = useContext(LoginContext);
-
 const Recipe = ({
   setLoading,
   loading,
-  filteredRecipes,
   likedRecipes,
   setLikedRecipes,
   isRecipeLiked,
   setIsRecipeLiked,
 }) => {
   const { recipeId } = useParams();
-  // the below 3 states need to be at the top
+
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
-  // above 3 states will need to be at the top
-  // const { recipe, setRecipe, ingredients, setIngredients, steps, setSteps } =
-  //   useContext(RecipeContext);
   let idAsNum = Number(recipeId);
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
   //firestore data ref
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
+  console.log('recipe', recipe);
 
   // data model for liked recipes
   // recipe.spoonacularId
@@ -98,20 +91,6 @@ const Recipe = ({
     isCurrentRecipeLiked();
   });
 
-  // const toggleLike = () => {
-  //   if (isRecipeLiked) {
-  //     const currentRecipeId = recipe.id;
-  //     setLikedRecipes(
-  //       likedRecipes.filter((recipe) => recipe.id !== currentRecipeId)
-  //     );
-  //     setIsRecipeLiked(false);
-  //   } else {
-  //     const likedRecipe = Object.assign({}, recipe);
-  //     setLikedRecipes([...likedRecipes, likedRecipe]);
-  //     setIsRecipeLiked(true);
-  //   }
-  // };
-
   const toggleLike = async () => {
     if (auth.currentUser === null) {
       console.log('you cannot like');
@@ -127,6 +106,12 @@ const Recipe = ({
         ingredients: ingredients,
         steps: steps,
         image: currentRecipe.image,
+        glutenFree: currentRecipe.glutenFree,
+        vegan: currentRecipe.vegan,
+        vegetarian: currentRecipe.vegetarian,
+        dairyFree: currentRecipe.dairyFree,
+        lowFodmap: currentRecipe.lowFodmap,
+        veryHealthy: currentRecipe.veryHealthy,
       };
 
       try {
