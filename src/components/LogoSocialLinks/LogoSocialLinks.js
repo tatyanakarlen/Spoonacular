@@ -32,8 +32,13 @@ const LogoSocialLinks = () => {
               <i className="bi bi-youtube nav-icons"></i>
             </li>
             <li>
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
+            </li>
+            <li>
               <Link className="nav-link" to="/liked">
-                <i class="bi bi-heart-fill heart-icon"></i>Liked
+                <i className="bi bi-heart-fill heart-icon"></i>Liked
               </Link>
             </li>
           </ul>

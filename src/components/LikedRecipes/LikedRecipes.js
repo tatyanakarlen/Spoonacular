@@ -10,29 +10,30 @@ const LikedRecipes = ({ likedRecipes }) => {
     query: '(max-width: 575px)',
   });
 
-  // console.log('length of liked recipes', likedRecipes.length);
-
   return (
-    <div class="likedRecipesContainer">
+    <div className="likedRecipesContainer">
       {isMobile ? <MobileNav /> : <LogoSocialLinks />}
-      <div class="liked-recipes-breadcrumb">
+      <div className="liked-recipes-breadcrumb">
         <Link to="/">HOME</Link>&nbsp;&nbsp;
         <i className="bi bi-chevron-right"></i>
         &nbsp;&nbsp;Your Liked Recipes
       </div>
       <div
-        class="inner-liked-recipes-wrapper"
+        className="inner-liked-recipes-wrapper"
         style={{ marginTop: isMobile && '1.25rem' }}
       >
         {likedRecipes.length === 0 ? (
-          <div class="no-liked-recipes">
+          <div className="no-liked-recipes">
             <h1>You don't have any liked recipes yet! </h1>
             <p>
               Head home to search for recipes, click on recipes and click the
               heart to add to your saved!!
             </p>
             <Link to="/">
-              <button type="button" class="btn btn-primary btn-lg go-home-btn">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg go-home-btn"
+              >
                 Home
               </button>
             </Link>
@@ -49,8 +50,12 @@ const LikedRecipes = ({ likedRecipes }) => {
                         : 'col-md-5 col-lg-3 col-sm-12'
                     }
                   >
-                    <Link className="recipe-links" to={`/recipes/${recipe.id}`}>
-                      <div key={index} className="card">
+                    <Link
+                      key={index}
+                      className="recipe-links"
+                      to={`/liked/${recipe.id}`}
+                    >
+                      <div className="card">
                         <img
                           className="card-img-top"
                           src={recipe.image}

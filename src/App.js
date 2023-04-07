@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Recipes from './components/Recipes/Recipes';
 import './App.css';
 import {
@@ -10,15 +10,22 @@ import {
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
+import LikedRecipe from './components/LikedRecipe/LikedRecipe';
+import Auth from './components/Auth/Auth';
+import { db } from './config/firebase-config';
+import { getDocs, collection } from 'firebase/firestore';
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [postsPerPage] = useState(6);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
+
+  //firestore data ref
+  const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -32,6 +39,23 @@ function App() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const getLikedRecipes = async () => {
+    try {
+      const data = await getDocs(likedRecipesCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setLikedRecipes(filteredData);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getLikedRecipes();
+  }, []);
 
   return (
     <Router>
@@ -69,6 +93,7 @@ function App() {
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+
           <Route
             path="/recipes/:recipeId"
             element={
@@ -84,9 +109,22 @@ function App() {
             }
           />
           <Route
+            path="/liked/:recipeId"
+            exact={true}
+            element={
+              <LikedRecipe
+                likedRecipes={likedRecipes}
+                setLikedRecipes={setLikedRecipes}
+              />
+            }
+          />
+
+          <Route
             path="/liked"
             element={<LikedRecipes likedRecipes={likedRecipes} />}
           />
+
+          <Route path="/login" element={<Auth />} />
         </Routes>
       </div>
     </Router>

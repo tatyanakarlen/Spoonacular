@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
@@ -9,6 +9,16 @@ import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import { db, auth } from '../../config/firebase-config';
+import {
+  getDocs,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  where,
+  query,
+} from 'firebase/firestore';
 
 const Recipe = ({
   setLoading,
@@ -19,6 +29,7 @@ const Recipe = ({
   setIsRecipeLiked,
 }) => {
   const { recipeId } = useParams();
+
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
@@ -26,6 +37,24 @@ const Recipe = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
+  //firestore data ref
+  const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
+  console.log('recipe', recipe);
+
+  // data model for liked recipes
+  // recipe.spoonacularId
+  // recipe.title
+  // recipe.image
+  // introParagraph
+  // recipe.glutenFree
+  // recipe.dairyFree
+  // recipe.lowFodmap
+  // recipe.vegetarian
+  // recipe.vegan
+  // recipe.veryHealthy
+  // recipe.ingredients (array)
+  // recipe.steps (array)
+  // likedByUserId
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -47,22 +76,13 @@ const Recipe = ({
   useEffect(() => {
     const isCurrentRecipeLiked = () => {
       let currentRecipeId = recipe.id;
-      if (likedRecipes.some((recipe) => recipe.id === currentRecipeId)) {
-        console.log(
-          'recipe is in liked',
-          likedRecipes,
-          'isrecipeLiked?',
-          isRecipeLiked
-        );
+
+      if (
+        likedRecipes.some((recipe) => recipe.spoonacularId === currentRecipeId)
+      ) {
         setIsRecipeLiked(true);
       } else {
         setIsRecipeLiked(false);
-        console.log(
-          'recipe is not in liked',
-          likedRecipes,
-          'isrecipeLiked?',
-          isRecipeLiked
-        );
       }
       return function cleanup() {
         setIsRecipeLiked(false);
@@ -71,21 +91,59 @@ const Recipe = ({
     isCurrentRecipeLiked();
   });
 
-  const toggleLike = () => {
-    if (isRecipeLiked) {
-      const currentRecipeId = recipe.id;
-      setLikedRecipes(
-        likedRecipes.filter((recipe) => recipe.id !== currentRecipeId)
-      );
-      setIsRecipeLiked(false);
+  const toggleLike = async () => {
+    if (auth.currentUser === null) {
+      console.log('you cannot like');
+      return;
+    } else if (!isRecipeLiked) {
+      const currentRecipe = recipe;
+      const likedRecipe = {
+        title: currentRecipe.title,
+        introParagaph:
+          'This delicious recipe is a quick and easy meal that is sure to impress.The rich texture and savory taste combine perfectly for delicious and healthy meal',
+        spoonacularId: currentRecipe.id,
+        likedByUserId: auth?.currentUser?.uid,
+        ingredients: ingredients,
+        steps: steps,
+        image: currentRecipe.image,
+        glutenFree: currentRecipe.glutenFree,
+        vegan: currentRecipe.vegan,
+        vegetarian: currentRecipe.vegetarian,
+        dairyFree: currentRecipe.dairyFree,
+        lowFodmap: currentRecipe.lowFodmap,
+        veryHealthy: currentRecipe.veryHealthy,
+      };
+
+      try {
+        await addDoc(likedRecipesCollectionRef, likedRecipe);
+        setLikedRecipes([...likedRecipes, likedRecipe]);
+      } catch (err) {
+        console.error(err);
+      }
     } else {
-      const likedRecipe = Object.assign({}, recipe);
-      setLikedRecipes([...likedRecipes, likedRecipe]);
-      setIsRecipeLiked(true);
+      const recipeId = recipe.id;
+      const q = query(
+        likedRecipesCollectionRef,
+        where('spoonacularId', '==', recipeId)
+      );
+      const doc_refs = await getDocs(q);
+      const res = [];
+      doc_refs.forEach((recipe) => {
+        res.push({
+          id: recipe.id,
+          ...recipe.data(),
+        });
+      });
+      const recipeToDeleteDoc = doc(db, 'userLikedRecipes', res[0].id);
+      await deleteDoc(recipeToDeleteDoc);
+      setLikedRecipes(
+        likedRecipes.filter(
+          (recipe) => recipe.spoonacularId !== res[0].spoonacularId
+        )
+      );
+      return res;
     }
   };
-
-  console.log('these are liked recipes', likedRecipes);
 
   return (
     <>
@@ -98,18 +156,16 @@ const Recipe = ({
             <div className="recipe-id-page-breadcrumb margin">
               <Link to="/">HOME</Link>&nbsp;&nbsp;
               <i className="bi bi-chevron-right"></i>
-              &nbsp;&nbsp;YOUR RECIPES<i className="bi bi-chevron-right"></i>
+              &nbsp;&nbsp;YOUR RECIPE<i className="bi bi-chevron-right"></i>
               &nbsp;&nbsp;{recipe.title}
             </div>
           )}
           <div className="recipe-container">
-            <div class="title-like-heart-container">
-              <h1 onClick={toggleLike} className="single-recipe-title">
-                {recipe.title}
-              </h1>
+            <div className="title-like-heart-container">
+              <h1 className="single-recipe-title">{recipe.title}</h1>
               <div
                 onClick={toggleLike}
-                class={isRecipeLiked ? 'like-button liked' : 'like-button'}
+                className={isRecipeLiked ? 'like-button liked' : 'like-button'}
               ></div>
             </div>
             <div className="star-icon-container">
