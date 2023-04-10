@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
+  height: 7rem;
+  padding: 0.6rem 2.5rem;
   background-color: black;
   color: white;
   position: fixed;
@@ -22,31 +23,83 @@
 }
 
 .logo-social-links-container h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .logo-social-links-container h3 {
   margin-top: 0.7rem;
 }
 
-.logo-social-links-container .social-links ul {
+.logo-social-links-container .nav-menu-items {
+  margin-top: 1rem;
+}
+
+.logo-social-links-container .nav-menu-items ul {
   display: flex;
   gap: 2.5rem;
   list-style: none;
   align-items: center;
 }
 
-.logo-social-links-container .social-links .nav-icons {
-  font-size: 2.75rem;
-  color: white;
-}
-
-.logo-social-links-container .social-links .nav-link {
-  font-size: 2rem;
+.logo-social-links-container .nav-menu-items .nav-link {
+  font-size: 1.9rem;
 }
 
 .heart-icon {
   color: red;
-  padding-right: 0.7rem;
+  padding-right: 0.6rem;
+  font-size: 2.1rem;
+}
+
+.auth-icon {
+  padding-right: 0.3rem;
   font-size: 2.4rem;
+}
+
+.search-input-nav {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-search-input {
+  height: 2.8rem;
+  border-radius: 18px;
+  width: 18rem;
+}
+
+.search-icon-btn-nav {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.75rem;
+  width: 3.75rem;
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.nav-search-button {
+  width: 7rem;
+  height: 2.8rem;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.4rem 3.7rem;
+  border-radius: 18px;
+  margin-left: -1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-search-x-icon {
+  font-size: 3.75rem;
+  margin-left: -2rem;
+  margin-top: -3px;
+  cursor: pointer;
 }

@@ -110,7 +110,7 @@ function App() {
           />
           <Route
             path="/liked/:recipeId"
-            exact={true}
+            exact
             element={
               <LikedRecipe
                 likedRecipes={likedRecipes}
