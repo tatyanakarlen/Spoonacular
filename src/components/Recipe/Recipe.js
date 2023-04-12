@@ -151,7 +151,7 @@ const Recipe = ({
         <Loader />
       ) : (
         <div>
-          {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+          {/* {isMobile ? <MobileNav /> : <LogoSocialLinks />} */}
           {!isMobile && (
             <div className="recipe-id-page-breadcrumb margin">
               <Link to="/">HOME</Link>&nbsp;&nbsp;

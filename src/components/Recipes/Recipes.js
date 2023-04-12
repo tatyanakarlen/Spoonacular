@@ -41,7 +41,7 @@ const Recipes = ({
         <RecipeNotFound />
       ) : (
         <div className="recipe-index-page-container">
-          {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+          {/* {isMobile ? <MobileNav /> : <LogoSocialLinks />} */}
 
           <div
             className={

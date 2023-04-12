@@ -11,13 +11,14 @@ const Home = ({
   setFilteredRecipes,
   userInput,
   setUserInput,
+  getRecipes,
 }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
   return (
     <div className="Home">
-      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
+      {/* {isMobile ? <MobileNav /> : <LogoSocialLinks />} */}
       <div
         className={
           isMobile ? 'home-page-container' : 'home-page-container margin'
@@ -30,6 +31,7 @@ const Home = ({
             setFilteredRecipes={setFilteredRecipes}
             userInput={userInput}
             setUserInput={setUserInput}
+            getRecipes={getRecipes}
           />
         </div>
       </div>

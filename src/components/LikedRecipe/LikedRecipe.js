@@ -86,7 +86,7 @@ const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
   };
 
   return (
-    <div>
+    <div class="liked-recipe" style={{ marginTop: '7rem' }}>
       <h1>{likedRecipe?.title}</h1>
       <button
         onClick={toggleLike}
