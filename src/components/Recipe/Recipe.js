@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
-import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
-import MobileNav from '../MobileNav/MobileNav';
 import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
@@ -151,7 +149,6 @@ const Recipe = ({
         <Loader />
       ) : (
         <div>
-          {/* {isMobile ? <MobileNav /> : <LogoSocialLinks />} */}
           {!isMobile && (
             <div className="recipe-id-page-breadcrumb margin">
               <Link to="/">HOME</Link>&nbsp;&nbsp;

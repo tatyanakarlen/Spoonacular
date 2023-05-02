@@ -54,62 +54,63 @@ const LogoSocialLinks = ({
           <h1>
             <Link to="/">CookBook</Link>
           </h1>
-        </div>
-        {!isSearchInputExpanded ? (
-          <div className="nav-menu-items">
-            <ul>
-              {/* <li>
-              <i className="bi bi-instagram nav-icons"></i>
-            </li>
-            <li>
-              <i className="bi bi-facebook nav-icons"></i>
-            </li>
-            <li>
-              <i className="bi bi-twitter nav-icons"></i>
-            </li>
-            <li>
-              <i className="bi bi-youtube nav-icons"></i>
-            </li> */}
+          {!isSearchInputExpanded ? (
+            <ul class="left-nav-menu">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/liked">Liked Recipes</Link>
+              </li>
               <li
                 onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
               >
-                <div class="search-icon-btn-nav">
-                  <i class="bi bi-search"></i>
-                </div>
-              </li>
-              <li>
-                <Link className="nav-link" to="/login">
-                  <i class="bi bi-person-fill auth-icon"></i>
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link" to="/liked">
-                  <i className="bi bi-heart-fill heart-icon"></i>Liked
-                </Link>
+                <i class="bi bi-search"></i>
               </li>
             </ul>
-          </div>
-        ) : (
-          <div class="search-input-nav">
-            <input
-              value={searchBarUserInput}
-              onChange={handleChange}
-              class="form-control nav-search-input"
-              type="text"
-              placeholder="Username"
-              aria-label="Username"
-              aria-describedby="addon-wrapping"
-            />
-            <button onClick={getRecipes} class="nav-search-button">
-              Search
-            </button>
-            <i
-              onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
-              class="bi bi-x close-search-x-icon"
-            ></i>
-          </div>
-        )}
+          ) : (
+            <div class="search-input-nav">
+              <input
+                value={searchBarUserInput}
+                onChange={handleChange}
+                class="form-control nav-search-input"
+                type="text"
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+              <div onClick={getRecipes} class="nav-search-button">
+                Search
+              </div>
+              <i
+                onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
+                class="bi bi-x close-search-x-icon"
+              ></i>
+            </div>
+          )}
+        </div>
+        <div className="nav-menu-items">
+          <ul>
+        
+            <li>
+              <Link className="nav-link" to="#">
+                <i class="bi bi-instagram"></i>
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="#">
+              <i class="bi bi-youtube"></i>
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="/login">
+                <i class="bi bi-person-fill auth-icon"></i>
+                Login
+              </Link>
+            </li>
+          
+          </ul>
+        </div>
       </div>
     </>
   );

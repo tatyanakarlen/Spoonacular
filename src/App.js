@@ -66,8 +66,6 @@ function App() {
     }
   }
 
-  console.log('get recipes from app.js', getRecipes);
-
   // const getLikedRecipes = async () => {
   //   try {
   //     const data = await getDocs(likedRecipesCollectionRef);
@@ -93,7 +91,6 @@ function App() {
       ) : (
         <LogoSocialLinks
           setFilteredRecipes={setFilteredRecipes}
-          getRecipes={getRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
         />
@@ -104,7 +101,6 @@ function App() {
           path="/"
           element={
             <Home
-              getRecipes={getRecipes}
               filteredRecipes={filteredRecipes}
               setFilteredRecipes={setFilteredRecipes}
               currentRecipes={currentRecipes}

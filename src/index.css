@@ -4,8 +4,14 @@ html {
 
 body {
   position: relative;
+  background-color: var(--off-white-background);
+  color: var(--primary-text-black);
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+ul {
+  margin-bottom: 0;
 }

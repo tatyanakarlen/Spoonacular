@@ -35,13 +35,13 @@ const SearchForm = ({ userInput, setUserInput, setFilteredRecipes }) => {
               value={userInput}
               type="text"
               className="form-control"
-              placeholder="Cuisine"
+              placeholder="Keyword"
               aria-label="Cuisine"
               aria-describedby="button-addon2"
             />
             <button
               onClick={getRecipes}
-              className="btn btn-outline-light"
+              className="btn btn-dark"
               type="button"
               id="button-addon2"
             >

@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 7rem;
-  padding: 0.6rem 2.5rem;
-  background-color: black;
-  color: white;
+  height: 8rem;
+  padding: 3rem 6rem 1rem 6rem;
+  color: var(--primary-text-black);
   position: fixed;
   width: 100%;
   top: 0;
@@ -22,17 +21,24 @@
   text-decoration: none;
 }
 
+.left-nav-menu {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.6rem;
+}
+
 .logo-social-links-container h1 {
-  font-size: 3.5rem;
+  font-size: 2.75rem;
 }
 
 .logo-social-links-container h3 {
   margin-top: 0.7rem;
 }
 
-.logo-social-links-container .nav-menu-items {
+/* .logo-social-links-container .nav-menu-items {
   margin-top: 1rem;
-}
+} */
 
 .logo-social-links-container .nav-menu-items ul {
   display: flex;
@@ -42,7 +48,7 @@
 }
 
 .logo-social-links-container .nav-menu-items .nav-link {
-  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
 
 .heart-icon {
@@ -64,22 +70,22 @@
 
 .nav-search-input {
   height: 2.8rem;
-  border-radius: 18px;
-  width: 18rem;
+  border-radius: 5px;
+  /* width: 18rem; */
   font-size: 1.5rem;
 }
 
 .search-icon-btn-nav {
-  background-color: red;
+  background-color: var(--primary-text-black);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3.75rem;
-  width: 3.75rem;
+  width: 6rem;
   border-radius: 50%;
   border: none;
   color: #ffffff;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   cursor: pointer;
 }
 
@@ -87,7 +93,7 @@
   width: 7rem;
   height: 2.8rem;
   border: none;
-  background-color: red;
+  background-color: var(--primary-text-black);
   color: white;
   font-size: 1.5rem;
   padding: 0.4rem 3.7rem;
@@ -99,7 +105,7 @@
 }
 
 .close-search-x-icon {
-  font-size: 3.75rem;
+  font-size: 3.25rem;
   margin-left: -2rem;
   margin-top: -3px;
   cursor: pointer;

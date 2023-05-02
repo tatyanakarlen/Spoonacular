@@ -1,11 +1,20 @@
 .home-page-container {
   height: 90vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg');
-  background-size: cover;
+  padding: 1rem 6rem;
+  gap: 3rem;
+  /* background: url('../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg');
+  background-size: cover; */
+}
+
+.landing-page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
 }
 
 .home-page-container .form-container {
@@ -27,4 +36,51 @@
 .slogan-text {
   text-align: center;
   padding: 2rem;
+}
+
+.meal-options-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.meal-option {
+  background-color: #00ffaa;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50%;
+  width: 9rem;
+  height: 9rem;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.meal-option > * {
+  position: absolute;
+}
+
+
+
+.caption {
+  font-weight: bold;
+  bottom: 14px;
+}
+
+.breakfast-img {
+  height: 5.5rem;
+  width: 7rem;
+  top: 6px;
+}
+
+.lunch-img {
+  height: 9rem;
+  width: 7.5rem;
+  top: -13px;
+}
+
+.dinner-img {
+  height: 9.4rem;
+  width: 6.8rem;
+  top: -14px;
 }
