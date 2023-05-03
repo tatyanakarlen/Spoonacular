@@ -3,9 +3,10 @@ import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
 import Footer from '../Footer/Footer.js';
 import { useMediaQuery } from 'react-responsive';
-import  breakfast from '../../Assets/breakfast.png'
-import lunch from '../../Assets/lunch.png'
-import dinner from '../../Assets/dinner.png'
+import breakfast from '../../Assets/breakfast.png';
+import lunch from '../../Assets/lunch.png';
+import dinner from '../../Assets/dinner.png';
+import food from '../../Assets/salad.png';
 
 const Home = ({
   filteredRecipes,
@@ -19,48 +20,59 @@ const Home = ({
   return (
     <div className="Home">
       <div
-        class="home-page-container"
+        className="home-page-container"
         className={
           isMobile ? 'home-page-container' : 'home-page-container margin'
         }
       >
         <div class="landing-page-content">
-          <h1>Search, browse and save</h1>
-          <h1>your favourite recipes</h1>
-          <br/>
-          <p>Not sure what to have for dinner tonight? Your digital CookBook has you covered!</p>
-          <br/>
-          <SearchForm  filteredRecipes={filteredRecipes}
+          <p>
+            Search, browse, save
+            <br /> <span>your favourite recipes</span>
+          </p>
+          <br />
+
+          <div class="search-form-cover">
+       
+       <div class="tb">
+         <div class="td"><input class="search-form-input" type="text" placeholder="Search" required/></div>
+         <div class="td" id="s-cover">
+           <button class="search-form-submit-button" type="submit">
+             <div id="s-circle"></div>
+             <span></span>
+           </button>
+         </div>
+       </div>
+    
+   </div>
+
+          {/* <SearchForm
+            filteredRecipes={filteredRecipes}
             setFilteredRecipes={setFilteredRecipes}
             userInput={userInput}
-            setUserInput={setUserInput}/>
-             <br/>
-            <div class="meal-options-container">
-            <figure class="meal-option">
-  <img class="breakfast-img" src={breakfast}/>
-  <figcaption class="caption">Breakfast</figcaption>
-</figure>
-            
-                <figure class="meal-option">
-  <img class="lunch-img" src={lunch}/>
-  <figcaption class="caption">Lunch</figcaption>
-</figure>
-            
-              <figure class="meal-option">
-  <img class="dinner-img" src={dinner}/>
-  <figcaption class="caption">Dinner</figcaption>
-</figure>
-            </div>
+            setUserInput={setUserInput}
+          /> */}
+          <br />
+          <div class="meal-options-container">
+            <figure class="meal-option breakfast-figure">
+              <img class="breakfast-img" src={breakfast} />
+              <figcaption class="caption">Breakfast</figcaption>
+            </figure>
+
+            <figure class="meal-option lunch-figure">
+              <img class="lunch-img" src={lunch} />
+              <figcaption class="caption">Lunch</figcaption>
+            </figure>
+
+            <figure class="meal-option dinner-figure">
+              <img class="dinner-img" src={dinner} />
+              <figcaption class="caption">Dinner</figcaption>
+            </figure>
+          </div>
         </div>
         <div class="landing-page-content">
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged.{' '}
+          <img class="landing-page-img" src={food}></img>
         </div>
-      
       </div>
       <Footer />
     </div>
