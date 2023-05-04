@@ -39,15 +39,17 @@ const SearchForm = ({ userInput, setUserInput, setFilteredRecipes }) => {
               aria-label="Cuisine"
               aria-describedby="button-addon2"
             />
-            <button
+              <button
               onClick={getRecipes}
               className="btn btn-dark"
               type="button"
               id="button-addon2"
             >
+              
               Search
             </button>
           </div>
+       
         </label>
       </form>
     </div>

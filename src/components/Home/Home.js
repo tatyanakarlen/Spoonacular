@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import breakfast from '../../Assets/breakfast.png';
 import lunch from '../../Assets/lunch.png';
 import dinner from '../../Assets/dinner.png';
-import food from '../../Assets/salad.png';
+import food from '../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg';
 
 const Home = ({
   filteredRecipes,
@@ -21,37 +21,42 @@ const Home = ({
     <div className="Home">
       <div
         className="home-page-container"
-        className={
-          isMobile ? 'home-page-container' : 'home-page-container margin'
-        }
+        // className={
+        //   isMobile ? 'home-page-container' : 'home-page-container margin'
+        // }
       >
-        <div class="landing-page-content">
-          <p>
-            Search, browse, save
+        <div class="landing-page-content left-side-content">
+          <p class="landing-page-header">
+            Search and save
             <br /> <span>your favourite recipes</span>
           </p>
           <br />
 
-          <div class="search-form-cover">
-       
-       <div class="tb">
-         <div class="td"><input class="search-form-input" type="text" placeholder="Search" required/></div>
-         <div class="td" id="s-cover">
-           <button class="search-form-submit-button" type="submit">
-             <div id="s-circle"></div>
-             <span></span>
-           </button>
-         </div>
-       </div>
-    
-   </div>
+          {/* <div class="search-form-cover">
+            <div class="tb">
+              <div class="td">
+                <input
+                  class="search-form-input"
+                  type="text"
+                  placeholder="Search"
+                  required
+                />
+              </div>
+              <div class="td" id="s-cover">
+                <button class="search-form-submit-button" type="submit">
+                  <div id="s-circle"></div>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div> */}
 
-          {/* <SearchForm
+          <SearchForm
             filteredRecipes={filteredRecipes}
             setFilteredRecipes={setFilteredRecipes}
             userInput={userInput}
             setUserInput={setUserInput}
-          /> */}
+          />
           <br />
           <div class="meal-options-container">
             <figure class="meal-option breakfast-figure">
@@ -71,7 +76,30 @@ const Home = ({
           </div>
         </div>
         <div class="landing-page-content">
-          <img class="landing-page-img" src={food}></img>
+          {/* <div>Explore delicious salads</div>
+          <img class="landing-page-img" src={food}></img> */}
+          
+          <div class="landing-page-recipe">
+            <img class="landing-page-food-img" src={food}></img>
+            <div class="landing-page-recipe-inner-content">
+            <h3>Delicious honey-garlic wings</h3>
+            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
+            </div>
+          </div>
+          <div class="landing-page-recipe">
+            <img class="landing-page-food-img" src={food}></img>
+            <div class="landing-page-recipe-inner-content">
+            <h3>Delicious honey-garlic wings</h3>
+            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
+            </div>
+          </div>
+          <ul>
+            <li><i class="bi bi-youtube"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-pinterest"></i></li>
+          </ul>
+        
         </div>
       </div>
       <Footer />

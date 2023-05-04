@@ -2,13 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 8rem;
-  padding: 3rem 6rem 1rem 6rem;
   color: var(--primary-text-black);
-  position: fixed;
-  width: 100%;
+  position: sticky;
   top: 0;
-  z-index: 1;
+  padding: 1.5rem 6rem;
+  
+  
+  overflow: hidden;
+  background-color: #fbfbf8;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1000;
 }
 
 .logo-headline {
@@ -29,7 +32,7 @@
 }
 
 .logo-social-links-container h1 {
-  font-size: 2.75rem;
+  font-size: 2.2rem;
 }
 
 .logo-social-links-container h3 {
