@@ -75,31 +75,53 @@ const Home = ({
             </figure>
           </div>
         </div>
-        <div class="landing-page-content">
-          {/* <div>Explore delicious salads</div>
-          <img class="landing-page-img" src={food}></img> */}
+        <div class="landing-page-content right-side-content">
+          <h2>Not sure what your having for dinner tonight?</h2>
+          <h4>CookBook has you covered.</h4>
+          <div className="landing-page-card-container">
+        <div class="card" style={{width: "20rem"}}>
+  <img class="card-img-top" src={food} alt="Card image cap"/>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" style={{width: "20rem"}}>
+  <img class="card-img-top" src={food} alt="Card image cap"/>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+{/*          
+          <div>
+          <div class="landing-page-recipe">
+            <img class="landing-page-food-img" src={food}></img>
+            <div class="landing-page-recipe-inner-content">
+            <h3>Delicious honey-garlic wings</h3>
+            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
+            </div>
+          </div>
+          <div class="landing-page-recipe">
+            <img class="landing-page-food-img" src={food}></img>
+            <div class="landing-page-recipe-inner-content">
+            <h3>Delicious honey-garlic wings</h3>
+            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
+            </div>
+          </div>
+          </div> */}
           
-          <div class="landing-page-recipe">
-            <img class="landing-page-food-img" src={food}></img>
-            <div class="landing-page-recipe-inner-content">
-            <h3>Delicious honey-garlic wings</h3>
-            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
-            </div>
-          </div>
-          <div class="landing-page-recipe">
-            <img class="landing-page-food-img" src={food}></img>
-            <div class="landing-page-recipe-inner-content">
-            <h3>Delicious honey-garlic wings</h3>
-            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
-            </div>
-          </div>
-          <ul>
+          <ul class="social-links">
+            <li class="visit-us">Visit us</li>
             <li><i class="bi bi-youtube"></i></li>
             <li><i class="bi bi-instagram"></i></li>
             <li><i class="bi bi-facebook"></i></li>
-            <li><i class="bi bi-pinterest"></i></li>
+            <li><i class="bi bi-twitter"></i></li>
           </ul>
-        
         </div>
       </div>
       <Footer />
