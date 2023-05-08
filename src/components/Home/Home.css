@@ -38,8 +38,8 @@
 
 .left-side-content p {
   width: 90%;
-  font-size: 1.9rem;
-  font-weight: 400; 
+  font-size: 1.8rem;
+  font-weight: 400;
   color: rgb(103 103 103);
   letter-spacing: 0.2px;
   /* font-family: 'Permanent Marker'; */
@@ -53,13 +53,15 @@
   color: #7456f6d9;
   font-weight: 800;
   /* color: #f70f0f;  */
-  /* margin-bottom: -0.1rem; */
+  margin-bottom: 1rem;
   /* color: #ff5722;; */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .right-side-content {
   overflow: hidden;
+  position: relative;
 }
 
 .right-side-content img {
@@ -89,10 +91,7 @@
   color: yellow;
 }
 
-/* .slogan-text {
-  text-align: center;
-  padding: 2rem;
-} */
+
 
 .meal-options-container {
   display: flex;
@@ -107,7 +106,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 2.2rem;
-  width: 8.5rem;
+  width: 8.9rem;
   height: 8rem;
   padding: 1.2rem;
   position: relative;
@@ -125,10 +124,11 @@
   font-weight: bold;
   bottom: 7px;
   font-size: 1.2rem;
+  letter-spacing: 0;
 }
 
 .breakfast-figure {
-  background-color: #65f76770; 
+  background-color: #65f76770;
 }
 
 .lunch-figure {
@@ -143,10 +143,7 @@
   height: 5rem;
   width: 6.8rem;
   top: 5px;
-  
 }
-
-
 
 .lunch-img {
   height: 8rem;
@@ -158,12 +155,6 @@
   height: 9rem;
   width: 6rem;
   top: -15px;
-}
-
-.landing-page-card-container {
-  display: flex;
-  gap: 3rem;
-  align-items: start;
 }
 
 .landing-page-food-img {
@@ -178,21 +169,26 @@
   display: flex;
   list-style-type: none;
 
-  /* align-items: baseline; */
-  gap: 3rem;
-  font-size: 3rem;
+  gap: 5rem;
+  font-size: 2.6rem;
   padding-left: unset;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  color: #7456f6;
 }
 
-.visit-us {
-  font-size: 1.6rem;
-  color: #565656;
-  font-weight: bold;
+.social-icon {
+  background-color: #d5d4d4d4;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0.5rem 1.5rem;
-  border-radius: 22px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    cursor: pointer;
 }
 
 /* search form */

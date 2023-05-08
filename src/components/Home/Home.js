@@ -88,6 +88,12 @@ const Home = ({
           </div>
         </div>
         <div class="landing-page-content right-side-content">
+        <ul class="social-links">
+         <li class="social-icon"><i class="bi bi-facebook"></i></li>
+         <li class="social-icon"><i class="bi bi-instagram"></i></li>
+         <li class="social-icon"><i class="bi bi-youtube"></i></li>
+         <li class="social-icon"><i class="bi bi-twitch"></i></li>
+        </ul>
          <img src={salad}/>
          
         </div>
