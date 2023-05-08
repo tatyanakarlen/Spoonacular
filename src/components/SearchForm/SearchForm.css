@@ -1,22 +1,18 @@
 .input-group {
-    
+  margin-top: 1rem;
 }
-
 
 .input-group .form-control {
-   width: 25rem; 
-    height: 4rem;
-    font-size: 1.6rem; 
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 25rem;
+  height: 4rem;
+  font-size: 1.6rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-
-
 .input-group .btn {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .input-group input {
-    border: none; 
+  border: none;
 }
-

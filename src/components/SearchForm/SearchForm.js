@@ -45,8 +45,8 @@ const SearchForm = ({ userInput, setUserInput, setFilteredRecipes }) => {
               type="button"
               id="button-addon2"
             >
-              
               Search
+              {/* <i class="bi bi-search"></i> */}
             </button>
           </div>
        

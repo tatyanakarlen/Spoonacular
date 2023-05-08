@@ -4,9 +4,12 @@ import './Home.css';
 import Footer from '../Footer/Footer.js';
 import { useMediaQuery } from 'react-responsive';
 import breakfast from '../../Assets/breakfast.png';
+
 import lunch from '../../Assets/lunch.png';
 import dinner from '../../Assets/dinner.png';
-import food from '../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg';
+import salad from '../../Assets/salad.png';
+
+
 
 const Home = ({
   filteredRecipes,
@@ -26,11 +29,19 @@ const Home = ({
         // }
       >
         <div class="landing-page-content left-side-content">
-          <p class="landing-page-header">
-            Search and save
-            <br /> <span>your favourite recipes</span>
-          </p>
-          <br />
+          <h5>Digital Cookbook</h5>
+          <h1>Quick And Tasty Meal <span>Ideas</span></h1>
+          <p>What's for dinner tonight? <span class="cookbook-highlight">CookBook</span> has you covered. Enjoy healthy and not-so-healthy recipes from the world's best cuisines.</p>
+
+
+          {/* <ul class="social-links">
+            <li class="visit-us">Visit us</li>
+            <li><i class="bi bi-youtube"></i></li>
+            <li><i class="bi bi-instagram"></i></li>
+            <li><i class="bi bi-facebook"></i></li>
+            <li><i class="bi bi-twitter"></i></li>
+          </ul> */}
+          
 
           {/* <div class="search-form-cover">
             <div class="tb">
@@ -57,8 +68,9 @@ const Home = ({
             userInput={userInput}
             setUserInput={setUserInput}
           />
-          <br />
+        
           <div class="meal-options-container">
+         
             <figure class="meal-option breakfast-figure">
               <img class="breakfast-img" src={breakfast} />
               <figcaption class="caption">Breakfast</figcaption>
@@ -76,52 +88,8 @@ const Home = ({
           </div>
         </div>
         <div class="landing-page-content right-side-content">
-          <h2>Not sure what your having for dinner tonight?</h2>
-          <h4>CookBook has you covered.</h4>
-          <div className="landing-page-card-container">
-        <div class="card" style={{width: "20rem"}}>
-  <img class="card-img-top" src={food} alt="Card image cap"/>
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<div class="card" style={{width: "20rem"}}>
-  <img class="card-img-top" src={food} alt="Card image cap"/>
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-</div>
-{/*          
-          <div>
-          <div class="landing-page-recipe">
-            <img class="landing-page-food-img" src={food}></img>
-            <div class="landing-page-recipe-inner-content">
-            <h3>Delicious honey-garlic wings</h3>
-            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
-            </div>
-          </div>
-          <div class="landing-page-recipe">
-            <img class="landing-page-food-img" src={food}></img>
-            <div class="landing-page-recipe-inner-content">
-            <h3>Delicious honey-garlic wings</h3>
-            <p>This amazing recipe is perfect for dinner, snacks, special events</p>
-            </div>
-          </div>
-          </div> */}
-          
-          <ul class="social-links">
-            <li class="visit-us">Visit us</li>
-            <li><i class="bi bi-youtube"></i></li>
-            <li><i class="bi bi-instagram"></i></li>
-            <li><i class="bi bi-facebook"></i></li>
-            <li><i class="bi bi-twitter"></i></li>
-          </ul>
+         <img src={salad}/>
+         
         </div>
       </div>
       <Footer />

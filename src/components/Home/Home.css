@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   /* background: url('../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg');
   background-size: cover; */
 }
@@ -11,31 +11,66 @@
 .landing-page-content {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   flex: 1;
   height: 100%;
 }
 
 .left-side-content {
-  gap: 0.75rem; 
+  gap: 1.3rem;
+  padding: 0rem 0rem 0rem 15rem;
+
   /* border-right: 1px solid black; */
 }
+
+.left-side-content h1 {
+  font-size: 4.3rem;
+  width: 80%;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Archivo Black';
+}
+
+/* .left-side-content h1 span {
+   color: #f70f0f; 
+}  */
+
+.left-side-content p {
+  width: 90%;
+  font-size: 1.9rem;
+  font-weight: 400; 
+  color: rgb(103 103 103);
+  letter-spacing: 0.2px;
+  /* font-family: 'Permanent Marker'; */
+}
+
+.left-side-content h5 {
+  background-color: #d5d4d47d;
+  border-radius: 22px;
+  padding: 0.8rem 1.2rem;
+  color: rgb(103 103 103);
+  color: #7456f6d9;
+  font-weight: 800;
+  /* color: #f70f0f;  */
+  /* margin-bottom: -0.1rem; */
+  /* color: #ff5722;; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
 .right-side-content {
-  gap: 2rem; 
-  align-items: start;
+  overflow: hidden;
+}
+
+.right-side-content img {
+  width: 80rem;
+  height: 80rem;
+  border-radius: 50%;
 }
 
 .landing-page-content .landing-page-header {
   font-size: 3.75rem;
   font-weight: 500;
-  
-}
-
-.landing-page-content p span {
-  font-weight:200;
-  font-size: 3.5rem; 
-  color: rgb(78, 78, 78);
 }
 
 .home-page-container .form-container {
@@ -61,8 +96,9 @@
 
 .meal-options-container {
   display: flex;
-    gap: 1.8rem;
-    margin-top: 1rem;
+  gap: 2.5rem;
+  margin-bottom: -5rem;
+  margin-top: 2rem;
 }
 
 .meal-option {
@@ -71,88 +107,92 @@
   flex-direction: column;
   align-items: center;
   border-radius: 2.2rem;
-  width: 9.5rem;
-  height: 9.5rem;
-  padding: 1.5rem;
+  width: 8.5rem;
+  height: 8rem;
+  padding: 1.2rem;
   position: relative;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* background-color: #d5d4d47d; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  cursor: pointer;
 }
 
 .meal-option > * {
   position: absolute;
 }
 
+.caption {
+  font-weight: bold;
+  bottom: 7px;
+  font-size: 1.2rem;
+}
+
 .breakfast-figure {
-  background-color: #00ff3652;
+  background-color: #65f76770; 
 }
 
 .lunch-figure {
-  background-color: #ff009430;
+  background-color: #ffc0cb85;
 }
 
 .dinner-figure {
-  background-color: #ffb70045;
-}
-
-.caption {
-  font-weight: bold;
-  bottom: 12px;
+  background-color: #ffc14f70;
 }
 
 .breakfast-img {
-  height: 5.5rem;
-  width: 7rem;
-  top: 6px;
+  height: 5rem;
+  width: 6.8rem;
+  top: 5px;
+  
 }
 
+
+
 .lunch-img {
-  height: 9rem;
-  width: 7.5rem;
-  top: -13px;
+  height: 8rem;
+  width: 7.4rem;
+  top: -11px;
 }
 
 .dinner-img {
-  height: 9.4rem;
-  width: 6.8rem;
-  top: -14px;
+  height: 9rem;
+  width: 6rem;
+  top: -15px;
 }
 
 .landing-page-card-container {
-  display: flex; 
-  gap: 3rem; 
+  display: flex;
+  gap: 3rem;
   align-items: start;
-
 }
 
-
-
 .landing-page-food-img {
-width: 30%; 
+  width: 30%;
 }
 
 .landing-page-recipe {
-  display: flex; 
+  display: flex;
 }
 
 .social-links {
   display: flex;
-    list-style-type: none;
-    
-    /* align-items: baseline; */
-    gap: 3rem;
-    font-size: 3rem;
-    padding-left: unset;
+  list-style-type: none;
+
+  /* align-items: baseline; */
+  gap: 3rem;
+  font-size: 3rem;
+  padding-left: unset;
 }
 
 .visit-us {
   font-size: 1.6rem;
-    color: #565656;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1.5rem;
-    border-radius: 22px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: #565656;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 22px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* search form */
@@ -217,43 +257,43 @@ width: 30%;
 
 #s-circle {
   position: relative;
-    top: -8px;
-    left: 14px;
-    width: 43px;
-    height: 43px;
-    margin-top: 0;
-    border-width: 15px;
-    border: 11px solid #fff;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: 0.5s ease all;
+  top: -8px;
+  left: 14px;
+  width: 43px;
+  height: 43px;
+  margin-top: 0;
+  border-width: 15px;
+  border: 11px solid #fff;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: 0.5s ease all;
 }
 
 .search-form-submit-button span {
   position: absolute;
-    top: 68px;
-    left: 43px;
-    display: block;
-    width: 45px;
-    height: 15px;
-    background-color: transparent;
-    border-radius: 10px;
-    transform: rotateZ(52deg);
-    transition: 0.5s ease all;
+  top: 68px;
+  left: 43px;
+  display: block;
+  width: 45px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  transform: rotateZ(52deg);
+  transition: 0.5s ease all;
 }
 
 .search-form-submit-button span:before,
 .search-form-submit-button span:after {
   content: '';
-    position: absolute;
-    bottom: 0px;
-    right: 23px;
-    width: 30px;
-    height: 15px;
-    background-color: #fff;
-    border-radius: 10px;
-    transform: rotateZ(0);
-    transition: 0.5s ease all;
+  position: absolute;
+  bottom: 0px;
+  right: 23px;
+  width: 30px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  transform: rotateZ(0);
+  transition: 0.5s ease all;
 }
 
 #s-cover:hover #s-circle {
