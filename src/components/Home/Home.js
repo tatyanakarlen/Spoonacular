@@ -31,7 +31,7 @@ const Home = ({
         <div class="landing-page-content left-side-content">
           <h5>Digital Cookbook</h5>
           <h1>Quick And Tasty Meal <span>Ideas</span></h1>
-          <p>What's for dinner tonight? <span class="cookbook-highlight">CookBook</span> has you covered. Enjoy healthy and not-so-healthy recipes from the world's best cuisines.</p>
+          <p>What's for dinner tonight? <span class="cookbook-highlight">CookBook</span> has you covered.</p>
 
 
           {/* <ul class="social-links">

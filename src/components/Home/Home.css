@@ -18,15 +18,15 @@
 }
 
 .left-side-content {
-  gap: 1.3rem;
+  gap: 1.5rem;
   padding: 0rem 0rem 0rem 15rem;
 
   /* border-right: 1px solid black; */
 }
 
 .left-side-content h1 {
-  font-size: 4.3rem;
-  width: 80%;
+  font-size: 4.7rem;
+  width: 85%;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: 'Archivo Black';
@@ -38,7 +38,7 @@
 
 .left-side-content p {
   width: 90%;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
   color: rgb(103 103 103);
   letter-spacing: 0.2px;
@@ -91,8 +91,6 @@
   color: yellow;
 }
 
-
-
 .meal-options-container {
   display: flex;
   gap: 2.5rem;
@@ -106,8 +104,8 @@
   flex-direction: column;
   align-items: center;
   border-radius: 2.2rem;
-  width: 8.9rem;
-  height: 8rem;
+  width: 9.5rem;
+  height: 8.5rem;
   padding: 1.2rem;
   position: relative;
   /* background-color: #d5d4d47d; */
@@ -140,20 +138,20 @@
 }
 
 .breakfast-img {
-  height: 5rem;
-  width: 6.8rem;
-  top: 5px;
+  height: 5.8rem;
+  width: 7rem;
+  top: 1px;
 }
 
 .lunch-img {
-  height: 8rem;
-  width: 7.4rem;
-  top: -11px;
+  height: 8.5rem;
+  width: 7.7rem;
+  top: -12px;
 }
 
 .dinner-img {
-  height: 9rem;
-  width: 6rem;
+  height: 9.3rem;
+  width: 7rem;
   top: -15px;
 }
 
@@ -188,7 +186,7 @@
   width: 5rem;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* search form */
