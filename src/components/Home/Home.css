@@ -3,9 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* background: url('../../Assets/ella-olsson-oPBjWBCcAEo-unsplash.jpg');
-  background-size: cover; */
 }
 
 .landing-page-content {
@@ -20,8 +17,6 @@
 .left-side-content {
   gap: 1.5rem;
   padding: 0rem 0rem 0rem 15rem;
-
-  /* border-right: 1px solid black; */
 }
 
 .left-side-content h1 {
@@ -42,7 +37,6 @@
   font-weight: 400;
   color: rgb(103 103 103);
   letter-spacing: 0.2px;
-  /* font-family: 'Permanent Marker'; */
 }
 
 .left-side-content h5 {
@@ -52,9 +46,6 @@
   color: rgb(103 103 103);
   color: #7456f6d9;
   font-weight: 800;
-  /* color: #f70f0f;  */
-  margin-bottom: 1rem;
-  /* color: #ff5722;; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
@@ -67,7 +58,6 @@
 .right-side-content img {
   width: 80rem;
   height: 80rem;
-  border-radius: 50%;
 }
 
 .landing-page-content .landing-page-header {
@@ -108,7 +98,6 @@
   height: 8.5rem;
   padding: 1.2rem;
   position: relative;
-  /* background-color: #d5d4d47d; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   cursor: pointer;
@@ -121,7 +110,7 @@
 .caption {
   font-weight: bold;
   bottom: 7px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: 0;
 }
 
@@ -163,11 +152,39 @@
   display: flex;
 }
 
+.view-all-recipes {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  bottom: 9rem;
+  left: 1rem;
+  border-radius: 22px;
+  background-color: #fbfbf8e8; 
+  padding: 0.8rem 2rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.view-all-recipes img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.view-all-recipes h5 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
 .social-links {
   display: flex;
   list-style-type: none;
 
-  gap: 5rem;
+  gap: 4rem;
   font-size: 2.6rem;
   padding-left: unset;
   position: absolute;
