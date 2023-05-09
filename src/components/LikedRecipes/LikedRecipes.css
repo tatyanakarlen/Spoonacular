@@ -1,6 +1,5 @@
 .liked-recipes-breadcrumb {
-  margin-top: 7rem;
-  background-color: #faeeee;
+  background-color: var(--light-grey-accent);
   padding: 3rem 4.3rem;
   text-align: left;
   align-self: stretch;

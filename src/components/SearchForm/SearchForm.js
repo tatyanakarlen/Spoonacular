@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './SearchForm.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './SearchForm.css';
 
-const SearchForm = ({ setFilteredRecipes, userInput, setUserInput }) => {
-  // const [userInput, setUserInput] = useState('');
-  const navigate = useNavigate();
-
+const SearchForm = ({ userInput, setUserInput, setFilteredRecipes }) => {
   const handleChange = (e) => {
     setUserInput(e.target.value);
   };
+
+  const navigate = useNavigate();
 
   async function getRecipes(e) {
     e.preventDefault();
@@ -19,13 +18,12 @@ const SearchForm = ({ setFilteredRecipes, userInput, setUserInput }) => {
       );
       setFilteredRecipes(res.data.results);
       navigate('/recipes');
-      
+      console.log('userInput', userInput);
     } catch (err) {
       console.log("couldn't fetch recipes");
     }
   }
 
-  
   return (
     <div>
       <form>
@@ -37,19 +35,21 @@ const SearchForm = ({ setFilteredRecipes, userInput, setUserInput }) => {
               value={userInput}
               type="text"
               className="form-control"
-              placeholder="Cuisine"
+              placeholder="Keyword"
               aria-label="Cuisine"
               aria-describedby="button-addon2"
             />
-            <button
+              <button
               onClick={getRecipes}
-              className="btn btn-outline-light"
+              className="btn btn-dark"
               type="button"
               id="button-addon2"
             >
               Search
+              {/* <i class="bi bi-search"></i> */}
             </button>
           </div>
+       
         </label>
       </form>
     </div>
