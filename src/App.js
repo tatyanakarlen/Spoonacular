@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Recipes from './components/Recipes/Recipes';
 import './App.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
-  useNavigate,
 } from 'react-router-dom';
-import axios from 'axios';
 import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
@@ -16,8 +16,6 @@ import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import LogoSocialLinks from './components/LogoSocialLinks/LogoSocialLinks';
 import MobileNav from './components/MobileNav/MobileNav';
 import Auth from './components/Auth/Auth';
-import { db } from './config/firebase-config';
-import { getDocs, collection } from 'firebase/firestore';
 import { useMediaQuery } from 'react-responsive';
 
 function App() {
@@ -33,11 +31,6 @@ function App() {
     query: '(max-width: 575px)',
   });
 
-  //firestore data ref
-  const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
-
-  const navigate = useNavigate();
-
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -51,16 +44,17 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
-  // get recipes
-  async function getRecipes(e) {
+  const navigate = useNavigate();
+
+
+  async function getRecipes(e, query) {
     e.preventDefault();
     try {
       const res = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${userInput}&number=10`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${query}&number=10`
       );
       setFilteredRecipes(res.data.results);
       navigate('/recipes');
-      console.log('userInput', userInput);
     } catch (err) {
       console.log("couldn't fetch recipes");
     }
@@ -79,17 +73,13 @@ function App() {
   //   }
   // };
 
-  // useEffect(() => {
-  //   getLikedRecipes();
-  // }, []);
-
   return (
-    // <Router>
     <div>
       {isMobile ? (
         <MobileNav />
       ) : (
         <LogoSocialLinks
+          getRecipes={getRecipes}
           setFilteredRecipes={setFilteredRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
@@ -101,6 +91,7 @@ function App() {
           path="/"
           element={
             <Home
+              getRecipes={getRecipes}
               filteredRecipes={filteredRecipes}
               setFilteredRecipes={setFilteredRecipes}
               currentRecipes={currentRecipes}
@@ -169,7 +160,6 @@ function App() {
         <Route path="/login" element={<Auth />} />
       </Routes>
     </div>
-    // </Router>
   );
 }
 

@@ -3,30 +3,25 @@ import SearchForm from '../SearchForm/SearchForm';
 import './Home.css';
 import Footer from '../Footer/Footer.js';
 import { useMediaQuery } from 'react-responsive';
-import breakfast from '../../Assets/breakfast.png';
-
-import lunch from '../../Assets/lunch.png';
-import dinner from '../../Assets/dinner.png';
+import breakfastImg from '../../Assets/breakfast.png';
+import lunchImg from '../../Assets/lunch.png';
+import dinnerImg from '../../Assets/dinner.png';
 import salad from '../../Assets/salad.png';
-import salmon from '../../Assets/food1.png'
+import salmon from '../../Assets/food1.png';
 
 const Home = ({
   filteredRecipes,
   setFilteredRecipes,
   userInput,
   setUserInput,
+  getRecipes,
 }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
   return (
     <div className="Home">
-      <div
-        className="home-page-container"
-        // className={
-        //   isMobile ? 'home-page-container' : 'home-page-container margin'
-        // }
-      >
+      <div className="home-page-container">
         <div class="landing-page-content left-side-content">
           <h5>Digital Cookbook</h5>
           <h1>
@@ -57,6 +52,7 @@ const Home = ({
           </div> */}
 
           <SearchForm
+            getRecipes={getRecipes}
             filteredRecipes={filteredRecipes}
             setFilteredRecipes={setFilteredRecipes}
             userInput={userInput}
@@ -64,18 +60,27 @@ const Home = ({
           />
 
           <div class="meal-options-container">
-            <figure class="meal-option breakfast-figure">
-              <img class="breakfast-img" src={breakfast} />
+            <figure
+              onClick={(e) => getRecipes(e, 'breakfast')}
+              class="meal-option breakfast-figure"
+            >
+              <img class="breakfast-img" src={breakfastImg} />
               <figcaption class="caption">Breakfast</figcaption>
             </figure>
 
-            <figure class="meal-option lunch-figure">
-              <img class="lunch-img" src={lunch} />
+            <figure
+              onClick={(e) => getRecipes(e, 'lunch')}
+              class="meal-option lunch-figure"
+            >
+              <img class="lunch-img" src={lunchImg} />
               <figcaption class="caption">Lunch</figcaption>
             </figure>
 
-            <figure class="meal-option dinner-figure">
-              <img class="dinner-img" src={dinner} />
+            <figure
+              onClick={(e) => getRecipes(e, 'dinner')}
+              class="meal-option dinner-figure"
+            >
+              <img class="dinner-img" src={dinnerImg} />
               <figcaption class="caption">Dinner</figcaption>
             </figure>
           </div>
@@ -96,7 +101,7 @@ const Home = ({
             </li>
           </ul>
           <img src={salad} />
-          <div class="view-all-recipes">
+          <div onClick={(e) => getRecipes(e, '')} class="view-all-recipes">
             <h5>View All Recipes</h5>
 
             <img src={salmon} />
