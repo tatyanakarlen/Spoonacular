@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import './LogoSocialLinks.css';
 import { Link } from 'react-router-dom';
 
-
-
-const LogoSocialLinks = ({
-  getRecipes,
-}) => {
+const LogoSocialLinks = ({ getRecipes }) => {
   const [isSearchInputExpanded, setIsSearchInputExpanded] = useState(false);
   const [searchBarUserInput, setSearchBarUserInput] = useState('');
 
@@ -14,7 +10,6 @@ const LogoSocialLinks = ({
     setSearchBarUserInput(e.target.value);
   };
 
-  
   return (
     <>
       <div className="logo-social-links-container">
@@ -28,7 +23,7 @@ const LogoSocialLinks = ({
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/liked">Liked Recipes</Link>
+                <Link to="/liked">My Recipes</Link>
               </li>
               <li
                 onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
@@ -47,9 +42,10 @@ const LogoSocialLinks = ({
                 aria-label="Username"
                 aria-describedby="addon-wrapping"
               />
-              <div 
-              onClick={(e) => getRecipes(e, searchBarUserInput)}
-              class="nav-search-button">
+              <div
+                onClick={(e) => getRecipes(e, searchBarUserInput)}
+                class="nav-search-button"
+              >
                 Search
               </div>
               <i
@@ -61,24 +57,20 @@ const LogoSocialLinks = ({
         </div>
         <div className="nav-menu-items">
           <ul>
-        
-            <li>
-              <Link className="nav-link" to="#">
-                <i class="bi bi-instagram"></i>
-              </Link>
+            <li
+              className="nav-link"
+              onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
+            >
+              <i class="bi bi-search nav-icon"></i>
+              Search
             </li>
-            <li>
-              <Link className="nav-link" to="#">
-              <i class="bi bi-youtube"></i>
-              </Link>
-            </li>
-            <li>
+
+            <li class="login-btn">
               <Link className="nav-link" to="/login">
-                <i class="bi bi-person-fill auth-icon"></i>
-                Login
+                <i class="bi bi-person-fill nav-icon"></i>
+                login
               </Link>
             </li>
-          
           </ul>
         </div>
       </div>

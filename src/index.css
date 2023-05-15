@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 
 html {
   font-size: 62.5%;
@@ -9,7 +10,7 @@ body {
   position: relative;
   background-color: var(--off-white-background);
   color: var(--primary-text-black);
-  /* font-family: 'Archivo Black'; */
+  font-family: 'Archivo';
   letter-spacing: 1px;
   
 }

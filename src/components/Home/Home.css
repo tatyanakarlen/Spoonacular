@@ -34,7 +34,7 @@
 .left-side-content p {
   width: 90%;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 300;
   color: rgb(103 103 103);
   letter-spacing: 0.2px;
 }
@@ -45,6 +45,7 @@
   padding: 0.8rem 1.2rem;
   color: rgb(103 103 103);
   color: #7456f6d9;
+  font-size: 1.35rem;
   font-weight: 800;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -119,7 +120,7 @@
   font-weight: bold;
   bottom: 7px;
   font-size: 1.3rem;
-  letter-spacing: 0;
+  letter-spacing: 0.5px;
 }
 
 .breakfast-figure {
@@ -135,9 +136,9 @@
 }
 
 .breakfast-img {
-  height: 5.8rem;
+  height: 5.4rem;
   width: 7rem;
-  top: 1px;
+  top: 5px;
 }
 
 .lunch-img {
@@ -169,7 +170,7 @@
   left: 1rem;
   border-radius: 22px;
   background-color: #fbfbf8e8; 
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 2rem;
   font-weight: 800;
   font-size: 1.3rem;
   cursor: pointer;
@@ -188,7 +189,7 @@
 }
 
 .view-all-recipes h5 {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 1px;
 }
@@ -219,12 +220,13 @@
 }
 
 .social-icon:hover {
-  background-color: #000000c4;
-}
-
-.social-icon i:hover {
+  background-color: #212529;
   color: #fbfbf8; 
 }
+
+/* .social-icon i:hover {
+  color: #fbfbf8; 
+} */
 
 /* search form */
 
