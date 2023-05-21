@@ -6,8 +6,7 @@
   position: sticky;
   top: 0;
   padding: 1.1rem 6rem;
-  
-  
+  font-size: 1.6rem;
   overflow: hidden;
   background-color: #fbfbf8;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -28,20 +27,12 @@
   list-style-type: none;
   display: flex;
   gap: 2rem;
-  font-size: 1.6rem;
 }
 
 .logo-social-links-container h1 {
-  font-size: 2.2rem;
+  font-size: 2.1rem;
+  font-weight: 700;
 }
-
-.logo-social-links-container h3 {
-  margin-top: 0.7rem;
-}
-
-/* .logo-social-links-container .nav-menu-items {
-  margin-top: 1rem;
-} */
 
 .logo-social-links-container .nav-menu-items ul {
   display: flex;
@@ -50,19 +41,9 @@
   align-items: center;
 }
 
-.logo-social-links-container .nav-menu-items .nav-link {
-  font-size: 1.6rem;
-}
-
-.heart-icon {
-  color: red;
-  padding-right: 0.6rem;
-  font-size: 2.1rem;
-}
-
-.auth-icon {
-  padding-right: 0.3rem;
-  font-size: 2.4rem;
+.nav-icon {
+  padding-right: 1rem;
+  font-size: 1.8rem;
 }
 
 .search-input-nav {
@@ -74,7 +55,6 @@
 .nav-search-input {
   height: 2.8rem;
   border-radius: 5px;
-  /* width: 18rem; */
   font-size: 1.5rem;
 }
 
@@ -98,7 +78,7 @@
   border: none;
   background-color: var(--primary-text-black);
   color: white;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   padding: 0.4rem 3.7rem;
   border-radius: 18px;
   margin-left: -1.8rem;
@@ -112,4 +92,11 @@
   margin-left: -2rem;
   margin-top: -3px;
   cursor: pointer;
+}
+
+.login-btn {
+  background-color: #212529;
+  color: white;
+  border-radius: 22px;
+  padding: 0.7rem 2rem;
 }
