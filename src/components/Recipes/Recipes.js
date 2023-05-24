@@ -39,14 +39,20 @@ const Recipes = ({
         <RecipeNotFound />
       ) : (
         <div className="recipe-index-page-container">
-
+          <div className="recipes-index-page">
           <div
-            className={
-              isMobile ? 'recipes-index-page' : 'recipes-index-page margin'
-            }
-            style={{ border: isMobile && 'none' }}
-          >
-            <div className="your-recipes-headline">
+          
+          className="liked-recipes-breadcrumb"
+         
+        >
+          <div>
+          <Link to="/">Home</Link>&nbsp;&nbsp;
+          <i className="bi bi-chevron-right"></i>
+          <span>Recipes</span>
+          </div>
+          <h1>Your Recipes</h1>
+        </div>
+            {/* <div className="your-recipes-headline">
               <div
                 className="your-recipes-headline-wrapper"
                 style={{
@@ -69,7 +75,7 @@ const Recipes = ({
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="container">
               <div className="row">

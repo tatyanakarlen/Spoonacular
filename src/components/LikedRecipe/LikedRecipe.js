@@ -32,6 +32,7 @@ const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
 
   const toggleLike = async () => {
     if (auth.currentUser === null) {
+      alert('please login')
       console.log('you cannot like');
       return;
     } else if (!isRecipeLiked) {

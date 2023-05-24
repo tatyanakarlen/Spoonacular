@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './LogoSocialLinks.css';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,23 @@ const LogoSocialLinks = ({ getRecipes }) => {
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
+    console.log(searchBarUserInput.length);
+  };
+
+  let openInputStyle = {};
+
+  if (isSearchInputExpanded) {
+    openInputStyle = {
+      width: '20rem',
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
+      outline: 'none',
+    };
+  }
+
+  const ref = useRef(null);
+  const onClear = () => {
+    ref.current.value = '';
   };
 
   return (
@@ -17,52 +34,52 @@ const LogoSocialLinks = ({ getRecipes }) => {
           <h1>
             <Link to="/">CookBook</Link>
           </h1>
-          {!isSearchInputExpanded ? (
-            <ul class="left-nav-menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/liked">My Recipes</Link>
-              </li>
-              <li
-                onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
-              >
-                <i class="bi bi-search"></i>
-              </li>
-            </ul>
-          ) : (
-            <div class="search-input-nav">
-              <input
-                value={searchBarUserInput}
-                onChange={handleChange}
-                class="form-control nav-search-input"
-                type="text"
-                placeholder="Username"
-                aria-label="Username"
-                aria-describedby="addon-wrapping"
-              />
-              <div
-                onClick={(e) => getRecipes(e, searchBarUserInput)}
-                class="nav-search-button"
-              >
-                Search
-              </div>
-              <i
-                onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
-                class="bi bi-x close-search-x-icon"
-              ></i>
-            </div>
-          )}
+          <ul class="left-nav-menu">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/liked">My Recipes</Link>
+            </li>
+          </ul>
         </div>
         <div className="nav-menu-items">
           <ul>
-            <li
-              className="nav-link"
-              onClick={() => setIsSearchInputExpanded(!isSearchInputExpanded)}
-            >
-              <i class="bi bi-search nav-icon"></i>
-              Search
+            <li className="nav-link label-enclose">
+              <label
+                for="fldSearch"
+                onClick={(e) => {
+                  setIsSearchInputExpanded(!isSearchInputExpanded);
+                  if (isSearchInputExpanded && ref.current.value !== '') {
+                    // console.log(
+                    //   'logic check',
+                    //   isSearchInputExpanded,
+                    //   searchBarUserInput.length
+                    // );
+                    
+                    getRecipes(e, searchBarUserInput);
+                    setIsSearchInputExpanded(!isSearchInputExpanded);
+                    onClear();
+                  } else {
+                    setIsSearchInputExpanded(!isSearchInputExpanded);
+                  }
+                }}
+              >
+                <i class="bi bi-search nav-icon search-icon"></i>
+                Search
+              </label>
+              <div id="input-enclose">
+                <input
+                  ref={ref}
+                  onClick={() => console.log(ref.current)}
+                  // value={searchBarUserInput}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Enter Keyword"
+                  // id="fldSearch"
+                  style={openInputStyle}
+                />
+              </div>
             </li>
 
             <li class="login-btn">

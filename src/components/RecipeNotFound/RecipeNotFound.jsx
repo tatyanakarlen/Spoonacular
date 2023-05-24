@@ -12,15 +12,8 @@ const RecipeNotFound = () => {
   });
   return (
     <>
-      {isMobile ? <MobileNav /> : <LogoSocialLinks />}
       <div className="recipe-not-found">
-        <div
-          className={
-            isMobile
-              ? 'recipe-not-found-wrapper'
-              : 'recipe-not-found-wrapper margin'
-          }
-        >
+        <div className="recipe-not-found-wrapper">
           <img src={img} />
           <div class="recipe-not-found-h1-go-home-link">
             <h1>Recipe not found</h1>

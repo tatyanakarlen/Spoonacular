@@ -1,10 +1,11 @@
 import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../config/firebase-config';
 import './LikedRecipes.css';
 import Footer from '../Footer/Footer';
 import { db } from '../../config/firebase-config';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, query, where } from 'firebase/firestore';
 import Loader from '../Loader/Loader';
 
 const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
@@ -12,16 +13,31 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
     query: '(max-width: 575px)',
   });
 
+  console.log('user ID', auth?.currentUser?.uid);
+
   const [areThereLikedRecipes, setAreThereLikedRecipes] = useState(false);
   const [loading, setLoading] = useState(true);
 
   //firestore data ref
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
+  // const q = query(citiesRef, where("state", "==", "CA"));
+
   const getLikedRecipes = async () => {
     try {
-      const data = await getDocs(likedRecipesCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
+      const data = query(
+        likedRecipesCollectionRef,
+        where('likedByUserId', '==', auth?.currentUser?.uid)
+      );
+      // const data = await getDocs(likedRecipesCollectionRef);
+      const likedDocs = await getDocs(data);
+      // console.log('data.docs', data.docs)
+      // const filteredData = data.docs.map((doc) => ({
+      //   ...doc.data(),
+      //   // id: doc.id,
+
+      // }));
+      const filteredData = likedDocs.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
@@ -56,13 +72,13 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
         <Loader />
       ) : (
         <div className="likedRecipesContainer">
-          <div
-            className="liked-recipes-breadcrumb"
-            style={{ marginTop: !isMobile && '7rem' }}
-          >
-            <Link to="/">HOME</Link>&nbsp;&nbsp;
-            <i className="bi bi-chevron-right"></i>
-            &nbsp;&nbsp;Your Liked RecipesS
+          <div className="liked-recipes-breadcrumb">
+            <div>
+              <Link to="/">Home</Link>&nbsp;&nbsp;
+              <i className="bi bi-chevron-right"></i>
+              <span>My Recipes</span>
+            </div>
+            <h1>Your Liked Recipes</h1>
           </div>
           <div
             className="inner-liked-recipes-wrapper"
