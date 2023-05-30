@@ -1,11 +1,29 @@
 .liked-recipes-breadcrumb {
-  background-color: var(--light-grey-accent);
-  padding: 3rem 4.3rem;
-  text-align: left;
-  align-self: stretch;
-  display: flex;
-  font-size: 1.7rem;
+  background-color: var(--off-white-background);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem 0 2rem 6rem;
+    align-self: stretch;
+    align-items: start;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.liked-recipes-breadcrumb a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.liked-recipes-breadcrumb span {
+  text-decoration: underline;
+  margin-left: 1rem;
+}
+
+.liked-recipes-breadcrumb h1 {
   font-weight: 600;
+  font-size: 2.6rem;
 }
 
 .liked-recipe-container {

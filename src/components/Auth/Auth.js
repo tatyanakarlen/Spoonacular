@@ -64,6 +64,7 @@ const Auth = () => {
       <button onClick={signIn}>Sign In</button>
       <button onClick={signInWithGoogle}> Sign in with Google</button>
       <button onClick={logOut}>Log out</button>
+      <button onClick={() => console.log('current user', auth.currentUser)}>Check user</button>
     </div>
   );
 };

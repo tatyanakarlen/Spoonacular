@@ -39,36 +39,14 @@ const Recipes = ({
         <RecipeNotFound />
       ) : (
         <div className="recipe-index-page-container">
-
-          <div
-            className={
-              isMobile ? 'recipes-index-page' : 'recipes-index-page margin'
-            }
-            style={{ border: isMobile && 'none' }}
-          >
-            <div className="your-recipes-headline">
-              <div
-                className="your-recipes-headline-wrapper"
-                style={{
-                  flexDirection: shouldRecipesHeaderBeColumn && 'column',
-                }}
-              >
-                <div className="recipes-headline-img">
-                  <img src={img1} />
-                </div>
-                <div
-                  className="recipes-headline-text"
-                  style={{ textAlign: shouldRecipesHeaderBeColumn && 'center' }}
-                >
-                  <h1>Your {capitalized} recipes</h1>
-                  <p>
-                    Discover mouth-watering recipes for every occasion! Whether
-                    you're planning to meal prep for the weeks or you're looking
-                    for an amazing meal, we've gone through our recipes and
-                    gathered a bunch for your meal!
-                  </p>
-                </div>
+          <div className="recipes-index-page">
+            <div className="liked-recipes-breadcrumb">
+              <div>
+                <Link to="/">Home</Link>&nbsp;&nbsp;
+                <i className="bi bi-chevron-right"></i>
+                <span>Recipes</span>
               </div>
+              <h1>Your Recipes</h1>
             </div>
 
             <div className="container">

@@ -8,6 +8,16 @@
   font-weight: 600;
 }
 
+.recipe-breadcrumb-content {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.recipe-breadcrumb-content span {
+  margin-left: 0;
+}
+
 @media only screen and (max-width: 640px) {
   .recipe-id-page-breadcrumb {
     padding: 2rem;
