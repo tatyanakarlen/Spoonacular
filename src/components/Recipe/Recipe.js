@@ -35,24 +35,9 @@ const Recipe = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-  //firestore data ref
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
   console.log('recipe', recipe);
 
-  // data model for liked recipes
-  // recipe.spoonacularId
-  // recipe.title
-  // recipe.image
-  // introParagraph
-  // recipe.glutenFree
-  // recipe.dairyFree
-  // recipe.lowFodmap
-  // recipe.vegetarian
-  // recipe.vegan
-  // recipe.veryHealthy
-  // recipe.ingredients (array)
-  // recipe.steps (array)
-  // likedByUserId
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -150,12 +135,16 @@ const Recipe = ({
       ) : (
         <div>
           {!isMobile && (
-            <div className="recipe-id-page-breadcrumb margin">
-              <Link to="/">HOME</Link>&nbsp;&nbsp;
+            <div className="liked-recipes-breadcrumb">
+            <div className="recipe-breadcrumb-content">
+              <Link to="/">Home</Link>
               <i className="bi bi-chevron-right"></i>
-              &nbsp;&nbsp;YOUR RECIPE<i className="bi bi-chevron-right"></i>
-              &nbsp;&nbsp;{recipe.title}
+              <Link to="/recipes">Recipes</Link>
+              <i className="bi bi-chevron-right"></i>
+              <span style={{marginLeft: '0'}}>{recipe.title}</span>
             </div>
+           
+          </div>
           )}
           <div className="recipe-container">
             <div className="title-like-heart-container">
