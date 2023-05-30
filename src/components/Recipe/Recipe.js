@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
