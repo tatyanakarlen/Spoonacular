@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
 import './LikedRecipes.css';
-import Footer from '../Footer/Footer';
 import { db } from '../../config/firebase-config';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import Loader from '../Loader/Loader';
@@ -137,7 +136,6 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
                 </div>
               </div>
             )}
-            <Footer />
           </div>
         </div>
       )}

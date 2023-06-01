@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './RecipeNotFound.css';
 import img from '../../Assets/404-error.png';
 import { useMediaQuery } from 'react-responsive';
-import Footer from '../Footer/Footer';
+
 
 const RecipeNotFound = () => {
   const isMobile = useMediaQuery({
@@ -55,7 +55,6 @@ const RecipeNotFound = () => {
             </ul>
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );

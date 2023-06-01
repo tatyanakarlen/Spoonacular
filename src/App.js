@@ -14,6 +14,7 @@ import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import LogoSocialLinks from './components/LogoSocialLinks/LogoSocialLinks';
+import Footer from './components/Footer/Footer';
 import MobileNav from './components/MobileNav/MobileNav';
 import Auth from './components/Auth/Auth';
 import { useMediaQuery } from 'react-responsive';
@@ -46,7 +47,6 @@ function App() {
 
   const navigate = useNavigate();
 
-
   async function getRecipes(e, query) {
     e.preventDefault();
     try {
@@ -60,18 +60,7 @@ function App() {
     }
   }
 
-  // const getLikedRecipes = async () => {
-  //   try {
-  //     const data = await getDocs(likedRecipesCollectionRef);
-  //     const filteredData = data.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     setLikedRecipes(filteredData);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+  
 
   return (
     <div>
@@ -159,6 +148,7 @@ function App() {
 
         <Route path="/login" element={<Auth />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

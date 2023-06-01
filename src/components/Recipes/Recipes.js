@@ -1,10 +1,8 @@
 import React from 'react';
 import Pagination from '../Pagination/Pagination';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
 import './Recipes.css';
 import RecipeNotFound from '../RecipeNotFound/RecipeNotFound';
-import img1 from '../../Assets/bonbon-girl-cooking-a-salad-but-dreaming-about-meat.png';
 import { useMediaQuery } from 'react-responsive';
 
 const Recipes = ({
@@ -92,7 +90,6 @@ const Recipes = ({
               totalPosts={totalPosts}
             />
           </div>
-          <Footer />
         </div>
       )}
     </>
