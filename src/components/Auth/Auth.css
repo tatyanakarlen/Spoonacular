@@ -1,8 +1,56 @@
 .auth-page-container {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 92vh;
-    gap: 1rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 92vh;
+  gap: 1rem;
 }
+
+.sign-in {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sign-in input {
+  height: 3rem;
+  height: 3rem;
+  border: 0.5px solid #d5d4d4;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  padding: 2rem 1rem;
+}
+
+.sign-in input::placeholder {
+  color: rgb(161, 161, 161);
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dddcdc;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: .8rem;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: .8rem;
+  }
+
+  hr {
+      border-top: 1px solid #868484; 
+  }
+
+  

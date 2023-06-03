@@ -56,7 +56,7 @@ const LogoSocialLinks = ({ getRecipes }) => {
                     //   isSearchInputExpanded,
                     //   searchBarUserInput.length
                     // );
-                    
+
                     getRecipes(e, searchBarUserInput);
                     setIsSearchInputExpanded(!isSearchInputExpanded);
                     onClear();

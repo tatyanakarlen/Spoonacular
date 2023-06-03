@@ -63,6 +63,31 @@ const Auth = () => {
 
   return (
     <div className="auth-page-container">
+      <div className="sign-in">
+      
+        <h1>Welcome!</h1>
+        <h5>Continue with Google or sign-in manually</h5>
+        
+        <button><img width="27" height="27" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>Log in with Google</button>
+        <div class="separator">or</div>
+ 
+
+        
+        <input
+        placeholder="Email..."
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password..."
+        onChange={(e) => setPassword(e.target.value)}
+      />
+       <button onClick={signIn}>Sign In</button>
+       
+       <hr></hr>
+      </div>
+      
+      <>
      <MDBBtn onClick={toggleShow}>Create new account</MDBBtn>
 
       <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
@@ -95,6 +120,7 @@ const Auth = () => {
           </MDBModalContent>
         </MDBModalDialog>
       </MDBModal>
+      </>
       {/* <h1>Welcome Back!</h1>
       <input
         placeholder="Email..."
