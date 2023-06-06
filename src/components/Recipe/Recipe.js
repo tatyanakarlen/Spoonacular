@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Recipe.css';
 import star from '../../Assets/icons8-star-48.png';
-import Footer from '../Footer/Footer';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
@@ -238,7 +237,7 @@ const Recipe = ({
               ))}
             </ul>
           </div>
-          <Footer />
+        
         </div>
       )}
     </>

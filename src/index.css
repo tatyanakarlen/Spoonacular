@@ -9,16 +9,17 @@ html {
 body {
   position: relative;
   background-color: var(--off-white-background);
-  color: var(--primary-text-black);
   font-family: 'Archivo';
   letter-spacing: 1px;
-  
+
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-ul {
-  margin-bottom: 0;
+h1, h2, h3, h4, h5, p, span, label {
+  color: var(--primary-text-black); 
 }
+
+

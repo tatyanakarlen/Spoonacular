@@ -1,21 +1,21 @@
 .recipes-index-page {
-  border-top: 1px solid #faeeee;
+  /* border-top: 1px solid #faeeee; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.your-recipes-headline {
+/* .your-recipes-headline {
   background-color: var(--light-grey-accent);
   padding: 5rem;
   text-align: center;
   align-self: stretch;
   display: flex;
   justify-content: center;
-}
+} */
 
-.your-recipes-headline .your-recipes-headline-wrapper {
+/* .your-recipes-headline .your-recipes-headline-wrapper {
   display: flex;
   max-width: 900px;
   align-items: center;
@@ -38,7 +38,7 @@
   letter-spacing: 1.1px;
 
   font-weight: 500;
-}
+} */
 
 .container {
   padding: 5rem 2rem;

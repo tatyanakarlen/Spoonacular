@@ -13,7 +13,8 @@ import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import LikedRecipe from './components/LikedRecipe/LikedRecipe';
-import LogoSocialLinks from './components/LogoSocialLinks/LogoSocialLinks';
+import DesktopNav from './components/DesktopNav/DesktopNav';
+import Footer from './components/Footer/Footer';
 import MobileNav from './components/MobileNav/MobileNav';
 import Auth from './components/Auth/Auth';
 import { useMediaQuery } from 'react-responsive';
@@ -26,6 +27,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
@@ -46,7 +48,6 @@ function App() {
 
   const navigate = useNavigate();
 
-
   async function getRecipes(e, query) {
     e.preventDefault();
     try {
@@ -60,29 +61,18 @@ function App() {
     }
   }
 
-  // const getLikedRecipes = async () => {
-  //   try {
-  //     const data = await getDocs(likedRecipesCollectionRef);
-  //     const filteredData = data.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     setLikedRecipes(filteredData);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
   return (
     <div>
       {isMobile ? (
         <MobileNav />
       ) : (
-        <LogoSocialLinks
+        <DesktopNav
           getRecipes={getRecipes}
           setFilteredRecipes={setFilteredRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
+          isUserLoggedIn={isUserLoggedIn}
+          setIsUserLoggedIn={setIsUserLoggedIn}
         />
       )}
       <Routes>
@@ -157,8 +147,17 @@ function App() {
           }
         />
 
-        <Route path="/login" element={<Auth />} />
+        <Route
+          path="/login"
+          element={
+            <Auth
+              isUserLoggedIn={isUserLoggedIn}
+              setIsUserLoggedIn={setIsUserLoggedIn}
+            />
+          }
+        />
       </Routes>
+      <Footer />
     </div>
   );
 }

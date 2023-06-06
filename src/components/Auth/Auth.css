@@ -1,0 +1,134 @@
+.auth-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 92vh;
+  gap: 1rem;
+}
+
+.sign-in {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.sign-in input {
+  height: 3rem;
+  border: 0.5px solid #d5d4d4;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  padding: 2rem 1rem;
+}
+
+.sign-in input::placeholder {
+  color: rgb(161, 161, 161);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dddcdc;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.8rem;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.8rem;
+}
+
+hr {
+  border-top: 1px solid #868484;
+}
+
+.log-in-with-google-btn {
+  padding: 0.8rem;
+  border: 1px solid var(--primary-text-black);
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.sign-in-btn {
+  background-color: #212529;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.sign-up-modal-toggle-btn {
+  background-color: #1d71fb;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  position: relative;
+  padding: var(--mdb-modal-padding);
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-footer {
+  justify-content: flex-start;
+}
+
+.sign-up,
+.cancel-btn {
+  border-radius: 4px;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  text-transform: inherit;
+}
+
+.sign-up-btn {
+  background-color: #1d71fb;
+  border-radius: 4px;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  text-transform: inherit;
+}
+
+.cancel-btn {
+  background-color: #1d71fba8;
+  color: white;
+}
+
+.sign-up-input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.3rem;
+}
+
+.sign-up-input-container label {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.modal-title {
+  font-size: 2rem; 
+}

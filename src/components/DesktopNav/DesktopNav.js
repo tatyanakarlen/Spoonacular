@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
-import './LogoSocialLinks.css';
+import { auth, googleProvider } from '../../config/firebase-config';
+import { signOut } from 'firebase/auth';
+import './DesktopNav.css';
 import { Link } from 'react-router-dom';
 
-const LogoSocialLinks = ({ getRecipes }) => {
+const DesktopNav = ({ getRecipes, isUserLoggedIn, setIsUserLoggedIn }) => {
   const [isSearchInputExpanded, setIsSearchInputExpanded] = useState(false);
   const [searchBarUserInput, setSearchBarUserInput] = useState('');
 
@@ -21,6 +23,16 @@ const LogoSocialLinks = ({ getRecipes }) => {
       outline: 'none',
     };
   }
+
+  // firebase log out
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+      setIsUserLoggedIn(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const ref = useRef(null);
   const onClear = () => {
@@ -56,7 +68,7 @@ const LogoSocialLinks = ({ getRecipes }) => {
                     //   isSearchInputExpanded,
                     //   searchBarUserInput.length
                     // );
-                    
+
                     getRecipes(e, searchBarUserInput);
                     setIsSearchInputExpanded(!isSearchInputExpanded);
                     onClear();
@@ -83,10 +95,17 @@ const LogoSocialLinks = ({ getRecipes }) => {
             </li>
 
             <li class="login-btn">
-              <Link className="nav-link" to="/login">
-                <i class="bi bi-person-fill nav-icon"></i>
-                login
-              </Link>
+              {!isUserLoggedIn ? (
+                <Link className="nav-link" to="/login">
+                  <i class="bi bi-person-fill nav-icon"></i>
+                  login
+                </Link>
+              ) : (
+                <Link className="nav-link" onClick={logOut}>
+                  <i class="bi bi-person-fill nav-icon"></i>
+                  logout
+                </Link>
+              )}
             </li>
           </ul>
         </div>
@@ -95,4 +114,4 @@ const LogoSocialLinks = ({ getRecipes }) => {
   );
 };
 
-export default LogoSocialLinks;
+export default DesktopNav;

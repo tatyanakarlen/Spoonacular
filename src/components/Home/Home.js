@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
-import './Home.css';
-import Footer from '../Footer/Footer.js';
+import './Home.css'; 
 import { useMediaQuery } from 'react-responsive';
 import breakfastImg from '../../Assets/breakfast.png';
 import lunchImg from '../../Assets/lunch.png';
@@ -108,7 +107,6 @@ const Home = ({
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
