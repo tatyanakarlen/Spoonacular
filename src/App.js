@@ -13,7 +13,7 @@ import Home from './components/Home/Home';
 import Recipe from './components/Recipe/Recipe';
 import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import LikedRecipe from './components/LikedRecipe/LikedRecipe';
-import LogoSocialLinks from './components/LogoSocialLinks/LogoSocialLinks';
+import DesktopNav from './components/DesktopNav/DesktopNav';
 import Footer from './components/Footer/Footer';
 import MobileNav from './components/MobileNav/MobileNav';
 import Auth from './components/Auth/Auth';
@@ -27,6 +27,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
@@ -60,18 +61,18 @@ function App() {
     }
   }
 
-  
-
   return (
     <div>
       {isMobile ? (
         <MobileNav />
       ) : (
-        <LogoSocialLinks
+        <DesktopNav
           getRecipes={getRecipes}
           setFilteredRecipes={setFilteredRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
+          isUserLoggedIn={isUserLoggedIn}
+          setIsUserLoggedIn={setIsUserLoggedIn}
         />
       )}
       <Routes>
@@ -146,7 +147,15 @@ function App() {
           }
         />
 
-        <Route path="/login" element={<Auth />} />
+        <Route
+          path="/login"
+          element={
+            <Auth
+              isUserLoggedIn={isUserLoggedIn}
+              setIsUserLoggedIn={setIsUserLoggedIn}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </div>

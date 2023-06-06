@@ -8,7 +8,7 @@
 .landing-page-content {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   flex: 1;
   height: 100%;

@@ -1,5 +1,5 @@
 import MobileNav from '../MobileNav/MobileNav';
-import LogoSocialLinks from '../LogoSocialLinks/LogoSocialLinks';
+import LogoSocialLinks from '../DesktopNav/DesktopNav';
 import { Link } from 'react-router-dom';
 import './RecipeNotFound.css';
 import img from '../../Assets/404-error.png';
