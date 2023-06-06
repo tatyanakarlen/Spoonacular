@@ -45,5 +45,11 @@
 }
 
 .go-home-btn {
-  font-size: 1.6rem;
+  background-color: #1d71fb;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.4rem;
+  text-transform: inherit;
 }

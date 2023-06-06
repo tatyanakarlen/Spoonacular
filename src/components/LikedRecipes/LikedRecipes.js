@@ -5,9 +5,10 @@ import { auth } from '../../config/firebase-config';
 import './LikedRecipes.css';
 import { db } from '../../config/firebase-config';
 import { getDocs, collection, query, where } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 
-const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
+const LikedRecipes = ({ likedRecipes, setLikedRecipes, isUserLoggedIn }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
@@ -20,7 +21,7 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
   //firestore data ref
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
 
-  // const q = query(citiesRef, where("state", "==", "CA"));
+  const navigate = useNavigate();
 
   const getLikedRecipes = async () => {
     try {
@@ -48,7 +49,11 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
   };
 
   useEffect(() => {
-    getLikedRecipes();
+    if (!isUserLoggedIn) {
+      navigate('/login');
+    } else {
+      getLikedRecipes();
+    }
   }, []);
 
   console.log(likedRecipes);
@@ -87,12 +92,12 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
               <div className="no-liked-recipes">
                 <h1>You don't have any liked recipes yet! </h1>
                 <p>
-                  Head home to search for recipes, click on recipes and click
-                  the heart to add to your saved!!
+                  Head home to search for recipes, click on an individual recipe and click on
+                  the heart to add to your saved recipes collection. 
                 </p>
                 <Link to="/">
                   <button
-                    type="button"
+                    // type="button"
                     className="btn btn-primary btn-lg go-home-btn"
                   >
                     Home

@@ -139,6 +139,7 @@ function App() {
           path="/liked"
           element={
             <LikedRecipes
+              isUserLoggedIn={isUserLoggedIn}
               loading={loading}
               setLoading={setLoading}
               likedRecipes={likedRecipes}
