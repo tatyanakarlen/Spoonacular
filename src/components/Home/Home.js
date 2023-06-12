@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm';
-import './Home.css'; 
+import './Home.css';
 import { useMediaQuery } from 'react-responsive';
 import breakfastImg from '../../Assets/breakfast.png';
 import lunchImg from '../../Assets/lunch.png';
@@ -18,37 +18,22 @@ const Home = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
+  const isTablet = useMediaQuery({
+    query: '(max-width: 1031px)',
+  });
   return (
     <div className="Home">
       <div className="home-page-container">
-        <div class="landing-page-content left-side-content">
+        <div className="container landing-page-content left-side-content">
           <h5>Digital Cookbook</h5>
           <h1>
             Quick And Tasty Meal <span>Ideas</span>
           </h1>
           <p>
             What's for dinner tonight?{' '}
-            <span class="cookbook-highlight">CookBook</span> has you covered.
+            <span className="cookbook-highlight">CookBook</span> has you
+            covered.
           </p>
-
-          {/* <div class="search-form-cover">
-            <div class="tb">
-              <div class="td">
-                <input
-                  class="search-form-input"
-                  type="text"
-                  placeholder="Search"
-                  required
-                />
-              </div>
-              <div class="td" id="s-cover">
-                <button class="search-form-submit-button" type="submit">
-                  <div id="s-circle"></div>
-                  <span></span>
-                </button>
-              </div>
-            </div>
-          </div> */}
 
           <SearchForm
             getRecipes={getRecipes}
@@ -58,52 +43,60 @@ const Home = ({
             setUserInput={setUserInput}
           />
 
-          <div class="meal-options-container">
+          <div className="meal-options-container">
             <figure
               onClick={(e) => getRecipes(e, 'breakfast')}
-              class="meal-option breakfast-figure"
+              className="meal-option breakfast-figure"
             >
-              <img class="breakfast-img" src={breakfastImg} />
-              <figcaption class="caption">Breakfast</figcaption>
+              <img className="breakfast-img" src={breakfastImg} />
+              <figcaption className="caption">Breakfast</figcaption>
             </figure>
 
             <figure
               onClick={(e) => getRecipes(e, 'lunch')}
-              class="meal-option lunch-figure"
+              className="meal-option lunch-figure"
             >
-              <img class="lunch-img" src={lunchImg} />
-              <figcaption class="caption">Lunch</figcaption>
+              <img className="lunch-img" src={lunchImg} />
+              <figcaption className="caption">Lunch</figcaption>
             </figure>
 
             <figure
               onClick={(e) => getRecipes(e, 'dinner')}
-              class="meal-option dinner-figure"
+              className="meal-option dinner-figure"
             >
-              <img class="dinner-img" src={dinnerImg} />
-              <figcaption class="caption">Dinner</figcaption>
+              <img className="dinner-img" src={dinnerImg} />
+              <figcaption className="caption">Dinner</figcaption>
             </figure>
           </div>
         </div>
-        <div class="landing-page-content right-side-content">
-          <ul class="social-links">
-            <li class="social-icon">
-              <i class="bi bi-facebook"></i>
-            </li>
-            <li class="social-icon">
-              <i class="bi bi-instagram"></i>
-            </li>
-            <li class="social-icon">
-              <i class="bi bi-youtube"></i>
-            </li>
-            <li class="social-icon">
-              <i class="bi bi-twitch"></i>
-            </li>
-          </ul>
-          <img src={salad} />
-          <div onClick={(e) => getRecipes(e, '')} class="view-all-recipes">
-            <h5>View All Recipes</h5>
+        <div className="landing-page-content right-side-content">
+          <div className="salad-img-container">
+            <ul className="social-links">
+              <li className="social-icon">
+                <i className="bi bi-facebook"></i>
+              </li>
+              <li className="social-icon">
+                <i className="bi bi-instagram"></i>
+              </li>
+              <li className="social-icon">
+                <i className="bi bi-youtube"></i>
+              </li>
+              <li className="social-icon">
+                <i className="bi bi-twitch"></i>
+              </li>
+            </ul>
 
-            <img src={salmon} />
+            <img src={salad} />
+            {!isTablet && (
+              <div
+                onClick={(e) => getRecipes(e, '')}
+                className="view-all-recipes"
+              >
+                <h5>View All Recipes</h5>
+
+                <img src={salmon} />
+              </div>
+            )}
           </div>
         </div>
       </div>

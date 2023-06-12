@@ -16,6 +16,7 @@ import LikedRecipe from './components/LikedRecipe/LikedRecipe';
 import DesktopNav from './components/DesktopNav/DesktopNav';
 import Footer from './components/Footer/Footer';
 import MobileNav from './components/MobileNav/MobileNav';
+import MobileLandingPage from './components/MobileLandingPage/MobileLandingPage';
 import Auth from './components/Auth/Auth';
 import { useMediaQuery } from 'react-responsive';
 
@@ -31,6 +32,10 @@ function App() {
 
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
+  });
+
+  const isMediumScreen = useMediaQuery({
+    query: '(max-width: 1025px)',
   });
 
   // get current post pagination
@@ -80,17 +85,21 @@ function App() {
           exact
           path="/"
           element={
-            <Home
-              getRecipes={getRecipes}
-              filteredRecipes={filteredRecipes}
-              setFilteredRecipes={setFilteredRecipes}
-              currentRecipes={currentRecipes}
-              loading={loading}
-              postsPerPage={postsPerPage}
-              paginate={paginate}
-              userInput={userInput}
-              setUserInput={setUserInput}
-            />
+            !isMediumScreen ? (
+              <Home
+                getRecipes={getRecipes}
+                filteredRecipes={filteredRecipes}
+                setFilteredRecipes={setFilteredRecipes}
+                currentRecipes={currentRecipes}
+                loading={loading}
+                postsPerPage={postsPerPage}
+                paginate={paginate}
+                userInput={userInput}
+                setUserInput={setUserInput}
+              />
+            ) : (
+              <MobileLandingPage />
+            )
           }
         />
         <Route
@@ -158,7 +167,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

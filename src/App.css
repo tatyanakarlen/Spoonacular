@@ -21,3 +21,25 @@
   --primary-text-black: #333333;
   
 }
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  background-color: var(--off-white-background);
+  font-family: 'Archivo';
+  letter-spacing: 1px;
+  color: var(--primary-text-black); 
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* h1, h2, h3, h4, h5, p, span, label {
+  color: var(--primary-text-black); 
+} */
+

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 
-html {
+/* html {
   font-size: 62.5%;
 }
 
@@ -20,6 +20,6 @@ body::-webkit-scrollbar {
 
 h1, h2, h3, h4, h5, p, span, label {
   color: var(--primary-text-black); 
-}
+} */
 
 
