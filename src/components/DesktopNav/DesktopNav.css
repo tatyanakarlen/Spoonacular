@@ -5,12 +5,14 @@
   color: var(--primary-text-black);
   position: sticky;
   top: 0;
-  padding: 0.6rem 6rem;
+  padding: 1rem 6rem;
   font-size: 1.6rem;
   overflow: hidden;
-  background-color: #fbfbf8;
+  /* background-color: #fbfbf8; */
+  background-color: black;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   z-index: 1000;
+  color: white;
 }
 
 .logo-headline {

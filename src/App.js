@@ -35,7 +35,7 @@ function App() {
   });
 
   const isMediumScreen = useMediaQuery({
-    query: '(max-width: 1025px)',
+    query: '(max-width: 1500px)',
   });
 
   // get current post pagination
@@ -67,7 +67,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       {isMobile ? (
         <MobileNav />
       ) : (
