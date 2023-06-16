@@ -1,5 +1,5 @@
 .home-page-container {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,21 +15,38 @@
 }
 
 .left-side-content {
+  margin-top: -5rem;
   gap: 1.8rem;
-  padding: 0rem 0rem 0rem 15rem;
+  padding-left: 12%;
 }
 
 .left-side-content h1 {
-  font-size: 4.7rem;
+  font-size: 4.5rem;
   width: 85%;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: 'Archivo Black';
 }
 
-/* .left-side-content h1 span {
-   color: #f70f0f; 
-}  */
+@media only screen and (max-width: 1068px) {
+  .left-side-content {
+    gap: 3.8rem;
+  }
+  .left-side-content h5 {
+    margin-bottom: -0.5rem; 
+  }
+}
+
+@media only screen and (max-device-width: 1185px) {
+  .left-side-content h1 {
+    width: 100%;
+  }
+  .left-side-content {
+    padding: 0rem 0rem 0rem 8%;
+  }
+}
+
+
 
 .left-side-content p {
   width: 90%;
@@ -49,10 +66,7 @@
   font-weight: 800;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  
 }
-
-
 
 .right-side-content {
   overflow: hidden;
@@ -62,6 +76,10 @@
 .right-side-content img {
   width: 80rem;
   height: 80rem;
+}
+
+.salad-img-container {
+  position: relative;
 }
 
 .landing-page-content .landing-page-header {
@@ -166,10 +184,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  bottom: 9rem;
-  left: 1rem;
+  bottom: 17rem;
+  left: 0.5rem;
   border-radius: 22px;
-  background-color: #fbfbf8e8; 
+  background-color: #fbfbf8e8;
   padding: 0.8rem 1.4rem 0.8rem 2.2rem;
   font-weight: 800;
   font-size: 1.3rem;
@@ -201,9 +219,10 @@
   font-size: 2.6rem;
   padding-left: unset;
   position: absolute;
-  top: 3rem;
+  top: 9rem;
   left: 3rem;
   color: #7456f6;
+  z-index: 1;
 }
 
 .social-icon {
@@ -221,7 +240,7 @@
 
 .social-icon:hover {
   background-color: #212529;
-  color: #fbfbf8; 
+  color: #fbfbf8;
 }
 
 /* .social-icon i:hover {
@@ -230,7 +249,7 @@
 
 /* search form */
 
-.tb {
+/* .tb {
   display: table;
   width: 100%;
 }
@@ -264,7 +283,7 @@
 
 .search-form-input {
   width: 100%;
-  /* height: 96px; */
+
   font-size: 3.5rem;
   line-height: 1;
 }
@@ -360,4 +379,4 @@
   right: -6px;
   width: 40px;
   background-color: #fff;
-}
+} */
