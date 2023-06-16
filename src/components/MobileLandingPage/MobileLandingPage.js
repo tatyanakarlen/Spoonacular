@@ -1,8 +1,9 @@
 import React from 'react';
 import img from '../../Assets/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import imgVertical from '../../Assets/lunch.jpg';
-import decorativeImg from '../../Assets/Serving-Food-PNG-File.png';
 import { BiSearch } from 'react-icons/bi';
+import foodCropped from '../../Assets/food-cropped.png';
+import food1 from '../../Assets/food1.png'
 // import img from '../../Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg';
 
 import './MobileLandingPage.css';
@@ -103,63 +104,53 @@ const MobileLandingPage = () => {
               </div>
             </div>
           </div>
-          <div className="desktop-landing-page-content-container container">
-            <div className="left-side-landing-page">
-              <img src={img} />
+          <div className="landing-page-content-inner-wrapper">
+            <div className="desktop-landing-page-content-container container">
+              <div className="left-side-landing-page">
+                <img class="img-fluid" src={foodCropped} />
+              </div>
+              <div className="right-side-text">
+                <h1>What's for dinner tonight?</h1>
+                <p>
+                  CookBook's got your covered. Welcome to our delectable corner
+                  of the internet, where culinary magic comes to life! Prepare
+                  to embark on a mouthwatering journey filled with tantalizing
+                  flavors and irresistible dishes.
+                </p>
+                <h3>
+                  <i class="bi bi-arrow-right-square-fill"></i>View all recipes
+                </h3>
+              </div>
             </div>
-            <div className="right-side-text">
-              <h1>What's for dinner tonight?</h1>
-              <p>
-                CookBook's got your covered. Welcome to our delectable corner of
-                the internet, where culinary magic comes to life! Prepare to
-                embark on a mouthwatering journey filled with tantalizing
-                flavors, aromatic spices, and irresistible dishes. 
-                
-              </p>
-              <h3>View all recipes<i className="bi bi-chevron-right"></i></h3>
-            </div>
-          </div>
+            <div className="desktop-landing-page-content-container recipe-option-container">
+              <div className="container">
+                <div className="jump-right-into-it-container">
+                  <h1>Jump right into it!</h1>
+                </div>
+                <div className="recipe-category-options-container container">
 
-          {/* <div className="left-side-content-desktop-landing-page">
-      <img src={imgVertical}/>
-      <div class="desktop-opening-header">
-          <h1>Quick and tasty meal ideas</h1>
-          <p>
-            Whether you're a seasoned chef or a novice in the kitchen, our
-            recipes website is your ultimate companion for all things food to
-            satisfy your inner culinary genius.{' '}
-          </p>
-          <h4>
-            View all recipes<i className="bi bi-chevron-right"></i>
-          </h4>
-        </div>
-        </div>
-        <div className="right-side-content-desktop-landing-page">
-            <div className="see-all-recipes">
-          <img class="decorative-food-image" src={decorativeImg}/>
-          <h3>See all</h3>
+                  <figure class="recipe-category">
+                    <img src={img} />
+                    <figcaption>Breakfast</figcaption>
+                    <p> It's time to whip up a breakfast sensation that will awaken your senses, elevate your morning and fuel your day!</p>
+                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                  </figure>
+                  <figure class="recipe-category">
+                    <img src={img} />
+                    <figcaption>Lunch</figcaption>
+                    <p>Let's Lunch like never before! Step into the realm of culinary delight and savor a sensational midday meal.</p>
+                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                  </figure>
+                  <figure class="recipe-category">
+                    <img src={img} />
+                    <figcaption>Dinner</figcaption>
+                    <p>Get ready to elevate your evening with our sensational recipe. Unleash your inner chef and let your creativity shine.</p>
+                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                  </figure>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="desktop-recipes-categories">
-         
-          
-             <figure>
-                 <img src={img}/>
-                 <figcaption>Breakfast</figcaption>
-             </figure>
-             <figure>
-                 <img src={img}/>
-                 <figcaption>Breakfast</figcaption>
-             </figure>
-             <figure>
-                 <img src={img}/>
-                 <figcaption>Breakfast</figcaption>
-             </figure>
-             <figure>
-                 <img src={img}/>
-                 <figcaption>Breakfast</figcaption>
-             </figure>
-          </div>
-        </div> */}
         </div>
       )}
     </>
