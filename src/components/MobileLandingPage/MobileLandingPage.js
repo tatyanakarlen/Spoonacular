@@ -3,7 +3,7 @@ import img from '../../Assets/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import imgVertical from '../../Assets/lunch.jpg';
 import { BiSearch } from 'react-icons/bi';
 import foodCropped from '../../Assets/food-cropped.png';
-import food1 from '../../Assets/food1.png'
+import food1 from '../../Assets/food1.png';
 // import img from '../../Assets/luisa-brimble-2RrBE90w0T8-unsplash.jpg';
 
 import './MobileLandingPage.css';
@@ -107,7 +107,7 @@ const MobileLandingPage = () => {
           <div className="landing-page-content-inner-wrapper">
             <div className="desktop-landing-page-content-container container">
               <div className="left-side-landing-page">
-                <img class="img-fluid" src={foodCropped} />
+                <img class="img-fluid" src={img} />
               </div>
               <div className="right-side-text">
                 <h1>What's for dinner tonight?</h1>
@@ -124,32 +124,77 @@ const MobileLandingPage = () => {
             </div>
             <div className="desktop-landing-page-content-container recipe-option-container">
               <div className="container">
-                <div className="jump-right-into-it-container">
-                  <h1>Jump right into it!</h1>
-                </div>
-                <div className="recipe-category-options-container container">
+                <h1>Jump right into it!</h1>
 
+                <div className="recipe-category-options-container container">
                   <figure class="recipe-category">
                     <img src={img} />
                     <figcaption>Breakfast</figcaption>
-                    <p> It's time to whip up a breakfast sensation that will awaken your senses, elevate your morning and fuel your day!</p>
-                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                    <p>
+                      {' '}
+                      It's time to whip up a breakfast sensation that will
+                      awaken your senses, elevate your morning and fuel your
+                      day!
+                    </p>
+                    <h3 class="get-recipes-btn">
+                      <i class="bi bi-arrow-right-square-fill"></i>Get recipes
+                    </h3>
                   </figure>
                   <figure class="recipe-category">
                     <img src={img} />
                     <figcaption>Lunch</figcaption>
-                    <p>Let's Lunch like never before! Step into the realm of culinary delight and savor a sensational midday meal.</p>
-                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                    <p>
+                      Let's Lunch like never before! Step into the realm of
+                      culinary delight and savor a sensational midday meal.
+                    </p>
+                    <h3 class="get-recipes-btn">
+                      <i class="bi bi-arrow-right-square-fill"></i>Get recipes
+                    </h3>
                   </figure>
                   <figure class="recipe-category">
                     <img src={img} />
                     <figcaption>Dinner</figcaption>
-                    <p>Get ready to elevate your evening with our sensational recipe. Unleash your inner chef and let your creativity shine.</p>
-                    <h3 class="get-recipes-btn"><i class="bi bi-arrow-right-square-fill"></i>Get recipes</h3>
+                    <p>
+                      Get ready to elevate your evening with our sensational
+                      dinners. Unleash your inner chef and let your creativity
+                      shine.
+                    </p>
+                    <h3 class="get-recipes-btn">
+                      <i class="bi bi-arrow-right-square-fill"></i>Get recipes
+                    </h3>
                   </figure>
                 </div>
               </div>
             </div>
+            <div className="container">
+              <h3 class="newsletter-h3">Newsletter</h3>
+              <div class="landing-page-mega-footer-content">
+                <h2>Let's cook! Sign up to recieve daily recipes in your email.</h2>
+                <div class="newsletter-input-container">
+                <input placeholder="Enter your email address"></input>
+                <i class="bi bi-arrow-right-square-fill input-chevron"></i>
+                </div>
+                <ul>
+                  <li>
+                    <i className="bi bi-facebook"></i>
+                  </li>
+                  <li>
+                    <i className="bi bi-instagram"></i>
+                  </li>
+                  <li>
+                    <i className="bi bi-youtube youtube-icon"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+           
+            <footer>
+            <hr/>
+                <div class="container footer-container">
+                <h4>Copyright 2023, CookBook</h4>
+            <h5>Designed and developed by Tatyana Karlen</h5>
+            </div>
+            </footer>
           </div>
         </div>
       )}
