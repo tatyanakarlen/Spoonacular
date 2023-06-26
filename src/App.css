@@ -5,6 +5,11 @@
   
 }
 
+p { 
+  font-size: 1.6rem;
+  color: var(--secondary-text-grey);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +34,7 @@ html {
 body {
   position: relative;
   background-color: var(--off-white-background);
-  font-family: 'Archivo';
+  font-family: 'Poppins';
   letter-spacing: 1px;
   color: var(--primary-text-black); 
 

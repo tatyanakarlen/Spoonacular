@@ -93,7 +93,7 @@ const LikedRecipe = ({ likedRecipes, setLikedRecipes }) => {
           <div className="recipe-breadcrumb-content">
             <Link to="/">Home</Link>
             <i className="bi bi-chevron-right"></i>
-            <Link to="/recipes">Recipes</Link>
+            <Link to="/liked">My recipes</Link>
             <i className="bi bi-chevron-right"></i>
             <span style={{ marginLeft: '0' }}>{likedRecipe?.title}</span>
           </div>
