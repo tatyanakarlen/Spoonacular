@@ -5,6 +5,11 @@
   
 }
 
+/* h1 {
+  font-size: calc(1rem + 1.5vw);
+  
+} */
+
 p { 
   font-size: 1.6rem;
   color: var(--secondary-text-grey);

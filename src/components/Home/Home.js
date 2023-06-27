@@ -78,7 +78,7 @@ const Home = ({
                 flavors and irresistible dishes.
               </p>
               <h3 onClick={(e) => getRecipes(e, '')}>
-                <i class="bi bi-arrow-right-square-fill"></i>View all recipes
+               View all recipes 
               </h3>
             </div>
           </div>
@@ -91,18 +91,16 @@ const Home = ({
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h4 class="landing-page-card-rating-container">
-                      <i class="bi bi-star-fill"></i>
-
-                      <span>4.6</span>
+                      Get Recipes
                     </h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
                     Breakfast
-                    <img
-                      class="meal-icon"
-                      id="breakfast-icon"
-                      src={breakfast}
-                    />
+                    <div class="rating-wrapper">
+                      <i class="bi bi-star-fill"></i>
+
+                      <span>4.6</span>
+                    </div>
                   </figcaption>
                   <p> Whip up a breakfast sensation!</p>
 
@@ -117,16 +115,20 @@ const Home = ({
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h4 class="landing-page-card-rating-container">
+                     Get Recipes
+                    </h4>
+                  </div>
+
+                  <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
+                    Lunch
+                    <div class="rating-wrapper">
                       <i class="bi bi-star-fill"></i>
 
                       <span>4.9</span>
-                    </h4>
-                  </div>
-                  <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
-                    Lunch
-                    <img class="meal-icon" src={lunch} />
+                    </div>
                   </figcaption>
                   <p>Let's Lunch like never before!</p>
+
                   {/* <h3
                     onClick={(e) => getRecipes(e, 'lunch')}
                     class="get-recipes-btn"
@@ -138,14 +140,16 @@ const Home = ({
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h4 class="landing-page-card-rating-container">
-                      <i class="bi bi-star-fill"></i>
-
-                      <span>4.7</span>
+                      Get Recipes
                     </h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
                     Dinner
-                    <img class="meal-icon" src={dinner} />
+                    <div class="rating-wrapper">
+                      <i class="bi bi-star-fill"></i>
+
+                      <span>4.8</span>
+                    </div>
                   </figcaption>
                   <p>Get ready to elevate your evening!</p>
                   {/* <h3

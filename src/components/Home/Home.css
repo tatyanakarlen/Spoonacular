@@ -90,13 +90,20 @@
 }
 
 .right-side-text h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #f5e5f5;
   padding-top: 1rem;
   transition: transform ease 300ms;
 }
 
 .right-side-text h3:hover {
-  text-decoration: underline;
+  transform: translate(0, -5px);
 }
 
 .right-side-text h3 i {
@@ -145,6 +152,7 @@ figure {
   cursor: pointer;
   overflow: hidden;
   border-radius: 6px;
+  background-color: #fff;
 }
 
 .figure-img-container {
@@ -164,6 +172,10 @@ figure {
   font-weight: 100;
 }
 
+.figure-content-container {
+  background-color: white;
+}
+
 .figure-img-container h4 i {
   margin-top: -0.6rem;
   font-size: 1.6rem;
@@ -171,14 +183,26 @@ figure {
 
 figcaption {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
   letter-spacing: 1px;
   padding: 2rem 2rem 0 2rem;
   font-size: 2.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform ease 300ms;
+}
+
+.rating-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+figcaption i {
+  margin-top: -0.8rem;
+  padding-right: 0.5rem;
 }
 
 .meal-icon {
@@ -188,11 +212,11 @@ figcaption {
 
 #breakfast-icon {
   width: 4.5rem;
-  height: 4.5rem;
+  height: 3.5rem;
 }
 
 figure p {
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 2rem;
   color: var(--secondary-text-grey);
   font-size: 1.6rem;
   margin-top: -1rem;
@@ -206,34 +230,6 @@ figure:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.get-recipes-btn {
-  margin-top: 1.2rem;
-  background-color: orange;
-  display: inline-block;
-  color: black;
-  padding: 0.9rem 1.5rem;
-  border-radius: 22px;
-  font-size: 1.3rem;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: -7rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  cursor: pointer;
-  transition: transform ease 300ms;
-}
-
-.get-recipes-btn:hover {
-  /* transform: translate(-5px, 0); */
-  /* background-color: black;
-  color: white; */
-  transform: scale(0.7);
-}
-
-.get-recipes-btn i {
-  padding-right: 0.6rem;
 }
 
 .mega-footer {
@@ -345,7 +341,7 @@ figure:hover {
     flex-direction: column;
   }
   .recipe-category-options-container .recipe-category:not(:last-child) {
-    margin-bottom: 9rem;
+    margin-bottom: 4rem;
   }
   .recipe-category-options-container .recipe-category {
     width: 100%;
