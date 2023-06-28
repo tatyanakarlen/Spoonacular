@@ -1,0 +1,31 @@
+.carousel-inner {
+  padding-bottom: 3rem;
+}
+
+.carousel-item {
+  /* background-color: #f2f2f2b8; */
+  padding: 2rem 5rem 2rem 5rem;
+}
+.carousel-item-inner-content {
+  display: flex;
+  gap: 4rem;
+}
+
+.carousel-item-inner-content img {
+  width: 50%;
+
+  /* object-fit: cover; */
+}
+
+.carousel-indicators [data-mdb-target] {
+  background-color: black;
+}
+
+.carousel-indicators {
+    margin-bottom: 0rem
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  color: black;
+}

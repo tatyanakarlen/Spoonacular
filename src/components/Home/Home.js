@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import breakfast from '../../Assets/breakfast.png';
 import lunch from '../../Assets/lunch.png';
 import dinner from '../../Assets/dinner.png';
+import Carousel from '../../components/Carousel/Carousel'
 
 const Home = ({
   filteredRecipes,
@@ -77,14 +78,12 @@ const Home = ({
                 embark on a mouthwatering journey filled with tantalizing
                 flavors and irresistible dishes.
               </p>
-              <h3 onClick={(e) => getRecipes(e, '')}>
-               View all recipes 
-              </h3>
+              <h3 onClick={(e) => getRecipes(e, '')}>View all recipes</h3>
             </div>
           </div>
           <div className="desktop-landing-page-content-container recipe-option-container">
             <div className="container">
-              <h1>Jump right into it!</h1>
+              <h1 className="container-h1">Jump right into it!</h1>
 
               <div className="recipe-category-options-container container">
                 <figure class="recipe-category">
@@ -95,7 +94,7 @@ const Home = ({
                     </h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
-                    Breakfast
+                    Vegan
                     <div class="rating-wrapper">
                       <i class="bi bi-star-fill"></i>
 
@@ -115,12 +114,12 @@ const Home = ({
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h4 class="landing-page-card-rating-container">
-                     Get Recipes
+                      Get Recipes
                     </h4>
                   </div>
 
                   <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
-                    Lunch
+                    Meat lovers
                     <div class="rating-wrapper">
                       <i class="bi bi-star-fill"></i>
 
@@ -144,7 +143,7 @@ const Home = ({
                     </h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
-                    Dinner
+                    Gluten free
                     <div class="rating-wrapper">
                       <i class="bi bi-star-fill"></i>
 
@@ -162,16 +161,11 @@ const Home = ({
               </div>
             </div>
           </div>
+          <div className="container">
+            <h1 className="container-h1">Most popular</h1>
+          <Carousel />
+          </div>
           <div className="container mega-footer">
-            <div class="newsletter-CTA">
-              <h2>CookBook: Your #1 recipe source</h2>
-              <p>
-                Our mission is to bring you a diverse collection of
-                mouthwatering recipes, carefully curated and tested to ensure
-                your cooking success.
-              </p>
-            </div>
-
             <ul>
               <li>
                 <i className="bi bi-facebook"></i>

@@ -117,7 +117,7 @@
   flex-direction: column;
 }
 
-.recipe-option-container h1 {
+.container-h1 {
   padding-bottom: 3rem;
   font-weight: 600;
 }
@@ -151,7 +151,7 @@ figure {
   transition: transform ease 200ms;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   background-color: #fff;
 }
 
@@ -231,6 +231,14 @@ figure:hover {
   align-items: center;
   gap: 1rem;
 }
+
+
+
+
+/* ////////// carousel */
+
+
+
 
 .mega-footer {
   text-align: center;
