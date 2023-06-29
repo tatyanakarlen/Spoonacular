@@ -1,66 +1,68 @@
 import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 import './Carousel.css';
-
-
+import asparagusSalad from '../../Assets/asparagus-salad.jpeg';
+import cauliflowerRice from '../../Assets/Cauliflower-rice.jpg';
+import berrySmoothie from '../../Assets/berrySmoothie.jpeg';
 
 export default function Carousel() {
   return (
     <MDBCarousel showIndicators showControls className="carousel-wrapper">
-      {/* // own carousel item */}
       <div className="carousel-item active" itemId={1}>
-          <div className="carousel-item-inner-content">
-         
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" />
-        <h1>SOME STUFF HERE</h1>
+        <div className="carousel-item-inner-content">
+          <div class="carousel-img-container">
+            <img src={asparagusSalad} />
+          </div>
+          <div class="carousel-inner-text">
+            <Link className="carousel-links" to={'/recipes/782585'}>
+              <h2>Cannellini Bean and Asparagus Salad with Mushrooms</h2>
+            </Link>
+
+            <p>
+              Delight your taste buds with a satisfying Cannellini Bean and
+              Asparagus Salad, featuring tender asparagus, hearty cannellini
+              beans, and savory mushrooms for a delightful burst of flavors.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* <MDBCarouselItem
-        className="w-100 d-block"
-        itemId={1}
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-        alt="..."
-      >
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </MDBCarouselItem> */}
-      {/* // own carousel item */}
       <div className="carousel-item" itemId={2}>
-          <div className="carousel-item-inner-content">
-         
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" />
-        <h1>SOME OTHER STUFF HERE</h1>
+        <div className="carousel-item-inner-content">
+          <div class="carousel-img-container">
+            <img src={cauliflowerRice} />
+          </div>
+          <div class="carousel-inner-text">
+            <Link className="carousel-links" to={'/recipes/716426'}>
+              <h2>Cauliflower, Brown Rice, and Vegetable Fried Rice</h2>
+            </Link>
+            <p>
+              Experience a flavorful fusion of nutritious cauliflower, hearty
+              brown rice, and a vibrant medley of vegetables in our delectable
+              Cauliflower, Brown Rice, and Vegetable Fried Rice.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* <MDBCarouselItem
-        className="w-100 d-block"
-        itemId={2}
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-        alt="..."
-      >
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </MDBCarouselItem> */}
-
-      {/* <MDBCarouselItem
-        className="w-100 d-block"
-        itemId={3}
-        src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-        alt="..."
-      >
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </MDBCarouselItem> */}
-      {/* // own carousel item */}
       <div className="carousel-item" itemId={3}>
-          <div className="carousel-item-inner-content">
-         
-        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" />
-        <h1>SOME OTHER OTHER STUFF HERE</h1>
+        <div className="carousel-item-inner-content">
+          <div class="carousel-img-container">
+            <img src={berrySmoothie} />
+          </div>
+          <div class="carousel-inner-text">
+            <Link className="carousel-links" to={'/recipes/715497'}>
+              <h2>Berry Banana Breakfast Smoothie</h2>
+            </Link>
+            <p>
+              Energize your morning with a delicious breakfast smoothie! Indulge
+              in the refreshing blend of ripe berries and creamy bananas with
+              our irresistible berry banana smoothie that's bursting with
+              antioxidants and natural goodness.
+            </p>
+          </div>
         </div>
       </div>
-     
     </MDBCarousel>
   );
 }

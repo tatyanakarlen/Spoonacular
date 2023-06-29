@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import breakfast from '../../Assets/breakfast.png';
 import lunch from '../../Assets/lunch.png';
 import dinner from '../../Assets/dinner.png';
-import Carousel from '../../components/Carousel/Carousel'
+import Carousel from '../../components/Carousel/Carousel';
 
 const Home = ({
   filteredRecipes,
@@ -89,6 +89,9 @@ const Home = ({
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
+                    <h5 class="highlight">
+                      Vegan
+                    </h5>
                     <h4 class="landing-page-card-rating-container">
                       Get Recipes
                     </h4>
@@ -102,17 +105,13 @@ const Home = ({
                     </div>
                   </figcaption>
                   <p> Whip up a breakfast sensation!</p>
-
-                  {/* <h3
-                    onClick={(e) => getRecipes(e, 'breakfast')}
-                    class="get-recipes-btn"
-                  >
-                    <i class="bi bi-arrow-right-square-fill"></i>Get recipes
-                  </h3> */}
                 </figure>
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
+                    <h5 class="highlight">
+                      Meat lovers
+                    </h5>
                     <h4 class="landing-page-card-rating-container">
                       Get Recipes
                     </h4>
@@ -127,17 +126,13 @@ const Home = ({
                     </div>
                   </figcaption>
                   <p>Let's Lunch like never before!</p>
-
-                  {/* <h3
-                    onClick={(e) => getRecipes(e, 'lunch')}
-                    class="get-recipes-btn"
-                  >
-                    <i class="bi bi-arrow-right-square-fill"></i>Get recipes
-                  </h3> */}
                 </figure>
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
+                    <h5 class="highlight">
+                      Gluten free
+                    </h5>
                     <h4 class="landing-page-card-rating-container">
                       Get Recipes
                     </h4>
@@ -151,19 +146,13 @@ const Home = ({
                     </div>
                   </figcaption>
                   <p>Get ready to elevate your evening!</p>
-                  {/* <h3
-                    onClick={(e) => getRecipes(e, 'dinner')}
-                    class="get-recipes-btn"
-                  >
-                    <i class="bi bi-arrow-right-square-fill"></i>Get recipes
-                  </h3> */}
                 </figure>
               </div>
             </div>
           </div>
           <div className="container">
             <h1 className="container-h1">Most popular</h1>
-          <Carousel />
+            <Carousel />
           </div>
           <div className="container mega-footer">
             <ul>

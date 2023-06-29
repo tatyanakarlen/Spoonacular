@@ -1,20 +1,51 @@
 .carousel-inner {
   padding-bottom: 3rem;
+  position: unset;
 }
 
 .carousel-item {
-  /* background-color: #f2f2f2b8; */
-  padding: 2rem 5rem 2rem 5rem;
+  position: unset;
+  padding: 2rem 6rem 2rem 6rem;
 }
 .carousel-item-inner-content {
   display: flex;
   gap: 4rem;
 }
 
-.carousel-item-inner-content img {
-  width: 50%;
+.carousel-img-container {
+  flex: 1;
+}
 
-  /* object-fit: cover; */
+.carousel-img-container img {
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.carousel-inner-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.carousel-inner-text h2 {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.carousel-inner-text h2:hover {
+  text-decoration: underline;
+}
+
+.carousel-control-prev {
+  left: -6rem;
+}
+
+.carousel-control-next {
+  right: -6rem;
 }
 
 .carousel-indicators [data-mdb-target] {
@@ -22,10 +53,18 @@
 }
 
 .carousel-indicators {
-    margin-bottom: 0rem
+  margin-bottom: -2rem;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
+  color: black;
+}
+
+.carousel-links {
+  color: black;
+}
+
+.carousel-links:hover {
   color: black;
 }
