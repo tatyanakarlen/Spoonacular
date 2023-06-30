@@ -1,4 +1,6 @@
-
+.footer {
+ 
+}
 
 .footer span {
   font-size: 1.3rem;
@@ -11,5 +13,5 @@
 .footer-container {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 5rem;
+  padding: 2.5rem 5rem;
 }

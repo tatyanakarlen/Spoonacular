@@ -1,3 +1,8 @@
+.carousel-container {
+    padding: 5rem 5rem 8rem 5rem ;
+}
+
+
 .carousel-inner {
   padding-bottom: 3rem;
   position: unset;
@@ -14,6 +19,7 @@
 
 .carousel-img-container {
   flex: 1;
+  position: relative;
 }
 
 .carousel-img-container img {

@@ -12,6 +12,7 @@ export default function Carousel() {
         <div className="carousel-item-inner-content">
           <div class="carousel-img-container">
             <img src={asparagusSalad} />
+            <h5 class="highlight">Vegan</h5>
           </div>
           <div class="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/782585'}>
@@ -31,6 +32,7 @@ export default function Carousel() {
         <div className="carousel-item-inner-content">
           <div class="carousel-img-container">
             <img src={cauliflowerRice} />
+            <h5 class="highlight">Plant based</h5>
           </div>
           <div class="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/716426'}>
@@ -49,6 +51,7 @@ export default function Carousel() {
         <div className="carousel-item-inner-content">
           <div class="carousel-img-container">
             <img src={berrySmoothie} />
+            <h5 class="highlight">Breakfast</h5>
           </div>
           <div class="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/715497'}>

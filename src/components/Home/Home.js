@@ -42,7 +42,6 @@ const Home = ({
     <>
       <div className="desktop-landing-page">
         <div className="desktop-hero">
-          {/* <img src={img} /> */}
           <div className="search-any-recipe">
             <h1>Search any recipe</h1>
             <div className="input-container">
@@ -69,6 +68,14 @@ const Home = ({
           <div className="desktop-landing-page-content-container container">
             <div className="left-side-landing-page">
               <img class="img-fluid" src={dumplings} />
+              <h4 class="image-low-light">
+                Chinese home-made dumplings
+                <span>
+                  <i class="bi bi-star-fill"></i>
+                  4.8
+                </span>
+              </h4>
+              <h5 class="highlight">Asian</h5>
             </div>
             <div className="right-side-text">
               <h1>What's for dinner tonight?</h1>
@@ -89,12 +96,8 @@ const Home = ({
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">
-                      Vegan
-                    </h5>
-                    <h4 class="landing-page-card-rating-container">
-                      Get Recipes
-                    </h4>
+                    <h5 class="highlight">Vegan</h5>
+                    <h4 class="image-low-light">Get Recipes</h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
                     Vegan
@@ -109,12 +112,8 @@ const Home = ({
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">
-                      Meat lovers
-                    </h5>
-                    <h4 class="landing-page-card-rating-container">
-                      Get Recipes
-                    </h4>
+                    <h5 class="highlight">Meat lovers</h5>
+                    <h4 class="image-low-light">Get Recipes</h4>
                   </div>
 
                   <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
@@ -130,12 +129,8 @@ const Home = ({
                 <figure class="recipe-category">
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">
-                      Gluten free
-                    </h5>
-                    <h4 class="landing-page-card-rating-container">
-                      Get Recipes
-                    </h4>
+                    <h5 class="highlight">Gluten free</h5>
+                    <h4 class="image-low-light">Get Recipes</h4>
                   </div>
                   <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
                     Gluten free
@@ -150,22 +145,33 @@ const Home = ({
               </div>
             </div>
           </div>
-          <div className="container">
+          <div className="container carousel-container">
             <h1 className="container-h1">Most popular</h1>
             <Carousel />
           </div>
-          <div className="container mega-footer">
-            <ul>
-              <li>
-                <i className="bi bi-facebook"></i>
-              </li>
-              <li>
-                <i className="bi bi-instagram"></i>
-              </li>
-              <li>
-                <i id="youTube-icon" className="bi bi-youtube"></i>
-              </li>
-            </ul>
+          <div className="mega-footer-wrapper">
+            <div className="container mega-footer">
+              <h1>CookBook</h1>
+              <h4>
+                Culinary Companion: Your Ultimate Recipe App for Exquisite
+                Delights! Discover a World of Diverse Culinary Delights.
+              </h4>
+              <ul>
+                <li>
+                  <i className="bi bi-facebook"></i>
+                </li>
+                <li>
+                  <i className="bi bi-instagram"></i>
+                </li>
+                <li>
+                  <i id="youTube-icon" className="bi bi-youtube"></i>
+                </li>
+                <li>
+                  <i class="bi bi-twitch"></i>
+                </li>
+              </ul>
+              <h3>Subscribe</h3>
+            </div>
           </div>
         </div>
       </div>

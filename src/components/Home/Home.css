@@ -61,15 +61,16 @@
 
 .desktop-landing-page-content-container {
   display: flex;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 .left-side-landing-page {
   flex: 2;
+  position: relative; 
 }
 
 .left-side-landing-page img {
-  width: 95%;
+  width: 100%; 
   object-fit: fill;
 }
 
@@ -92,13 +93,13 @@
 .right-side-text h3 {
   font-size: 1.35rem;
   font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  border-radius: 10px;
   cursor: pointer;
-  width: -moz-fit-content;
   width: fit-content;
-  background-color: #f5e5f5;
-  padding-top: 1rem;
+  background-color: #e0dfdfb5;
   transition: transform ease 300ms;
 }
 
@@ -158,7 +159,7 @@ figure {
   position: relative;
 }
 
-.figure-img-container h4 {
+.image-low-light {
   display: flex;
   align-items: center;
   text-transform: capitalize;
@@ -171,21 +172,11 @@ figure {
   font-weight: 100;
 }
 
-.figure-img-container h5 {
-  /* display: flex;
-  align-items: center;
-  text-transform: capitalize;
-  position: absolute;
-  background-color: #1d1d1d7d;
-  color: white;
-  width: 100%;
-  padding: 0.9rem 0 0.9rem 2rem;
-  bottom: -5px;
-  font-weight: 100; */
+.highlight {
   position: absolute;
   border-radius: 22px;
-  top: 1rem;
-  left: 1rem;
+  top: 1.25rem;
+  right: 1rem;
   padding: 0.6rem 1.1rem;
   background-color: #ffdd3b;
 }
@@ -250,6 +241,51 @@ figure:hover {
   gap: 1rem;
 }
 
+.mega-footer-wrapper {
+  background-color: #f2f2f2b8; 
+}
+
+.mega-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.mega-foote4 h4 {
+  max-width: 650px;
+  line-height: 3rem;
+}
+
+.mega-footer ul {
+  display: flex;
+  justify-content: baseline;
+  list-style-type: none;
+  gap: 3rem;
+  padding-left: unset;
+}
+
+.mega-footer ul li {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+#youTube-icon {
+  font-size: 2.75rem;
+}
+
+.mega-footer h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  width: fit-content;
+  background-color: #e0dfdfb5;
+  transition: transform ease 300ms;
+}
+
 @media only screen and (max-width: 991px) {
   .container {
     max-width: 100%;
@@ -265,11 +301,7 @@ figure:hover {
   }
 }
 
-@media only screen and (max-width: 947px) {
-  .get-recipes-btn {
-    width: 65%;
-  }
-}
+
 
 @media only screen and (max-width: 780px) {
   .recipe-option-container h1 {
@@ -299,19 +331,6 @@ figure:hover {
   .left-side-landing-page img {
     width: 100%;
   }
-  .mega-footer ul {
-    gap: 1.75rem;
-  }
+
 }
 
-@media only screen and (max-width: 692px) {
-  .mega-footer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-  .newsletter-CTA {
-    text-align: center;
-  }
-}
