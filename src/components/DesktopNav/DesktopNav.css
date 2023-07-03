@@ -25,10 +25,8 @@
   text-decoration: none;
 }
 
-
 .logo-social-links-container h1 {
   font-size: 2.1rem;
-  font-weight: 700;
 }
 
 .logo-social-links-container ul {
@@ -36,12 +34,12 @@
   gap: 2.5rem;
   list-style-type: none;
   align-items: center;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 /* /////// */
 .nav-icon {
   padding-right: 1rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .search-icon {
@@ -49,15 +47,24 @@
   font-size: 2.1rem;
 }
 
-
 /* ////// */
 
 .login-btn {
   background-color: #212529;
   color: white;
   border-radius: 22px;
-  padding: 0.7rem 2rem;
+  padding: 0.5rem 2rem;
 }
+
+.login-btn a {
+  display: flex;
+  align-items: center;
+}
+
+/* .login-btn i {
+  display: flex;
+  align-items: center;
+} */
 
 #input-enclose input {
   border-radius: 8px;
@@ -69,7 +76,6 @@
   transition: all 0.3s;
   background-color: #212529;
   color: white;
-  
 }
 
 .label-enclose {

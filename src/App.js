@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Recipes from './components/Recipes/Recipes';
-import './App.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
-import Home from './components/Home/Home';
-import Recipe from './components/Recipe/Recipe';
-import LikedRecipes from './components/LikedRecipes/LikedRecipes';
-import LikedRecipe from './components/LikedRecipe/LikedRecipe';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import './App.css';
+import Auth from './components/Auth/Auth';
 import DesktopNav from './components/DesktopNav/DesktopNav';
 import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import LikedRecipe from './components/LikedRecipe/LikedRecipe';
+import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import MobileNav from './components/MobileNav/MobileNav';
-import Auth from './components/Auth/Auth';
-import { useMediaQuery } from 'react-responsive';
+import Recipe from './components/Recipe/Recipe';
+import Recipes from './components/Recipes/Recipes';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -33,9 +27,9 @@ function App() {
     query: '(max-width: 575px)',
   });
 
-  const isMediumScreen = useMediaQuery({
-    query: '(max-width: 1500px)',
-  });
+  // const isMediumScreen = useMediaQuery({
+  //   query: '(max-width: 1500px)',
+  // });
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -75,8 +69,6 @@ function App() {
           setFilteredRecipes={setFilteredRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
-          isUserLoggedIn={isUserLoggedIn}
-          setIsUserLoggedIn={setIsUserLoggedIn}
         />
       )}
       <Routes>

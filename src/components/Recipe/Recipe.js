@@ -6,6 +6,7 @@ import star from '../../Assets/icons8-star-48.png';
 import Loader from '../Loader/Loader';
 import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { db, auth } from '../../config/firebase-config';
 import {
   getDocs,
@@ -26,6 +27,8 @@ const Recipe = ({
   setIsRecipeLiked,
 }) => {
   const { recipeId } = useParams();
+
+  const navigate = useNavigate();
 
   const [recipe, setRecipe] = useState('');
   const [ingredients, setIngredients] = useState([]);
@@ -76,6 +79,7 @@ const Recipe = ({
   const toggleLike = async () => {
     if (auth.currentUser === null) {
       console.log('you cannot like');
+      navigate('/login');
       return;
     } else if (!isRecipeLiked) {
       const currentRecipe = recipe;

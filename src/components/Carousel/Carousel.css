@@ -50,9 +50,17 @@
   left: -6rem;
 }
 
+.carousel-control-prev:hover {
+    color: black;
+  }
+
 .carousel-control-next {
   right: -6rem;
 }
+
+.carousel-control-next:hover {
+    color: black;
+  }
 
 .carousel-indicators [data-mdb-target] {
   background-color: black;

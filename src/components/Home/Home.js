@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import img from '../../Assets/lily-banse--YHSwy6uqvk-unsplash.jpg';
 import dumplings from '../../Assets/abhishek-sanwa-limbu-LR559Dcst70-unsplash.jpg';
 import './Home.css';
@@ -7,6 +8,7 @@ import breakfast from '../../Assets/breakfast.png';
 import lunch from '../../Assets/lunch.png';
 import dinner from '../../Assets/dinner.png';
 import Carousel from '../../components/Carousel/Carousel';
+import chineseNoodles from '../../Assets/chinese-chow-mein-with-chicken-1367x2048.jpg';
 
 const Home = ({
   filteredRecipes,
@@ -67,16 +69,23 @@ const Home = ({
         <div className="landing-page-content-inner-wrapper">
           <div className="desktop-landing-page-content-container container">
             <div className="left-side-landing-page">
-              <img class="img-fluid" src={dumplings} />
-              <h4 class="image-low-light">
-                Chinese home-made dumplings
-                <span>
-                  <i class="bi bi-star-fill"></i>
-                  4.8
-                </span>
-              </h4>
-              <h5 class="highlight">Asian</h5>
+              <Link to={'/recipes/638714'}>
+                <>
+                  <img class="img-fluid" src={chineseNoodles} />
+                  <h4 class="image-low-light hero-img-low-light">
+                    Chinese home-made dumplings
+                    <div class="rating-wrapper">
+                      <i class="bi bi-star-fill"></i>
+
+                      <span>4.6</span>
+                    </div>
+                  </h4>
+
+                  <h5 class="highlight">Asian</h5>
+                </>
+              </Link>
             </div>
+
             <div className="right-side-text">
               <h1>What's for dinner tonight?</h1>
               <p>
@@ -94,22 +103,26 @@ const Home = ({
 
               <div className="recipe-category-options-container container">
                 <figure class="recipe-category">
-                  <div class="figure-img-container">
-                    <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">Vegan</h5>
-                    <h4 class="image-low-light">Get Recipes</h4>
-                  </div>
-                  <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
-                    Vegan
-                    <div class="rating-wrapper">
-                      <i class="bi bi-star-fill"></i>
-
-                      <span>4.6</span>
+                  <Link onClick={(e) => getRecipes(e, 'vegan')}>
+                    <div class="figure-img-container">
+                      <img class="landing-page-card-img" src={img} />
+                      <h5 class="highlight">Vegan</h5>
+                      <h4 class="image-low-light">Get Recipes</h4>
                     </div>
-                  </figcaption>
-                  <p> Whip up a breakfast sensation!</p>
+                    <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
+                      Vegan
+                      <div class="rating-wrapper">
+                        <i class="bi bi-star-fill"></i>
+
+                        <span>4.6</span>
+                      </div>
+                    </figcaption>
+                    <p>Plant-Based Paradise</p>
+                  </Link>
                 </figure>
+
                 <figure class="recipe-category">
+                <Link onClick={(e) => getRecipes(e, 'meat')}>
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h5 class="highlight">Meat lovers</h5>
@@ -124,9 +137,11 @@ const Home = ({
                       <span>4.9</span>
                     </div>
                   </figcaption>
-                  <p>Let's Lunch like never before!</p>
+                  <p>Unleash Your Inner Carnivore</p>
+                  </Link>
                 </figure>
                 <figure class="recipe-category">
+                <Link onClick={(e) => getRecipes(e, 'gluten free')}>
                   <div class="figure-img-container">
                     <img class="landing-page-card-img" src={img} />
                     <h5 class="highlight">Gluten free</h5>
@@ -140,7 +155,8 @@ const Home = ({
                       <span>4.8</span>
                     </div>
                   </figcaption>
-                  <p>Get ready to elevate your evening!</p>
+                  <p>Flavor Without the Gluten</p>
+                  </Link>
                 </figure>
               </div>
             </div>

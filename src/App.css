@@ -1,8 +1,12 @@
 .App {
   margin: 0px;
   padding: 0px;
-  line-height: 2.75rem;
+  line-height: 3rem;
   
+}
+
+[class^="bi-"]::before, [class*=" bi-"]::before {
+  line-height: unset;
 }
 
 /* h1 {
@@ -10,8 +14,12 @@
   
 } */
 
-h1 {
+h1, h2 {
   font-weight: 600;
+}
+
+h2 {
+  margin-bottom: 0; 
 }
 
 p { 
