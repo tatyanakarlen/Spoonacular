@@ -19,14 +19,12 @@ import {
   MDBModalFooter,
 } from 'mdb-react-ui-kit';
 
-const Auth = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+const Auth = () => {
   const [centredModal, setCentredModal] = useState(false);
   const toggleShow = () => setCentredModal(!centredModal);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  //   console.log(auth?.currentUser?.photoURL);
-  // photo URL if user is signed in with Gooogle
 
   const navigate = useNavigate();
   const refEmail = useRef(null);
@@ -40,7 +38,7 @@ const Auth = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert('You have succesfully signed up! Please log in');
-      setIsUserLoggedIn(true);
+      // setIsUserLoggedIn(true);
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +47,6 @@ const Auth = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const signIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setIsUserLoggedIn(true);
       navigate('/');
     } catch (err) {
       console.log(err);
@@ -60,7 +57,6 @@ const Auth = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
     try {
       await signInWithPopup(auth, googleProvider);
       navigate('/');
-      setIsUserLoggedIn(true);
     } catch (err) {
       console.log(err);
     }
@@ -69,7 +65,6 @@ const Auth = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const logOut = async () => {
     try {
       await signOut(auth);
-      setIsUserLoggedIn(false);
     } catch (err) {
       console.log(err);
     }

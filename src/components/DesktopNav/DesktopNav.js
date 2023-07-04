@@ -11,6 +11,7 @@ const DesktopNav = ({ getRecipes }) => {
 
   // hook for getting auth status
   const { authStatus } = useGetAuthStatus();
+  console.log('authStatus from nav', authStatus)
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
@@ -82,6 +83,9 @@ const DesktopNav = ({ getRecipes }) => {
             </li>
             <li>
               <Link to="/liked">My Recipes</Link>
+            </li>
+            <li onClick={() => console.log(console.log('user ID', auth?.currentUser))}>
+             Check user
             </li>
           </ul>
         </div>

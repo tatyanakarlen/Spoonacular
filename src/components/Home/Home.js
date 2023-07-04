@@ -99,7 +99,7 @@ const Home = ({
           </div>
           <div className="desktop-landing-page-content-container recipe-option-container">
             <div className="container">
-              <h1 className="container-h1">Jump right into it!</h1>
+              <h1>Jump right into it!</h1>
 
               <div className="recipe-category-options-container container">
                 <figure class="recipe-category">

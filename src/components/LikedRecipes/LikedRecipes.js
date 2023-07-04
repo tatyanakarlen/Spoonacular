@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
 import './LikedRecipes.css';
@@ -7,13 +7,17 @@ import { db } from '../../config/firebase-config';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader';
+import { useGetAuthStatus } from '../../hooks/useGetAuthStatus';
 
-const LikedRecipes = ({ likedRecipes, setLikedRecipes, isUserLoggedIn }) => {
+const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
 
-  console.log('user ID', auth?.currentUser?.uid);
+  // console.log('user ID', auth?.currentUser?.uid);
+
+  // hook for getting auth status
+  const { authStatus } = useGetAuthStatus();
 
   const [areThereLikedRecipes, setAreThereLikedRecipes] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -29,14 +33,7 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes, isUserLoggedIn }) => {
         likedRecipesCollectionRef,
         where('likedByUserId', '==', auth?.currentUser?.uid)
       );
-      // const data = await getDocs(likedRecipesCollectionRef);
       const likedDocs = await getDocs(data);
-      // console.log('data.docs', data.docs)
-      // const filteredData = data.docs.map((doc) => ({
-      //   ...doc.data(),
-      //   // id: doc.id,
-
-      // }));
       const filteredData = likedDocs.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -48,13 +45,20 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes, isUserLoggedIn }) => {
     }
   };
 
+  console.log('authStatus from Liked Recipes page', authStatus);
+
   useEffect(() => {
-    if (!isUserLoggedIn) {
-      navigate('/login');
-    } else {
-      getLikedRecipes();
-    }
-  }, []);
+    const checkAuthStatus = () => {
+      if (authStatus === 'LOADING') {
+        console.log('LOADING');
+      } else if (authStatus === 'AUTHENTICATED') {
+        getLikedRecipes();
+      } else {
+        navigate('/login');
+      }
+    };
+    checkAuthStatus();
+  }, [authStatus]);
 
   console.log(likedRecipes);
 
@@ -92,8 +96,9 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes, isUserLoggedIn }) => {
               <div className="no-liked-recipes">
                 <h1>You don't have any liked recipes yet! </h1>
                 <p>
-                  Head home to search for recipes, click on an individual recipe and click on
-                  the heart to add to your saved recipes collection. 
+                  Head home to search for recipes, click on an individual recipe
+                  and click on the heart to add to your saved recipes
+                  collection.
                 </p>
                 <Link to="/">
                   <button

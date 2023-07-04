@@ -21,15 +21,10 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-
-  // const isMediumScreen = useMediaQuery({
-  //   query: '(max-width: 1500px)',
-  // });
 
   // get current post pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -135,7 +130,6 @@ function App() {
           path="/liked"
           element={
             <LikedRecipes
-              isUserLoggedIn={isUserLoggedIn}
               loading={loading}
               setLoading={setLoading}
               likedRecipes={likedRecipes}
@@ -144,15 +138,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/login"
-          element={
-            <Auth
-              isUserLoggedIn={isUserLoggedIn}
-              setIsUserLoggedIn={setIsUserLoggedIn}
-            />
-          }
-        />
+        <Route path="/login" element={<Auth />} />
       </Routes>
       <Footer />
     </div>
