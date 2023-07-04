@@ -1,7 +1,30 @@
 .App {
   margin: 0px;
   padding: 0px;
+  line-height: 3rem;
   
+}
+
+[class^="bi-"]::before, [class*=" bi-"]::before {
+  line-height: unset;
+}
+
+/* h1 {
+  font-size: calc(1.375rem + 1.5vw);
+  
+} */
+
+h1, h2 {
+  font-weight: 600;
+}
+
+h2 {
+  margin-bottom: 0; 
+}
+
+p { 
+  font-size: 1.6rem;
+  color: var(--secondary-text-grey);
 }
 
 * {
@@ -17,6 +40,7 @@
   --light-grey-accent: #e6e6e6c7;
   --off-white-background: #fbfbf8bd;
   --primary-text-black: #333333;
+  --secondary-text-grey: #777676; 
   
 }
 
@@ -27,7 +51,7 @@ html {
 body {
   position: relative;
   background-color: var(--off-white-background);
-  font-family: 'Archivo';
+  font-family: 'Poppins';
   letter-spacing: 1px;
   color: var(--primary-text-black); 
 

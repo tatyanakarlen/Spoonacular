@@ -1,12 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { auth, googleProvider } from '../../config/firebase-config';
+import React, { useState, useRef, useMemo } from 'react';
+import { auth } from '../../config/firebase-config';
 import { signOut } from 'firebase/auth';
 import './DesktopNav.css';
 import { Link } from 'react-router-dom';
+import { useGetAuthStatus } from '../../hooks/useGetAuthStatus';
 
-const DesktopNav = ({ getRecipes, isUserLoggedIn, setIsUserLoggedIn }) => {
+const DesktopNav = ({ getRecipes }) => {
   const [isSearchInputExpanded, setIsSearchInputExpanded] = useState(false);
   const [searchBarUserInput, setSearchBarUserInput] = useState('');
+
+  // hook for getting auth status
+  const { authStatus } = useGetAuthStatus();
+  console.log('authStatus from nav', authStatus)
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
@@ -28,7 +33,6 @@ const DesktopNav = ({ getRecipes, isUserLoggedIn, setIsUserLoggedIn }) => {
   const logOut = async () => {
     try {
       await signOut(auth);
-      setIsUserLoggedIn(false);
     } catch (err) {
       console.log(err);
     }
@@ -39,19 +43,49 @@ const DesktopNav = ({ getRecipes, isUserLoggedIn, setIsUserLoggedIn }) => {
     ref.current.value = '';
   };
 
+  const userAuthButton = useMemo(() => {
+    switch (authStatus) {
+      case 'LOADING':
+        return (
+          <Link className="nav-link">
+            <i class="bi bi-person-fill nav-icon"></i>
+          </Link>
+        );
+      case 'AUTHENTICATED':
+        return (
+          <Link className="nav-link" onClick={logOut}>
+            <i class="bi bi-person-fill nav-icon"></i>
+            logout
+          </Link>
+        );
+      case 'UNAUTHENTICATED':
+        return (
+          <Link className="nav-link" to="/login">
+            <i class="bi bi-person-fill nav-icon"></i>
+            login
+          </Link>
+        );
+      default:
+        return <div></div>;
+    }
+  }, [authStatus]);
+
   return (
     <>
       <div className="logo-social-links-container">
         <div className="logo-headline">
-          <h1>
+          <h2>
             <Link to="/">CookBook</Link>
-          </h1>
+          </h2>
           <ul class="left-nav-menu">
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/liked">My Recipes</Link>
+            </li>
+            <li onClick={() => console.log(console.log('user ID', auth?.currentUser))}>
+             Check user
             </li>
           </ul>
         </div>
@@ -94,19 +128,7 @@ const DesktopNav = ({ getRecipes, isUserLoggedIn, setIsUserLoggedIn }) => {
               </div>
             </li>
 
-            <li class="login-btn">
-              {!isUserLoggedIn ? (
-                <Link className="nav-link" to="/login">
-                  <i class="bi bi-person-fill nav-icon"></i>
-                  login
-                </Link>
-              ) : (
-                <Link className="nav-link" onClick={logOut}>
-                  <i class="bi bi-person-fill nav-icon"></i>
-                  logout
-                </Link>
-              )}
-            </li>
+            {userAuthButton}
           </ul>
         </div>
       </div>

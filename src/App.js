@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
-import Recipes from './components/Recipes/Recipes';
-import './App.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
-import Home from './components/Home/Home';
-import Recipe from './components/Recipe/Recipe';
-import LikedRecipes from './components/LikedRecipes/LikedRecipes';
-import LikedRecipe from './components/LikedRecipe/LikedRecipe';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import './App.css';
+import Auth from './components/Auth/Auth';
 import DesktopNav from './components/DesktopNav/DesktopNav';
 import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import LikedRecipe from './components/LikedRecipe/LikedRecipe';
+import LikedRecipes from './components/LikedRecipes/LikedRecipes';
 import MobileNav from './components/MobileNav/MobileNav';
-import MobileLandingPage from './components/MobileLandingPage/MobileLandingPage';
-import Auth from './components/Auth/Auth';
-import { useMediaQuery } from 'react-responsive';
+import Recipe from './components/Recipe/Recipe';
+import Recipes from './components/Recipes/Recipes';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -28,14 +21,9 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [likedRecipes, setLikedRecipes] = useState([]);
   const [isRecipeLiked, setIsRecipeLiked] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
-  });
-
-  const isMediumScreen = useMediaQuery({
-    query: '(max-width: 1500px)',
   });
 
   // get current post pagination
@@ -76,8 +64,6 @@ function App() {
           setFilteredRecipes={setFilteredRecipes}
           userInput={userInput}
           setUserInput={setUserInput}
-          isUserLoggedIn={isUserLoggedIn}
-          setIsUserLoggedIn={setIsUserLoggedIn}
         />
       )}
       <Routes>
@@ -85,21 +71,17 @@ function App() {
           exact
           path="/"
           element={
-            !isMediumScreen ? (
-              <Home
-                getRecipes={getRecipes}
-                filteredRecipes={filteredRecipes}
-                setFilteredRecipes={setFilteredRecipes}
-                currentRecipes={currentRecipes}
-                loading={loading}
-                postsPerPage={postsPerPage}
-                paginate={paginate}
-                userInput={userInput}
-                setUserInput={setUserInput}
-              />
-            ) : (
-              <MobileLandingPage />
-            )
+            <Home
+              getRecipes={getRecipes}
+              filteredRecipes={filteredRecipes}
+              setFilteredRecipes={setFilteredRecipes}
+              currentRecipes={currentRecipes}
+              loading={loading}
+              postsPerPage={postsPerPage}
+              paginate={paginate}
+              userInput={userInput}
+              setUserInput={setUserInput}
+            />
           }
         />
         <Route
@@ -148,7 +130,6 @@ function App() {
           path="/liked"
           element={
             <LikedRecipes
-              isUserLoggedIn={isUserLoggedIn}
               loading={loading}
               setLoading={setLoading}
               likedRecipes={likedRecipes}
@@ -157,17 +138,9 @@ function App() {
           }
         />
 
-        <Route
-          path="/login"
-          element={
-            <Auth
-              isUserLoggedIn={isUserLoggedIn}
-              setIsUserLoggedIn={setIsUserLoggedIn}
-            />
-          }
-        />
+        <Route path="/login" element={<Auth />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
