@@ -30,7 +30,6 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
 .recipe-links {
   text-decoration: none;
   color: black;
@@ -59,4 +58,10 @@
   display: flex;
   justify-content: center;
   padding: 5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding: 3rem;
+  }
 }

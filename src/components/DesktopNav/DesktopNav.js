@@ -43,6 +43,10 @@ const DesktopNav = ({ getRecipes }) => {
     ref.current.value = '';
   };
 
+  const userAuthButtonStyles = {
+    backgroundColor: 'grey'
+  }
+
   const userAuthButton = useMemo(() => {
     switch (authStatus) {
       case 'LOADING':
@@ -84,9 +88,6 @@ const DesktopNav = ({ getRecipes }) => {
             <li>
               <Link to="/liked">My Recipes</Link>
             </li>
-            <li onClick={() => console.log(console.log('user ID', auth?.currentUser))}>
-             Check user
-            </li>
           </ul>
         </div>
         <div className="nav-menu-items">
@@ -97,12 +98,6 @@ const DesktopNav = ({ getRecipes }) => {
                 onClick={(e) => {
                   setIsSearchInputExpanded(!isSearchInputExpanded);
                   if (isSearchInputExpanded && ref.current.value !== '') {
-                    // console.log(
-                    //   'logic check',
-                    //   isSearchInputExpanded,
-                    //   searchBarUserInput.length
-                    // );
-
                     getRecipes(e, searchBarUserInput);
                     setIsSearchInputExpanded(!isSearchInputExpanded);
                     onClear();
@@ -118,17 +113,16 @@ const DesktopNav = ({ getRecipes }) => {
                 <input
                   ref={ref}
                   onClick={() => console.log(ref.current)}
-                  // value={searchBarUserInput}
                   onChange={handleChange}
                   type="text"
                   placeholder="Enter Keyword"
-                  // id="fldSearch"
                   style={openInputStyle}
                 />
               </div>
             </li>
-
+            <li id="user-auth-btn">
             {userAuthButton}
+            </li>
           </ul>
         </div>
       </div>

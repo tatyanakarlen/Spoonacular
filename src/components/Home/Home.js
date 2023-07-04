@@ -71,7 +71,7 @@ const Home = ({
             <div className="left-side-landing-page">
               <Link to={'/recipes/638714'}>
                 <>
-                  <img class="img-fluid" src={chineseNoodles} />
+                  <img src={chineseNoodles} />
                   <h4 class="image-low-light hero-img-low-light">
                     Chinese home-made dumplings
                     <div class="rating-wrapper">
@@ -99,9 +99,9 @@ const Home = ({
           </div>
           <div className="desktop-landing-page-content-container recipe-option-container">
             <div className="container">
-              <h1>Jump right into it!</h1>
+              <h1 className="container-h1 jump-right-into-it-h1">Jump right into it!</h1>
 
-              <div className="recipe-category-options-container container">
+              <div className="recipe-category-options-container">
                 <figure class="recipe-category">
                   <Link onClick={(e) => getRecipes(e, 'vegan')}>
                     <div class="figure-img-container">
