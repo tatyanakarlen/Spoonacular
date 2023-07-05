@@ -82,6 +82,8 @@
   color: black;
 }
 
+
+
 @media only screen and (max-width: 900px) {
   .carousel-item {
     padding: 2rem 3rem;
@@ -89,9 +91,20 @@
   .carousel-item-inner-content {
     flex-direction: column;
   }
+  .carousel-inner {
+    height: 75vh;
+  }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
+  .carousel-inner {
+    height: 82vh;
+  }
+}
+
+
+
+@media only screen and (max-width: 700px) {
   .carousel-control-prev,
   .carousel-control-next {
     display: none;

@@ -26,3 +26,10 @@
     gap: 1.5rem;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .footer-container {
+    padding: 3rem;
+    gap: 1rem;
+  }
+}

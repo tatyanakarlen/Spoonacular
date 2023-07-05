@@ -78,9 +78,9 @@ const DesktopNav = ({ getRecipes }) => {
     <>
       <div className="logo-social-links-container">
         <div className="logo-headline">
-          <h2>
+          <h1>
             <Link to="/">CookBook</Link>
-          </h2>
+          </h1>
           <ul class="left-nav-menu">
             <li>
               <Link to="/">Home</Link>
