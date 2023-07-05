@@ -1,9 +1,37 @@
 import './MobileNav.css';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useGetAuthStatus } from '../../hooks/useGetAuthStatus';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase-config';
 
 const MobileNav = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  // hook for getting auth status
+  const { authStatus } = useGetAuthStatus();
+
+  // firebase log out
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const userAuthButton = useMemo(() => {
+    switch (authStatus) {
+      case 'LOADING':
+        return <Link></Link>;
+      case 'AUTHENTICATED':
+        return <Link onClick={logOut}>LOGOUT</Link>;
+      case 'UNAUTHENTICATED':
+        return <Link to="/login">LOGIN</Link>;
+      default:
+        return <div></div>;
+    }
+  }, [authStatus]);
 
   let expandedStyleTopBun = {};
 
@@ -62,11 +90,7 @@ const MobileNav = () => {
           <li style={expandedListItems}>
             <Link to="/liked">LIKED</Link>
           </li>
-
-          <li style={expandedListItems}>INSTAGRAM</li>
-          <li style={expandedListItems}>FACEBOOK</li>
-          <li style={expandedListItems}>TWITTER</li>
-          <li style={expandedListItems}>YOUTUBE</li>
+          <li style={expandedListItems}>{userAuthButton}</li>
         </ul>
       </div>
     </>

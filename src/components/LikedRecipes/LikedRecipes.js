@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { auth } from '../../config/firebase-config';
 import './LikedRecipes.css';
@@ -13,8 +13,6 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
   const isMobile = useMediaQuery({
     query: '(max-width: 575px)',
   });
-
-  // console.log('user ID', auth?.currentUser?.uid);
 
   // hook for getting auth status
   const { authStatus } = useGetAuthStatus();
@@ -45,12 +43,9 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
     }
   };
 
-  console.log('authStatus from Liked Recipes page', authStatus);
-
   useEffect(() => {
     const checkAuthStatus = () => {
       if (authStatus === 'LOADING') {
-        console.log('LOADING');
       } else if (authStatus === 'AUTHENTICATED') {
         getLikedRecipes();
       } else {
@@ -60,14 +55,11 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
     checkAuthStatus();
   }, [authStatus]);
 
-  console.log(likedRecipes);
-
   useEffect(() => {
     const checkLikedRecipes = () => {
       if (likedRecipes.length > 0) {
         setAreThereLikedRecipes(true);
       }
-      console.log('length of liked recipes', likedRecipes.length);
     };
     if (!loading) {
       checkLikedRecipes();
@@ -115,6 +107,7 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
                   <div className="card-group">
                     {likedRecipes.map((recipe, index) => (
                       <div
+                      key={index}
                         className={
                           isMobile
                             ? 'col-md-5 col-lg-3 col-sm-12 card-column'
@@ -122,11 +115,13 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
                         }
                       >
                         <Link
-                          key={index}
+                          // key={index}
                           className="recipe-links"
                           to={`/liked/${recipe.id}`}
                         >
-                          <div className="card">
+                          <div 
+                          
+                          className="card">
                             <img
                               className="card-img-top"
                               src={recipe.image}

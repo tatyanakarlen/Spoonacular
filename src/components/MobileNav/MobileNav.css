@@ -18,7 +18,7 @@
 }
 
 .hamburger {
-  width: 24px;
+  width: 21px;
   height: 12px;
   transform: rotate(0deg);
   flex-shrink: 0;
@@ -54,7 +54,7 @@
   list-style: none;
   display: flex;
   overflow-x: scroll;
-  margin-top: 1rem;
+  margin-top: 1.1rem;
   padding: 0px 16px;
   pointer-events: none;
   opacity: 0;
@@ -106,10 +106,6 @@ a:visited {
 
 .foodie-header {
   padding-left: 1.5rem;
-  font-size: 3.5rem;
   color: #fff;
 }
 
-.nav-menu-list .heart-icon {
-  color: red;
-}

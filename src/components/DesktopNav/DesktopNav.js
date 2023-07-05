@@ -11,11 +11,10 @@ const DesktopNav = ({ getRecipes }) => {
 
   // hook for getting auth status
   const { authStatus } = useGetAuthStatus();
-  console.log('authStatus from nav', authStatus)
+  
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
-    console.log(searchBarUserInput.length);
   };
 
   let openInputStyle = {};
@@ -42,6 +41,10 @@ const DesktopNav = ({ getRecipes }) => {
   const onClear = () => {
     ref.current.value = '';
   };
+
+  const userAuthButtonStyles = {
+    backgroundColor: 'grey'
+  }
 
   const userAuthButton = useMemo(() => {
     switch (authStatus) {
@@ -74,35 +77,26 @@ const DesktopNav = ({ getRecipes }) => {
     <>
       <div className="logo-social-links-container">
         <div className="logo-headline">
-          <h2>
+          <h1>
             <Link to="/">CookBook</Link>
-          </h2>
-          <ul class="left-nav-menu">
+          </h1>
+          <ul className="left-nav-menu">
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/liked">My Recipes</Link>
             </li>
-            <li onClick={() => console.log(console.log('user ID', auth?.currentUser))}>
-             Check user
-            </li>
           </ul>
         </div>
         <div className="nav-menu-items">
           <ul>
-            <li className="nav-link label-enclose">
+            <li id="desktop-nav-search-bar" className="nav-link label-enclose">
               <label
-                for="fldSearch"
+                htmlFor="fldSearch"
                 onClick={(e) => {
                   setIsSearchInputExpanded(!isSearchInputExpanded);
                   if (isSearchInputExpanded && ref.current.value !== '') {
-                    // console.log(
-                    //   'logic check',
-                    //   isSearchInputExpanded,
-                    //   searchBarUserInput.length
-                    // );
-
                     getRecipes(e, searchBarUserInput);
                     setIsSearchInputExpanded(!isSearchInputExpanded);
                     onClear();
@@ -111,24 +105,23 @@ const DesktopNav = ({ getRecipes }) => {
                   }
                 }}
               >
-                <i class="bi bi-search nav-icon search-icon"></i>
+                <i className="bi bi-search nav-icon search-icon"></i>
                 Search
               </label>
               <div id="input-enclose">
                 <input
                   ref={ref}
                   onClick={() => console.log(ref.current)}
-                  // value={searchBarUserInput}
                   onChange={handleChange}
                   type="text"
                   placeholder="Enter Keyword"
-                  // id="fldSearch"
                   style={openInputStyle}
                 />
               </div>
             </li>
-
+            <li id="user-auth-btn">
             {userAuthButton}
+            </li>
           </ul>
         </div>
       </div>

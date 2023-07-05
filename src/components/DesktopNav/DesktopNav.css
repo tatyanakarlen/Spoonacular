@@ -5,7 +5,7 @@
   color: var(--primary-text-black);
   position: sticky;
   top: 0;
-  padding: 0.6% 4%;
+  padding: 0.4% 4%;
   font-size: 1.6rem;
   overflow: hidden;
   /* background-color: #fbfbf8; */
@@ -36,7 +36,7 @@
   align-items: center;
   margin-bottom: 0;
 }
-/* /////// */
+
 .nav-icon {
   padding-right: 1rem;
   font-size: 2rem;
@@ -47,16 +47,14 @@
   font-size: 2.1rem;
 }
 
-/* ////// */
-
-.login-btn {
+#user-auth-btn {
   background-color: #212529;
   color: white;
   border-radius: 22px;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1.7rem;
 }
 
-.login-btn a {
+#user-auth-btn a {
   display: flex;
   align-items: center;
 }
@@ -93,5 +91,17 @@
 @media only screen and (max-width: 1000px) {
   .logo-social-links-container {
     padding: 0.8% 4%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #desktop-nav-search-bar {
+    display: none;
+  }
+  .logo-social-links-container {
+    padding: 1.4% 4%;
+  }
+  #user-auth-btn {
+    padding: 0.35rem 1.7rem;
   }
 }
