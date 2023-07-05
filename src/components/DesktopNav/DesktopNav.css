@@ -37,6 +37,10 @@
   margin-bottom: 0;
 }
 
+.logo-social-links-container ul li a {
+  color: white;
+}
+
 .nav-icon {
   padding-right: 1rem;
   font-size: 2rem;
