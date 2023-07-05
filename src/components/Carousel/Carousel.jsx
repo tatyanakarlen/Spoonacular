@@ -8,13 +8,13 @@ import berrySmoothie from '../../Assets/berrySmoothie.jpeg';
 export default function Carousel() {
   return (
     <MDBCarousel showIndicators showControls className="carousel-wrapper">
-      <div className="carousel-item active" itemId={1}>
+      <div className="carousel-item active" itemID={1}>
         <div className="carousel-item-inner-content">
-          <div class="carousel-img-container">
+          <div className="carousel-img-container">
             <img src={asparagusSalad} />
-            <h5 class="highlight">Vegan</h5>
+            <h5 className="highlight">Vegan</h5>
           </div>
-          <div class="carousel-inner-text">
+          <div className="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/782585'}>
               <h2>Cannellini Bean and Asparagus Salad with Mushrooms</h2>
             </Link>
@@ -28,13 +28,13 @@ export default function Carousel() {
         </div>
       </div>
 
-      <div className="carousel-item" itemId={2}>
+      <div className="carousel-item" itemID={2}>
         <div className="carousel-item-inner-content">
-          <div class="carousel-img-container">
+          <div className="carousel-img-container">
             <img src={cauliflowerRice} />
-            <h5 class="highlight">Plant based</h5>
+            <h5 className="highlight">Plant based</h5>
           </div>
-          <div class="carousel-inner-text">
+          <div className="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/716426'}>
               <h2>Cauliflower, Brown Rice, and Vegetable Fried Rice</h2>
             </Link>
@@ -47,13 +47,13 @@ export default function Carousel() {
         </div>
       </div>
 
-      <div className="carousel-item" itemId={3}>
+      <div className="carousel-item" itemID={3}>
         <div className="carousel-item-inner-content">
-          <div class="carousel-img-container">
+          <div className="carousel-img-container">
             <img src={berrySmoothie} />
-            <h5 class="highlight">Breakfast</h5>
+            <h5 className="highlight">Breakfast</h5>
           </div>
-          <div class="carousel-inner-text">
+          <div className="carousel-inner-text">
             <Link className="carousel-links" to={'/recipes/715497'}>
               <h2>Berry Banana Breakfast Smoothie</h2>
             </Link>

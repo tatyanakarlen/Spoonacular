@@ -156,10 +156,6 @@ const Auth = () => {
             </MDBModalDialog>
           </MDBModal>
         </>
-        <button onClick={logOut}>Log out</button>
-        <button onClick={() => console.log('current user', auth.currentUser)}>
-          Check user
-        </button>
       </div>
     </div>
   );

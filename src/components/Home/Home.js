@@ -1,30 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../Assets/lily-banse--YHSwy6uqvk-unsplash.jpg';
-import dumplings from '../../Assets/abhishek-sanwa-limbu-LR559Dcst70-unsplash.jpg';
 import './Home.css';
-import { useMediaQuery } from 'react-responsive';
-import breakfast from '../../Assets/breakfast.png';
-import lunch from '../../Assets/lunch.png';
-import dinner from '../../Assets/dinner.png';
 import Carousel from '../../components/Carousel/Carousel';
 import chineseNoodles from '../../Assets/chinese-chow-mein-with-chicken-1367x2048.jpg';
 
-const Home = ({
-  filteredRecipes,
-  setFilteredRecipes,
-  userInput,
-  setUserInput,
-  getRecipes,
-}) => {
-  const isTabletScreen = useMediaQuery({
-    query: '(max-width: 941px)',
-  });
-
-  const isMobileScreen = useMediaQuery({
-    query: '(max-width: 780px)',
-  });
-
+const Home = ({ userInput, setUserInput, getRecipes }) => {
   const handleChange = (e) => {
     setUserInput(e.target.value);
   };
@@ -36,7 +17,6 @@ const Home = ({
 
   const ref = useRef(null);
   const onClear = () => {
-    console.log('clear works');
     ref.current.value = '';
   };
 
@@ -99,7 +79,9 @@ const Home = ({
           </div>
           <div className="desktop-landing-page-content-container recipe-option-container">
             <div className="container">
-              <h1 className="container-h1 jump-right-into-it-h1">Jump right into it!</h1>
+              <h1 className="container-h1 jump-right-into-it-h1">
+                Jump right into it!
+              </h1>
 
               <div className="recipe-category-options-container">
                 <figure class="recipe-category">
@@ -122,40 +104,40 @@ const Home = ({
                 </figure>
 
                 <figure class="recipe-category">
-                <Link onClick={(e) => getRecipes(e, 'meat')}>
-                  <div class="figure-img-container">
-                    <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">Meat lovers</h5>
-                    <h4 class="image-low-light">Get Recipes</h4>
-                  </div>
-
-                  <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
-                    Meat lovers
-                    <div class="rating-wrapper">
-                      <i class="bi bi-star-fill"></i>
-
-                      <span>4.9</span>
+                  <Link onClick={(e) => getRecipes(e, 'meat')}>
+                    <div class="figure-img-container">
+                      <img class="landing-page-card-img" src={img} />
+                      <h5 class="highlight">Meat lovers</h5>
+                      <h4 class="image-low-light">Get Recipes</h4>
                     </div>
-                  </figcaption>
-                  <p>Unleash Your Inner Carnivore</p>
+
+                    <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
+                      Meat lovers
+                      <div class="rating-wrapper">
+                        <i class="bi bi-star-fill"></i>
+
+                        <span>4.9</span>
+                      </div>
+                    </figcaption>
+                    <p>Unleash Your Inner Carnivore</p>
                   </Link>
                 </figure>
                 <figure class="recipe-category">
-                <Link onClick={(e) => getRecipes(e, 'gluten free')}>
-                  <div class="figure-img-container">
-                    <img class="landing-page-card-img" src={img} />
-                    <h5 class="highlight">Gluten free</h5>
-                    <h4 class="image-low-light">Get Recipes</h4>
-                  </div>
-                  <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
-                    Gluten free
-                    <div class="rating-wrapper">
-                      <i class="bi bi-star-fill"></i>
-
-                      <span>4.8</span>
+                  <Link onClick={(e) => getRecipes(e, 'gluten free')}>
+                    <div class="figure-img-container">
+                      <img class="landing-page-card-img" src={img} />
+                      <h5 class="highlight">Gluten free</h5>
+                      <h4 class="image-low-light">Get Recipes</h4>
                     </div>
-                  </figcaption>
-                  <p>Flavor Without the Gluten</p>
+                    <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
+                      Gluten free
+                      <div class="rating-wrapper">
+                        <i class="bi bi-star-fill"></i>
+
+                        <span>4.8</span>
+                      </div>
+                    </figcaption>
+                    <p>Flavor Without the Gluten</p>
                   </Link>
                 </figure>
               </div>
@@ -170,7 +152,7 @@ const Home = ({
               <h1>CookBook</h1>
               <h4>
                 Culinary Companion: Your Ultimate Recipe App for Exquisite
-                Delights! Discover a World of Diverse Culinary Delights.
+                Delights!
               </h4>
               <ul>
                 <li>

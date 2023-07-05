@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 3rem 5rem;
+  border-top: 1px solid #e7e4e4;
 }
 
 @media only screen and (max-width: 991px) {

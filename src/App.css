@@ -27,6 +27,11 @@ p {
   color: var(--secondary-text-grey);
 }
 
+ul {
+  margin-top: 0;
+  
+}
+
 * {
   box-sizing: border-box;
   /* margin: 0;

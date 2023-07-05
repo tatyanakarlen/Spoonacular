@@ -211,7 +211,7 @@ figcaption {
   gap: 0.5rem;
   letter-spacing: 1px;
   padding: 2rem 2rem 0 2rem;
-  font-size: 2.2rem;
+  font-size: calc(1.375rem + 1.5vw);
   font-weight: 600;
   cursor: pointer;
   transition: transform ease 300ms;
@@ -376,6 +376,9 @@ figure:hover {
   .input-container i {
     bottom: 0.8rem;
   }
+  .mega-footer {
+    gap: 2rem;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -391,5 +394,8 @@ figure:hover {
   .input-container i {
     bottom: 0.5rem;
     font-size: 2.5rem;
+  }
+  .carousel-inner {
+    height: 85vh;
   }
 }

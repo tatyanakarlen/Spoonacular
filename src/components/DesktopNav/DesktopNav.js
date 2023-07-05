@@ -11,11 +11,10 @@ const DesktopNav = ({ getRecipes }) => {
 
   // hook for getting auth status
   const { authStatus } = useGetAuthStatus();
-  console.log('authStatus from nav', authStatus)
+  
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
-    console.log(searchBarUserInput.length);
   };
 
   let openInputStyle = {};
@@ -81,7 +80,7 @@ const DesktopNav = ({ getRecipes }) => {
           <h1>
             <Link to="/">CookBook</Link>
           </h1>
-          <ul class="left-nav-menu">
+          <ul className="left-nav-menu">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -92,9 +91,9 @@ const DesktopNav = ({ getRecipes }) => {
         </div>
         <div className="nav-menu-items">
           <ul>
-            <li className="nav-link label-enclose">
+            <li id="desktop-nav-search-bar" className="nav-link label-enclose">
               <label
-                for="fldSearch"
+                htmlFor="fldSearch"
                 onClick={(e) => {
                   setIsSearchInputExpanded(!isSearchInputExpanded);
                   if (isSearchInputExpanded && ref.current.value !== '') {
@@ -106,7 +105,7 @@ const DesktopNav = ({ getRecipes }) => {
                   }
                 }}
               >
-                <i class="bi bi-search nav-icon search-icon"></i>
+                <i className="bi bi-search nav-icon search-icon"></i>
                 Search
               </label>
               <div id="input-enclose">
