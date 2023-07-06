@@ -11,7 +11,6 @@ const DesktopNav = ({ getRecipes }) => {
 
   // hook for getting auth status
   const { authStatus } = useGetAuthStatus();
-  
 
   const handleChange = (e) => {
     setSearchBarUserInput(e.target.value);
@@ -43,28 +42,28 @@ const DesktopNav = ({ getRecipes }) => {
   };
 
   const userAuthButtonStyles = {
-    backgroundColor: 'grey'
-  }
+    backgroundColor: 'grey',
+  };
 
   const userAuthButton = useMemo(() => {
     switch (authStatus) {
       case 'LOADING':
         return (
           <Link className="nav-link">
-            <i class="bi bi-person-fill nav-icon"></i>
+            <i className="bi bi-person-fill nav-icon"></i>
           </Link>
         );
       case 'AUTHENTICATED':
         return (
           <Link className="nav-link" onClick={logOut}>
-            <i class="bi bi-person-fill nav-icon"></i>
+            <i className="bi bi-person-fill nav-icon"></i>
             logout
           </Link>
         );
       case 'UNAUTHENTICATED':
         return (
           <Link className="nav-link" to="/login">
-            <i class="bi bi-person-fill nav-icon"></i>
+            <i className="bi bi-person-fill nav-icon"></i>
             login
           </Link>
         );
@@ -119,9 +118,7 @@ const DesktopNav = ({ getRecipes }) => {
                 />
               </div>
             </li>
-            <li id="user-auth-btn">
-            {userAuthButton}
-            </li>
+            <li id="user-auth-btn">{userAuthButton}</li>
           </ul>
         </div>
       </div>

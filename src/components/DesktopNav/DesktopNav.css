@@ -8,7 +8,6 @@
   padding: 0.4% 4%;
   font-size: 1.6rem;
   overflow: hidden;
-  /* background-color: #fbfbf8; */
   background-color: black;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   z-index: 1000;
@@ -63,10 +62,6 @@
   align-items: center;
 }
 
-/* .login-btn i {
-  display: flex;
-  align-items: center;
-} */
 
 #input-enclose input {
   border-radius: 8px;

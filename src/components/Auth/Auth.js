@@ -25,7 +25,6 @@ const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
   const navigate = useNavigate();
   const refEmail = useRef(null);
   const refPassword = useRef(null);
@@ -76,7 +75,7 @@ const Auth = () => {
         <h1>Welcome!</h1>
         <h5>Continue with Google or sign-in manually</h5>
 
-        <button class="log-in-with-google-btn" onClick={signInWithGoogle}>
+        <button className="log-in-with-google-btn" onClick={signInWithGoogle}>
           <img
             width="23"
             height="23"
@@ -85,7 +84,7 @@ const Auth = () => {
           />
           Log in with Google
         </button>
-        <div class="separator">or</div>
+        <div className="separator">or</div>
 
         <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
         <input
@@ -93,7 +92,7 @@ const Auth = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button class="sign-in-btn" onClick={signIn}>
+        <button className="sign-in-btn" onClick={signIn}>
           Sign in
         </button>
 

@@ -38,8 +38,6 @@ const Recipe = ({
     query: '(max-width: 575px)',
   });
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
-  
-
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -138,15 +136,14 @@ const Recipe = ({
         <div>
           {!isMobile && (
             <div className="liked-recipes-breadcrumb">
-            <div className="recipe-breadcrumb-content">
-              <Link to="/">Home</Link>
-              <i className="bi bi-chevron-right"></i>
-              <Link to="/recipes">Recipes</Link>
-              <i className="bi bi-chevron-right"></i>
-              <span style={{marginLeft: '0'}}>{recipe.title}</span>
+              <div className="recipe-breadcrumb-content">
+                <Link to="/">Home</Link>
+                <i className="bi bi-chevron-right"></i>
+                <Link to="/recipes">Recipes</Link>
+                <i className="bi bi-chevron-right"></i>
+                <span style={{ marginLeft: '0' }}>{recipe.title}</span>
+              </div>
             </div>
-           
-          </div>
           )}
           <div className="recipe-container">
             <div className="title-like-heart-container">
@@ -240,7 +237,6 @@ const Recipe = ({
               ))}
             </ul>
           </div>
-        
         </div>
       )}
     </>

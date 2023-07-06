@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { db, auth } from '../../config/firebase-config';
 import star from '../../Assets/icons8-star-48.png';
 
-
 import {
   getDocs,
   collection,

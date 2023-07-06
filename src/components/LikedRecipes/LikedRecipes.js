@@ -107,7 +107,7 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
                   <div className="card-group">
                     {likedRecipes.map((recipe, index) => (
                       <div
-                      key={index}
+                        key={index}
                         className={
                           isMobile
                             ? 'col-md-5 col-lg-3 col-sm-12 card-column'
@@ -119,9 +119,7 @@ const LikedRecipes = ({ likedRecipes, setLikedRecipes }) => {
                           className="recipe-links"
                           to={`/liked/${recipe.id}`}
                         >
-                          <div 
-                          
-                          className="card">
+                          <div className="card">
                             <img
                               className="card-img-top"
                               src={recipe.image}

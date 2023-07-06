@@ -1,4 +1,4 @@
-import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
+import { MDBCarousel } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import './Carousel.css';
 import asparagusSalad from '../../Assets/asparagus-salad.jpeg';

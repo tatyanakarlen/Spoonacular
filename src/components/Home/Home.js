@@ -48,7 +48,7 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
                 onClick={(e) => {
                   getRecipes(e, userInput);
                 }}
-                class="bi bi-search"
+                className="bi bi-search"
               ></i>
             </div>
           </div>
@@ -59,16 +59,16 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
               <Link to={'/recipes/638714'}>
                 <>
                   <img src={chineseNoodles} />
-                  <h4 class="image-low-light hero-img-low-light">
+                  <h4 className="image-low-light hero-img-low-light">
                     Chinese home-made dumplings
-                    <div class="rating-wrapper">
-                      <i class="bi bi-star-fill"></i>
+                    <div className="rating-wrapper">
+                      <i className="bi bi-star-fill"></i>
 
                       <span>4.6</span>
                     </div>
                   </h4>
 
-                  <h5 class="highlight">Asian</h5>
+                  <h5 className="highlight">Asian</h5>
                 </>
               </Link>
             </div>
@@ -91,17 +91,17 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
               </h1>
 
               <div className="recipe-category-options-container">
-                <figure class="recipe-category">
+                <figure className="recipe-category">
                   <Link onClick={(e) => getRecipes(e, 'vegan')}>
-                    <div class="figure-img-container">
-                      <img class="landing-page-card-img" src={img} />
-                      <h5 class="highlight">Vegan</h5>
-                      <h4 class="image-low-light">Get Recipes</h4>
+                    <div className="figure-img-container">
+                      <img className="landing-page-card-img" src={img} />
+                      <h5 className="highlight">Vegan</h5>
+                      <h4 className="image-low-light">Get Recipes</h4>
                     </div>
                     <figcaption onClick={(e) => getRecipes(e, 'breakfast')}>
                       Vegan
-                      <div class="rating-wrapper">
-                        <i class="bi bi-star-fill"></i>
+                      <div className="rating-wrapper">
+                        <i className="bi bi-star-fill"></i>
 
                         <span>4.6</span>
                       </div>
@@ -110,18 +110,18 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
                   </Link>
                 </figure>
 
-                <figure class="recipe-category">
+                <figure className="recipe-category">
                   <Link onClick={(e) => getRecipes(e, 'meat')}>
-                    <div class="figure-img-container">
-                      <img class="landing-page-card-img" src={img} />
-                      <h5 class="highlight">Meat lovers</h5>
-                      <h4 class="image-low-light">Get Recipes</h4>
+                    <div className="figure-img-container">
+                      <img className="landing-page-card-img" src={img} />
+                      <h5 className="highlight">Meat lovers</h5>
+                      <h4 className="image-low-light">Get Recipes</h4>
                     </div>
 
                     <figcaption onClick={(e) => getRecipes(e, 'lunch')}>
                       Meat lovers
-                      <div class="rating-wrapper">
-                        <i class="bi bi-star-fill"></i>
+                      <div className="rating-wrapper">
+                        <i className="bi bi-star-fill"></i>
 
                         <span>4.9</span>
                       </div>
@@ -129,17 +129,17 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
                     <p>Unleash Your Inner Carnivore</p>
                   </Link>
                 </figure>
-                <figure class="recipe-category">
+                <figure className="recipe-category">
                   <Link onClick={(e) => getRecipes(e, 'gluten free')}>
-                    <div class="figure-img-container">
-                      <img class="landing-page-card-img" src={img} />
-                      <h5 class="highlight">Gluten free</h5>
-                      <h4 class="image-low-light">Get Recipes</h4>
+                    <div className="figure-img-container">
+                      <img className="landing-page-card-img" src={img} />
+                      <h5 className="highlight">Gluten free</h5>
+                      <h4 className="image-low-light">Get Recipes</h4>
                     </div>
                     <figcaption onClick={(e) => getRecipes(e, 'dinner')}>
                       Gluten free
-                      <div class="rating-wrapper">
-                        <i class="bi bi-star-fill"></i>
+                      <div className="rating-wrapper">
+                        <i className="bi bi-star-fill"></i>
 
                         <span>4.8</span>
                       </div>
@@ -172,7 +172,7 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
                   <i id="youTube-icon" className="bi bi-youtube"></i>
                 </li>
                 <li>
-                  <i class="bi bi-twitch"></i>
+                  <i className="bi bi-twitch"></i>
                 </li>
               </ul>
               <h3>Subscribe</h3>

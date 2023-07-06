@@ -1,21 +1,15 @@
-import MobileNav from '../MobileNav/MobileNav';
-import LogoSocialLinks from '../DesktopNav/DesktopNav';
 import { Link } from 'react-router-dom';
 import './RecipeNotFound.css';
 import img from '../../Assets/404-error.png';
-import { useMediaQuery } from 'react-responsive';
 
 
 const RecipeNotFound = () => {
-  const isMobile = useMediaQuery({
-    query: '(max-width: 575px)',
-  });
   return (
     <>
       <div className="recipe-not-found">
         <div className="recipe-not-found-wrapper">
           <img src={img} />
-          <div class="recipe-not-found-h1-go-home-link">
+          <div className="recipe-not-found-h1-go-home-link">
             <h1>Recipe not found</h1>
           </div>
 
@@ -23,7 +17,7 @@ const RecipeNotFound = () => {
             Oops! CookBook couldn't find any recipes for you. Head{' '}
             <Link>home</Link> and try these options:
           </p>
-          <div class="ul-container">
+          <div className="ul-container">
             <ul>
               <li>African</li>
               <li>American</li>
