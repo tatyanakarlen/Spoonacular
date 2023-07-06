@@ -1,6 +1,6 @@
 # Visit the deployed app here
 
-https://github.com/tatyanakarlen/Spoonacular
+https://cookbookspoonacularapi.netlify.app/
 
 # To run this app 
 
