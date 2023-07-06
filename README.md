@@ -1,3 +1,7 @@
+# Visit the deployed app here
+
+https://github.com/tatyanakarlen/Spoonacular
+
 # To run this app 
 
 Get an API key at (https://spoonacular.com/food-api)
