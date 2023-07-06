@@ -10,6 +10,13 @@ const Home = ({ userInput, setUserInput, getRecipes }) => {
     setUserInput(e.target.value);
   };
 
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  //     console.log('does scroll work?');
+  //   }
+  // }, [window]);
+
   useEffect(() => {
     setUserInput('');
     onClear();

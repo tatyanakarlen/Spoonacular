@@ -38,7 +38,7 @@ const Recipe = ({
     query: '(max-width: 575px)',
   });
   const likedRecipesCollectionRef = collection(db, 'userLikedRecipes');
-  console.log('recipe', recipe);
+  
 
 
   useEffect(() => {
@@ -78,7 +78,6 @@ const Recipe = ({
 
   const toggleLike = async () => {
     if (auth.currentUser === null) {
-      console.log('you cannot like');
       navigate('/login');
       return;
     } else if (!isRecipeLiked) {
