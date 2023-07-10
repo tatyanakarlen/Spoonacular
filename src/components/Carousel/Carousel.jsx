@@ -25,9 +25,9 @@ export default function Carousel() {
             </Link>
 
             <p>
-              {isMobile
-                ? 'Delight your taste buds with a satisfying vegan Salad'
-                : 'Delight your taste buds with a satisfying Cannellini Bean and Asparagus Salad, featuring tender asparagus, hearty cannellini beans, and savory mushrooms for a delightful burst of flavors.'}
+              'Delight your taste buds with a satisfying Cannellini Bean and
+              Asparagus Salad, featuring tender asparagus, hearty cannellini
+              beans, and savory mushrooms for a delightful burst of flavors.
             </p>
           </div>
         </div>
@@ -44,9 +44,9 @@ export default function Carousel() {
               <h2>Cauliflower, Brown Rice, and Vegetable Fried Rice</h2>
             </Link>
             <p>
-              {isMobile
-                ? 'Experience a flavorful fusion of nutritious vegetables.'
-                : 'Experience a flavorful fusion of nutritious cauliflower, hearty brown rice, and a vibrant medley of vegetables in our delectable Cauliflower, Brown Rice, and Vegetable Fried Rice.'}
+              Experience a flavorful fusion of nutritious cauliflower, hearty
+              brown rice, and a vibrant medley of vegetables in our delectable
+              Cauliflower, Brown Rice, and Vegetable Fried Rice.
             </p>
           </div>
         </div>
@@ -63,9 +63,10 @@ export default function Carousel() {
               <h2>Berry Banana Breakfast Smoothie</h2>
             </Link>
             <p>
-              {isMobile
-                ? 'Energize your morning with a delicious breakfast smoothie!'
-                : "Energize your morning with a delicious breakfast smoothie! Indulge in the refreshing blend of ripe berries and creamy bananas with our irresistible berry banana smoothie that's bursting with antioxidants and natural goodness."}
+              "Energize your morning with a delicious breakfast smoothie!
+              Indulge in the refreshing blend of ripe berries and creamy bananas
+              with our irresistible berry banana smoothie that's bursting with
+              antioxidants and natural goodness."
             </p>
           </div>
         </div>

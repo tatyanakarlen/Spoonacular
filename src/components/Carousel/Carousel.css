@@ -109,3 +109,12 @@
     padding: 2rem 0;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .carousel-indicators {
+    margin-bottom: -7rem;
+  }
+  .carousel-container {
+    padding: 5rem 5rem 12rem 5rem;
+  }
+}
