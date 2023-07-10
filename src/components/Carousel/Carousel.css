@@ -111,6 +111,9 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .carousel {
+    margin-top: -2rem;
+  }
   .carousel-inner {
     height: 95vh;
   }
