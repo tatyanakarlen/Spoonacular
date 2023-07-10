@@ -4,8 +4,13 @@ import './Carousel.css';
 import asparagusSalad from '../../Assets/asparagus-salad.jpeg';
 import cauliflowerRice from '../../Assets/Cauliflower-rice.jpg';
 import berrySmoothie from '../../Assets/berrySmoothie.jpeg';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Carousel() {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 500px)',
+  });
+
   return (
     <MDBCarousel showIndicators showControls className="carousel-wrapper">
       <div className="carousel-item active" itemID={1}>
@@ -20,9 +25,9 @@ export default function Carousel() {
             </Link>
 
             <p>
-              Delight your taste buds with a satisfying Cannellini Bean and
-              Asparagus Salad, featuring tender asparagus, hearty cannellini
-              beans, and savory mushrooms for a delightful burst of flavors.
+              {isMobile
+                ? 'Delight your taste buds with a satisfying vegan Salad'
+                : 'Delight your taste buds with a satisfying Cannellini Bean and Asparagus Salad, featuring tender asparagus, hearty cannellini beans, and savory mushrooms for a delightful burst of flavors.'}
             </p>
           </div>
         </div>
@@ -39,9 +44,9 @@ export default function Carousel() {
               <h2>Cauliflower, Brown Rice, and Vegetable Fried Rice</h2>
             </Link>
             <p>
-              Experience a flavorful fusion of nutritious cauliflower, hearty
-              brown rice, and a vibrant medley of vegetables in our delectable
-              Cauliflower, Brown Rice, and Vegetable Fried Rice.
+              {isMobile
+                ? 'Experience a flavorful fusion of nutritious vegetables.'
+                : 'Experience a flavorful fusion of nutritious cauliflower, hearty brown rice, and a vibrant medley of vegetables in our delectable Cauliflower, Brown Rice, and Vegetable Fried Rice.'}
             </p>
           </div>
         </div>
@@ -58,10 +63,9 @@ export default function Carousel() {
               <h2>Berry Banana Breakfast Smoothie</h2>
             </Link>
             <p>
-              Energize your morning with a delicious breakfast smoothie! Indulge
-              in the refreshing blend of ripe berries and creamy bananas with
-              our irresistible berry banana smoothie that's bursting with
-              antioxidants and natural goodness.
+              {isMobile
+                ? 'Energize your morning with a delicious breakfast smoothie!'
+                : "Energize your morning with a delicious breakfast smoothie! Indulge in the refreshing blend of ripe berries and creamy bananas with our irresistible berry banana smoothie that's bursting with antioxidants and natural goodness."}
             </p>
           </div>
         </div>
