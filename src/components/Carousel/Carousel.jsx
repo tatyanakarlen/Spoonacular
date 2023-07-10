@@ -63,10 +63,10 @@ export default function Carousel() {
               <h2>Berry Banana Breakfast Smoothie</h2>
             </Link>
             <p>
-              "Energize your morning with a delicious breakfast smoothie!
+              Energize your morning with a delicious breakfast smoothie!
               Indulge in the refreshing blend of ripe berries and creamy bananas
               with our irresistible berry banana smoothie that's bursting with
-              antioxidants and natural goodness."
+              antioxidants and natural goodness.
             </p>
           </div>
         </div>
