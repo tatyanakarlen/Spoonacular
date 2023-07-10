@@ -111,10 +111,13 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .carousel-indicators {
-    margin-bottom: -7rem;
+  .carousel-inner {
+    height: 100vh;
   }
   .carousel-container {
     padding: 5rem 5rem 12rem 5rem;
+  }
+  .carousel-indicators {
+    margin-bottom: -1rem;
   }
 }
