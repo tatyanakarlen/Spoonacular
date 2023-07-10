@@ -25,7 +25,7 @@ export default function Carousel() {
             </Link>
 
             <p>
-              'Delight your taste buds with a satisfying Cannellini Bean and
+              Delight your taste buds with a satisfying Cannellini Bean and
               Asparagus Salad, featuring tender asparagus, hearty cannellini
               beans, and savory mushrooms for a delightful burst of flavors.
             </p>
